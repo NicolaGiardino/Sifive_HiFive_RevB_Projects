@@ -1,0 +1,6 @@
+bsp.dir=bsp
+eclipse.preferences.version=1
+metal-source-path=freedom-metal
+parent.ip.project.name=
+parent.ip.sdk=/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/freedom-e-sdk-v20.08.00.00
+venv.path=venv

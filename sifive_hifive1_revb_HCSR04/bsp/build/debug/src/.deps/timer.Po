@@ -1,0 +1,143 @@
+src/timer.o: \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/timer.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/cpu.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/interrupt.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/stdint.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/features.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_intsup.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_stdint.h \
+ metal/machine.h metal/machine/platform.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/fixed-clock.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/compiler.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/memory.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_clint0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_cpu.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_plic0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pmp.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/gpio.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio-leds.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/led.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_i2c0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/i2c.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_pwm0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pwm.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_rtc0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/io.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/rtc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_spi0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/spi.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_uart0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/uart.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_wdog0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/watchdog.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/timer.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/time.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/config.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/ieeefp.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/cdefs.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_timeval.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/endian.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_endian.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/select.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_sigset.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/timespec.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_timespec.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_pthreadtypes.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/sched.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/time.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/reent.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/lock.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/assert.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/time.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_locale.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_time.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/times.h
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/cpu.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/interrupt.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/stdint.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/features.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_intsup.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_stdint.h:
+metal/machine.h:
+metal/machine/platform.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/fixed-clock.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/compiler.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/memory.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_clint0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_cpu.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_plic0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pmp.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/gpio.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio-leds.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/led.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_i2c0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/i2c.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_pwm0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pwm.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_rtc0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/io.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/rtc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_spi0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/spi.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_uart0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/uart.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_wdog0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/watchdog.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/timer.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/time.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/config.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/ieeefp.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/cdefs.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_timeval.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/endian.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_endian.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/select.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_sigset.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/timespec.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_timespec.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_pthreadtypes.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/sched.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/time.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/reent.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/lock.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/assert.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/time.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_locale.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_time.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/times.h:

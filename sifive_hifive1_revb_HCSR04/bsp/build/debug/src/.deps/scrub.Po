@@ -1,0 +1,2 @@
+src/scrub.o: \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/scrub.S

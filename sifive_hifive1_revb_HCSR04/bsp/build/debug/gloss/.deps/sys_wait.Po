@@ -1,0 +1,34 @@
+gloss/sys_wait.o: \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/gloss/sys_wait.c \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/errno.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/errno.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/reent.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/config.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/ieeefp.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/features.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/lock.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/assert.h \
+ /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/errno.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/errno.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/reent.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/config.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/ieeefp.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/features.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/lock.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/assert.h:
+/home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h:

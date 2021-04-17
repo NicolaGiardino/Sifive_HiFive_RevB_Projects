@@ -1,0 +1,151 @@
+/* Copyright 2019 SiFive, Inc */
+/* SPDX-License-Identifier: Apache-2.0 */
+
+#include <stdio.h>
+#include <metal/cpu.h>
+#include <metal/machine.h>
+#include <metal/led.h>
+#include <metal/gpio.h>
+#include <metal/switch.h>
+#include <metal/pwm.h>
+#include <metal/clock.h>
+#include "gpio_to_pin.h"
+
+#define RTC_FREQ    32768
+#define ECHO 0    //7
+#define TRIGGER PIN7 //6
+#define FREQ 50000
+
+
+struct metal_cpu *cpu;
+struct metal_interrupt *cpu_intr, *tmr_intr;
+int tmr_id;
+volatile uint32_t timer_isr_flag;
+struct metal_pwm *pwm0, *pwm2;
+struct metal_clock clock;
+
+void timer_isr (int id, void *data) {
+
+    // Disable Timer interrupt
+    metal_interrupt_disable(tmr_intr, tmr_id);
+
+    // Flag showing we hit timer isr
+    timer_isr_flag = 1;
+}
+
+void wait_for_timer() {
+
+    // clear global timer isr flag
+    timer_isr_flag = 0;
+
+    // Set timer
+    metal_cpu_set_mtimecmp(cpu, (metal_cpu_get_mtime(cpu) + RTC_FREQ));
+    // Enable Timer interrupt
+    metal_interrupt_enable(tmr_intr, tmr_id);
+
+    // wait till timer triggers and isr is hit
+    while (timer_isr_flag == 0){};
+
+    timer_isr_flag = 0;
+}
+
+void delay_10us(){
+    int rc;
+    rc = metal_cpu_get_mtime(cpu);
+    printf("%d\n",rc);
+    int i = metal_cpu_get_mtime(cpu);
+    while(i < (rc + 10)){
+        i = metal_cpu_get_mtime(cpu);
+    }
+
+    printf("%d\n",i);
+
+}
+
+float init,end;
+int main (void)
+{
+    int rc, push;
+    struct metal_led *led0_red, *led0_green, *led0_blue;
+    struct metal_gpio *button;
+
+    pwm0 = metal_pwm_get_device(0);
+    pwm2 = metal_pwm_get_device(2);
+    button = metal_gpio_get_device(0);
+
+    metal_gpio_disable_output(button, TRIGGER);
+    metal_gpio_enable_input(button, TRIGGER);
+
+    /* This code is used to initialize the cpu and its interrupts */
+    cpu = metal_cpu_get(metal_cpu_get_current_hartid());
+    if (cpu == NULL) {
+        printf("CPU null.\n");
+        return 2;
+    }
+    cpu_intr = metal_cpu_interrupt_controller(cpu);
+    if (cpu_intr == NULL) {
+        printf("CPU interrupt controller is null.\n");
+        return 3;
+    }
+    metal_interrupt_init(cpu_intr);
+
+
+    // Setup Timer and its interrupt so we can toggle LEDs on 1s cadence
+    tmr_intr = metal_cpu_timer_interrupt_controller(cpu);
+    if (tmr_intr == NULL) {
+        printf("TIMER interrupt controller is  null.\n");
+        return 4;
+    }
+    metal_interrupt_init(tmr_intr);
+    tmr_id = metal_cpu_timer_get_interrupt_id(cpu);
+    rc = metal_interrupt_register_handler(tmr_intr, tmr_id, timer_isr, cpu);
+    if (rc < 0) {
+        printf("TIMER interrupt handler registration failed\n");
+        return (rc * -1);
+    }
+
+    // Lastly CPU interrupt
+    if (metal_interrupt_enable(cpu_intr, 0) == -1) {
+        printf("CPU interrupt enable failed\n");
+        return 6;
+    }
+    long ret;
+    ret = metal_clock_set_rate_hz(&__metal_dt_clock_4.clock, 32000000L);
+    if(!ret){
+        printf("Clock speedup failed\n");
+        return 6;
+    }
+
+    metal_pwm_enable(pwm0);
+    metal_pwm_enable(pwm2);
+    printf("%d\n", metal_clock_get_rate_hz(&__metal_dt_clock_4.clock));
+
+    while (1) {
+        push = 1; //metal_gpio_get_input_pin(button, 23);
+        if(push)
+        {
+            metal_pwm_set_freq(pwm2, 1, FREQ);
+            metal_pwm_set_duty(pwm2, 0, 100, METAL_PWM_PHASE_CORRECT_DISABLE);
+            metal_pwm_set_duty(pwm2, 2, 100, METAL_PWM_PHASE_CORRECT_DISABLE);
+            metal_pwm_set_duty(pwm2, 3, 100, METAL_PWM_PHASE_CORRECT_DISABLE);
+            metal_pwm_set_duty(pwm2, 1, 50, METAL_PWM_PHASE_CORRECT_DISABLE);
+            metal_pwm_trigger(pwm2, 1, 1);
+
+            long r = metal_cpu_get_mtime(cpu);
+            while(metal_gpio_get_input_pin(button, TRIGGER))
+                ;
+            r = metal_cpu_get_mtime(cpu) -r;
+            printf("%f\n", ((float)r * 1000000.00 / RTC_FREQ) / 58.00);
+
+        }
+        wait_for_timer();
+    }
+
+    metal_pwm_disable(pwm0);
+    metal_pwm_disable(pwm2);
+    // return
+    return 0;
+}
+
+
+asm(".global _printf_float");
