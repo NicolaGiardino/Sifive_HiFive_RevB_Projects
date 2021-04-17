@@ -3,7 +3,7 @@
 
 PROGRAM ?= main
 
-$(PROGRAM): $(wildcard *.c) $(wildcard *.h) $(wildcard *.S) $(wildcard/bsp/env *.h) $(wildcard/bsp/env/freedom-e300-hifive1 *.h) $(wildcard/bsp/include/sifive *.h) $(wildcard/bsp/include/sifive/devices *.h)
+$(PROGRAM): $(wildcard *.c) $(wildcard *.h) $(wildcard *.S) $(wildcard/include *.h) $(wildcard/src *.c)
 
 clean:
 	rm -f $(PROGRAM) $(PROGRAM).hex

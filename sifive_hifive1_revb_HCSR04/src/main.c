@@ -5,21 +5,10 @@
 #include <metal/cpu.h>
 #include <metal/machine.h>
 #include <metal/clock.h>
-#include "bsp/env/hifive1.h"
-#include "bsp/env/freedom-e300-hifive1/platform.h"
-#include "gpio_to_pin.h"
+#include "include/Servo.h"
 
 #define RTC_FREQ    32768
-#define FREQ 50
-#define PERIOD 20 //ms
-#define DUTY_MIN 90
-#define DUTY_MAX 95
-#define ERR 1
-#define SERVO PIN6
-#define MINPWM 544
-#define MAXPWM 2400
-#define DEFPWM 1472
-#define ERR 1
+
 
 struct metal_cpu *cpu;
 struct metal_interrupt *cpu_intr, *tmr_intr;
@@ -41,7 +30,7 @@ void wait_for_timer() {
     timer_isr_flag = 0;
 
     // Set timer
-    metal_cpu_set_mtimecmp(cpu, (metal_cpu_get_mtime(cpu) + 0.5 * RTC_FREQ));
+    metal_cpu_set_mtimecmp(cpu, (metal_cpu_get_mtime(cpu) + RTC_FREQ));
     // Enable Timer interrupt
     metal_interrupt_enable(tmr_intr, tmr_id);
 
@@ -49,142 +38,6 @@ void wait_for_timer() {
     while (timer_isr_flag == 0){};
 
     timer_isr_flag = 0;
-}
-
-unsigned int map(int deg, int max, int pmin, int pmax)
-{
-
-	return deg * pmax / max + pmin / (max / deg);
-
-}
-
-void InitServo(unsigned int pin)
-{
-    GPIO_REG(GPIO_OUTPUT_XOR) |= 0<<pin;
-    GPIO_REG(GPIO_IOF_EN)     |= 0<<pin;
-    GPIO_REG(GPIO_INPUT_EN)   |= 0<<pin;
-    GPIO_REG(GPIO_OUTPUT_EN)  |= 1<<pin;
-    GPIO_REG(GPIO_PULLUP_EN)  |= 0<<pin;
-}
-
-int MoveServo(unsigned int pin, int pos)
-{
-//The PIN used here is the arduino relative PIN, for semplicity
-	/*
-	 * This piece of code enables the PWM0 interface
-	 * the OR is used to set to one the relevant bit (the one in position pwmpin)
-	 */
-
-	if(pos > 180 || pos < 0)
-	{
-		return -ERR;
-	}
-
-	if(pin > MAXPIN - 1)
-	{
-		return - ERR;
-	}
-
-	int cpu_freq;
-	cpu_freq = 16000000; //Assuming a 16MHz frequency, can be changed later
-	unsigned int gpio;
-	gpio = variant_pin_map[pin].bit_pos;
-
-	GPIO_REG(GPIO_IOF_EN)     |= 1<<gpio;
-	GPIO_REG(GPIO_IOF_SEL)    |= 1<<gpio; //Selecting IOF1 for PMW
-	GPIO_REG(GPIO_OUTPUT_XOR) |= 1<<gpio;
-
-	unsigned char pwmscale = 10; //2^10 = 1024, giving a 16MHz/1024 = 15'625Hz Frequency
-	unsigned int  period = (0.020 * cpu_freq) / 1024;  // 20ms period or freq=50Hz
-	unsigned int  pulse =  (map(pos, 180, MINPWM, MAXPWM) * (cpu_freq / 1000000)) / 1000; //  pulse width
-
-	switch(variant_pin_map[pin].pwm_num)
-	{
-		case 0: //This is the case of PWM0, 8bits, not enough for a counter
-			return -ERR;
-
-		case 1:
-			PWM1_REG(PWM_CFG) = 0;			//Disable PWM
-			PWM1_REG(PWM_COUNT) = 0;		//Set count to zero incrementing at cpu_freq speed
-			switch(variant_pin_map[pin].pwm_cmp_num)
-			{
-				case 0:
-					PWM1_REG(PWM_CMP1) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM1_REG(PWM_CMP0) = pulse;
-					PWM1_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 1:
-					PWM1_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM1_REG(PWM_CMP1) = pulse;
-					PWM1_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 2:
-					PWM1_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM1_REG(PWM_CMP2) = pulse;
-					PWM1_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 3:
-					PWM1_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM1_REG(PWM_CMP3) = pulse;
-					PWM1_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				default:
-					return -ERR;
-			}
-
-		case 2:
-			PWM2_REG(PWM_CFG) = 0;			//Disable PWM
-			PWM2_REG(PWM_COUNT) = 0;		//Set count to zero incrementing at cpu_freq speed
-			switch(variant_pin_map[pin].pwm_cmp_num)
-			{
-				case 0:
-					PWM2_REG(PWM_CMP1) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM2_REG(PWM_CMP0) = pulse;
-					PWM2_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 1:
-					PWM2_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM2_REG(PWM_CMP1) = pulse;
-					PWM2_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 2:
-					PWM2_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM2_REG(PWM_CMP2) = pulse;
-					PWM2_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				case 3:
-					PWM2_REG(PWM_CMP0) = period; 	//Set the reset point as soon as period is reached (this can be used as a timer)
-					PWM2_REG(PWM_CMP3) = pulse;
-					PWM2_REG(PWM_CFG) |= pwmscale | PWM_CFG_ENALWAYS | PWM_CFG_ZEROCMP;
-					break;
-				default:
-					return -ERR;
-			}
-
-			default:
-				return -ERR;
-
-	}
-	return 0;
-}
-
-int EndServo(unsigned int pin)
-{
-	switch(variant_pin_map[pin].pwm_num)
-	{
-		case 0:
-			return -ERR;
-		case 1:
-			PWM1_REG(PWM_CFG) = 0;
-			break;
-		case 2:
-			PWM2_REG(PWM_CFG) = 0;
-			break;
-		default:
-			return -ERR;
-	}
-	GPIO_REG(GPIO_OUTPUT_EN)  |= 0<<variant_pin_map[pin].bit_pos;
-	return 0;
 }
 
 int main (void)
@@ -228,10 +81,46 @@ int main (void)
         return 6;
     }
 
+    //This is for HCSR04
+    int gpio = 6;
+    int trigger = 7;
+    int pin = variant_pin_map[gpio].bit_pos;
+    int trigger_pin = variant_pin_map[trigger].bit_pos;
+    int cpu_freq = 16000000;
+
+
+    GPIO_REG(GPIO_INPUT_EN)   |= 0<<pin;
+    GPIO_REG(GPIO_OUTPUT_EN)  |= 1<<pin;
+    GPIO_REG(GPIO_PULLUP_EN)  |= 0<<pin;
+    GPIO_REG(GPIO_IOF_EN)     |= 1<<pin;
+    GPIO_REG(GPIO_IOF_SEL)    |= 1<<pin; //Selecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR) |= 1<<pin;
+    GPIO_REG(GPIO_INPUT_EN)   |= 1<<pin;
+    GPIO_REG(GPIO_OUTPUT_EN)  |= 1<<pin;
+    GPIO_REG(GPIO_PULLUP_EN)  |= 0<<pin;
+    GPIO_REG(GPIO_IOF_EN)     |= 0<<pin;
+    GPIO_REG(GPIO_IOF_SEL)    |= 0<<pin; //Selecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR) |= 1<<pin;
+
+    unsigned char scale = 4; //1MHz
+    unsigned int pulse = (0.00001 * cpu_freq) / 16;
+    unsigned int period = (0.010 * cpu_freq) / 16;
 
 	while(1)
 	{
+		PWM1_REG(PWM_CFG) = 0;
+		PWM1_REG(PWM_COUNT) = 0;
+		PWM1_REG(PWM_CMP3) = pulse;
+		PWM1_REG(PWM_CFG) = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
 
+		while(!(GPIO_REG(GPIO_INPUT_VAL) & 1<<trigger_pin))
+			;
+		unsigned int passed = PWM1_REG(PWM_S);
+		PWM1_REG(PWM_CFG) = 0;
+
+		printf("Distance: %d\n", passed / 58);
+
+		wait_for_timer();
 	}
 
 
