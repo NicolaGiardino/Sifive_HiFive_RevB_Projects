@@ -1,0 +1,119 @@
+#include "../include/HCSR04.h"
+
+int InitHCSR04(unsigned int echo, unsigned int trigger)
+{
+
+    if(echo > MAXPIN - 1 || trigger > MAXPIN - 1)
+    {
+        return -ERR;
+    }
+
+    int echo_pin    = variant_pin_map[echo].bit_pos;
+    int trigger_pin = variant_pin_map[trigger].bit_pos;
+
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_OUTPUT_EN)    |= 1 << trigger_pin;
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_IOF_EN)       |= 1 << trigger_pin;
+    GPIO_REG(GPIO_IOF_SEL)      |= 1 << trigger_pin; //Selecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << trigger_pin;
+
+    GPIO_REG(GPIO_INPUT_EN)     |= 1 << echo_pin;
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << echo_pin); //Deselecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << echo_pin;
+
+    return OK;
+}
+
+int ReadPosition(unsigned int echo, unsigned int trigger)
+{
+
+    unsigned char scale = 4; //1MHz
+    unsigned int pulse  = (0.00001 * cpu_freq) / 16;
+    unsigned int period = (0.010 * cpu_freq) / 16;
+
+    int echo_pin = variant_pin_map[echo].bit_pos;
+    unsigned int passed;
+
+    switch (variant_pin_map[trigger].pwm_num)
+    {
+    case 0:
+        PWM0_REG(PWM_CFG)   = 0;
+        PWM0_REG(PWM_COUNT) = 0;
+        PWM0_REG(PWM_CMP3)  = pulse;
+        PWM0_REG(PWM_CFG)   = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
+
+        while (!(GPIO_REG(GPIO_INPUT_VAL) & (1 << echo_pin)))
+            ;
+        
+        passed = PWM0_REG(PWM_S) / 58;
+        PWM0_REG(PWM_CFG)   = 0;
+        break;
+
+    case 1:
+        PWM1_REG(PWM_CFG)   = 0;
+        PWM1_REG(PWM_COUNT) = 0;
+        PWM1_REG(PWM_CMP3)  = pulse;
+        PWM1_REG(PWM_CFG)   = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
+        
+        while (!(GPIO_REG(GPIO_INPUT_VAL) & (1 << echo_pin)))
+            ;
+        
+        passed = PWM1_REG(PWM_S) / 58;
+        PWM1_REG(PWM_CFG)   = 0;
+        break;
+
+    case 2:
+        PWM2_REG(PWM_CFG)   = 0;
+        PWM2_REG(PWM_COUNT) = 0;
+        PWM2_REG(PWM_CMP3)  = pulse;
+        PWM2_REG(PWM_CFG)   = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
+        
+        while (!(GPIO_REG(GPIO_INPUT_VAL) & (1 << echo_pin)))
+            ;
+        
+        passed = PWM2_REG(PWM_S) / 58;
+        PWM2_REG(PWM_CFG)   = 0;
+        break;
+
+    case 0xF:
+        return -ERR;
+
+    default:
+        return - ERR;
+    }
+
+    return passed;
+}
+
+int EndHCSR04(unsigned int echo, unsigned int trigger)
+{
+
+    if (echo > MAXPIN - 1 || trigger > MAXPIN - 1)
+    {
+        return -ERR;
+    }
+
+    int echo_pin = variant_pin_map[echo].bit_pos;
+    int trigger_pin = variant_pin_map[trigger].bit_pos;
+
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << trigger_pin); //Selecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << trigger_pin);
+
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << echo_pin); //Deselecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << echo_pin);
+
+    return OK;
+
+}

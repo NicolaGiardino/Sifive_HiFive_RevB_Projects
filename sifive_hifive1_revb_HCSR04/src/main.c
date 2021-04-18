@@ -7,7 +7,9 @@
 #include <metal/clock.h>
 #include "include/Servo.h"
 
+#ifndef RTC_FREQ
 #define RTC_FREQ    32768
+#endif
 
 
 struct metal_cpu *cpu;
@@ -82,41 +84,43 @@ int main (void)
     }
 
     //This is for HCSR04
-    int gpio = 6;
-    int trigger = 7;
-    int pin = variant_pin_map[gpio].bit_pos;
-    int trigger_pin = variant_pin_map[trigger].bit_pos;
+    int echo = 7;
+    int trigger = 6;
     int cpu_freq = 16000000;
 
+    int echo_pin    = variant_pin_map[echo].bit_pos;
+    int trigger_pin = variant_pin_map[trigger].bit_pos;
 
-    GPIO_REG(GPIO_INPUT_EN)   |= 0<<pin;
-    GPIO_REG(GPIO_OUTPUT_EN)  |= 1<<pin;
-    GPIO_REG(GPIO_PULLUP_EN)  |= 0<<pin;
-    GPIO_REG(GPIO_IOF_EN)     |= 1<<pin;
-    GPIO_REG(GPIO_IOF_SEL)    |= 1<<pin; //Selecting IOF1 for PMW
-    GPIO_REG(GPIO_OUTPUT_XOR) |= 1<<pin;
-    GPIO_REG(GPIO_INPUT_EN)   |= 1<<pin;
-    GPIO_REG(GPIO_OUTPUT_EN)  |= 1<<pin;
-    GPIO_REG(GPIO_PULLUP_EN)  |= 0<<pin;
-    GPIO_REG(GPIO_IOF_EN)     |= 0<<pin;
-    GPIO_REG(GPIO_IOF_SEL)    |= 0<<pin; //Selecting IOF1 for PMW
-    GPIO_REG(GPIO_OUTPUT_XOR) |= 1<<pin;
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_OUTPUT_EN)    |= 1 << trigger_pin;
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << trigger_pin);
+    GPIO_REG(GPIO_IOF_EN)       |= 1 << trigger_pin;
+    GPIO_REG(GPIO_IOF_SEL)      |= 1 << trigger_pin; //Selecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << trigger_pin;
+
+    GPIO_REG(GPIO_INPUT_EN)     |= 1 << echo_pin;
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << echo_pin);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << echo_pin); //Deselecting IOF1 for PMW
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << echo_pin;
 
     unsigned char scale = 4; //1MHz
-    unsigned int pulse = (0.00001 * cpu_freq) / 16;
+    unsigned int pulse  = (0.00001 * cpu_freq) / 16;
     unsigned int period = (0.010 * cpu_freq) / 16;
 
 	while(1)
 	{
-		PWM1_REG(PWM_CFG) = 0;
+		PWM1_REG(PWM_CFG)   = 0;
 		PWM1_REG(PWM_COUNT) = 0;
-		PWM1_REG(PWM_CMP3) = pulse;
-		PWM1_REG(PWM_CFG) = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
+		PWM1_REG(PWM_CMP3)  = pulse;
+		PWM1_REG(PWM_CFG)   = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
 
-		while(!(GPIO_REG(GPIO_INPUT_VAL) & 1<<trigger_pin))
-			;
-		unsigned int passed = PWM1_REG(PWM_S);
-		PWM1_REG(PWM_CFG) = 0;
+		while(!(GPIO_REG(GPIO_INPUT_VAL) & (1 << echo_pin)))
+            ;
+
+        unsigned int passed = PWM1_REG(PWM_S);
+		PWM1_REG(PWM_CFG)   = 0;
 
 		printf("Distance: %d\n", passed / 58);
 
@@ -128,4 +132,4 @@ int main (void)
 }
 
 
-asm(".global _printf_float");
+//asm(".global _printf_float");
