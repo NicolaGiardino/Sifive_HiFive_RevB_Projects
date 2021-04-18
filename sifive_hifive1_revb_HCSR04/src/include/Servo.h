@@ -6,15 +6,21 @@
 #include "gpio_to_pin.h"
 
 #define PERIOD 20000 //us
-#define SERVO PIN6
 #define MINPWM 544
 #define MAXPWM 2400
 #define DEFPWM 1472
+#define DEFPOS 90
 #define ERR 1
 #define OK 0
 
-int InitServo(unsigned int pin);
-int MoveServo(unsigned int pin, unsigned int pos);
-int EndServo(unsigned int pin);
+struct Servo
+{
+    unsigned int pin;
+    unsigned int position;
+};
+
+int InitServo(struct Servo *servo, unsigned int pin);
+int MoveServo(struct Servo *servo, unsigned int pos);
+int EndServo(struct Servo *servo);
 
 #endif
