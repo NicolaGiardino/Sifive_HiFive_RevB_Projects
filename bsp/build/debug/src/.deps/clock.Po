@@ -1,6 +1,6 @@
 src/clock.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/clock.c \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/src/clock.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/clock.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/clock.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h:

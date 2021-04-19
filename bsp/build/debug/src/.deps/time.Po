@@ -1,6 +1,6 @@
 src/time.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/time.c \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/time.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/src/time.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/time.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/time.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h \
@@ -33,8 +33,8 @@ src/time.o: \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_locale.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/time.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_time.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/timer.h
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/time.h:
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/timer.h
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/time.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/time.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_ansi.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/newlib-nano/newlib.h:
@@ -67,4 +67,4 @@ src/time.o: \
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_locale.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/time.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_time.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/timer.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/timer.h:

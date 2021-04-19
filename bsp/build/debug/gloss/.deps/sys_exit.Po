@@ -1,4 +1,4 @@
 gloss/sys_exit.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/gloss/sys_exit.c \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/shutdown.h
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/shutdown.h:
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/gloss/sys_exit.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/shutdown.h
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/shutdown.h:

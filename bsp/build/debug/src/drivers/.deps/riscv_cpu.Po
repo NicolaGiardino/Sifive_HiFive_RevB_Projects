@@ -1,12 +1,12 @@
 src/drivers/riscv_cpu.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/drivers/riscv_cpu.c \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/io.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/src/drivers/riscv_cpu.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/io.h \
  metal/machine.h metal/machine/platform.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/fixed-clock.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/fixed-clock.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/clock.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/compiler.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/memory.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/compiler.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/memory.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/stdint.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h \
@@ -14,42 +14,42 @@ src/drivers/riscv_cpu.o: \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_intsup.h \
  /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_stdint.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_clint0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_cpu.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/cpu.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/interrupt.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_plic0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pmp.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/gpio.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio-leds.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/led.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_i2c0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/i2c.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_pwm0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pwm.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_rtc0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/rtc.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_spi0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/spi.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_uart0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/uart.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_wdog0.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/watchdog.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/shutdown.h
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/io.h:
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_clint0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_cpu.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/cpu.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/interrupt.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_plic0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/pmp.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_gpio0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/gpio.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_gpio-leds.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/led.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_i2c0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/i2c.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_pwm0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/pwm.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_rtc0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/rtc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_spi0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/spi.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_uart0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/uart.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_wdog0.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/watchdog.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/shutdown.h
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/io.h:
 metal/machine.h:
 metal/machine/platform.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/fixed-clock.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/clock.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/fixed-clock.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/clock.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stddef.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/compiler.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/memory.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/compiler.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/memory.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/lib/gcc/riscv64-unknown-elf/10.2.0/include/stdint.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/stdint.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/machine/_default_types.h:
@@ -57,31 +57,31 @@ metal/machine/platform.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/_newlib_version.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_intsup.h:
 /home/nicoladgg/Scrivania/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/riscv64-unknown-elf/include/sys/_stdint.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_clint0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_cpu.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/cpu.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/interrupt.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/riscv_plic0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pmp.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/gpio.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_gpio-leds.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/led.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_i2c0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/i2c.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_pwm0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/pwm.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_rtc0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/rtc.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_spi0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/spi.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_uart0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/uart.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_wdog0.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/watchdog.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h:
-/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/metal/shutdown.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_clint0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_cpu.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/cpu.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/interrupt.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/riscv_plic0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/pmp.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_gpio0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/gpio.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_gpio-leds.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/led.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_i2c0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/i2c.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_pwm0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/pwm.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_rtc0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/rtc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_spi0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/spi.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_uart0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/uart.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_wdog0.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/watchdog.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_hfrosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_prci.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_hfxosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_lfrosc.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/drivers/sifive_fe310-g000_pll.h:
+/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/metal/shutdown.h:

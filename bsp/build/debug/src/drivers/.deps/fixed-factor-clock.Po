@@ -1,4 +1,4 @@
 src/drivers/fixed-factor-clock.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/drivers/fixed-factor-clock.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/src/drivers/fixed-factor-clock.c \
  metal/machine/platform.h
 metal/machine/platform.h:

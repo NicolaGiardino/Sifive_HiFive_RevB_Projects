@@ -104,25 +104,36 @@ int main (void)
     GPIO_REG(GPIO_IOF_EN)       &= ~(1 << echo_pin);
     GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << echo_pin); //Deselecting IOF1 for PMW
     GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << echo_pin;
+    GPIO_REG(GPIO_RISE_IE)		|= 1 << echo_pin;
 
     unsigned char scale = 4; //1MHz
     unsigned int pulse  = (0.00001 * cpu_freq) / 16;
-    unsigned int period = (0.010 * cpu_freq) / 16;
+    unsigned int period = (0.01 * cpu_freq) / 16;
+    uint16_t passed;
+    uint16_t t2;
+
 
 	while(1)
 	{
 		PWM1_REG(PWM_CFG)   = 0;
 		PWM1_REG(PWM_COUNT) = 0;
+		PWM1_REG(PWM_CMP0)  = period;
 		PWM1_REG(PWM_CMP3)  = pulse;
-		PWM1_REG(PWM_CFG)   = scale | PWM_CFG_ONESHOT | PWM_CFG_ZEROCMP;
+		PWM1_REG(PWM_CFG)   = scale | PWM_CFG_ZEROCMP | PWM_CFG_ENALWAYS;
 
-		while(!(GPIO_REG(GPIO_INPUT_VAL) & (1 << echo_pin)))
+
+		passed = PWM1_REG(PWM_S);
+
+		while(!(GPIO_REG(GPIO_RISE_IP) & (1 << echo_pin)))
             ;
 
-        unsigned int passed = PWM1_REG(PWM_S);
-		PWM1_REG(PWM_CFG)   = 0;
+		t2 = PWM1_REG(PWM_S);
+		passed = t2 - passed;
 
-		printf("Distance: %d\n", passed / 58);
+		PWM1_REG(PWM_CFG)   = 0;
+		GPIO_REG(GPIO_RISE_IP) |= 1 << echo_pin;
+
+		printf("Distance: %x\n", passed);
 
 		wait_for_timer();
 	}

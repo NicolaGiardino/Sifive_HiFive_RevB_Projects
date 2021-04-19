@@ -1,4 +1,4 @@
 src/drivers/sifive_gpio-buttons.o: \
- /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/src/drivers/sifive_gpio-buttons.c \
+ /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/src/drivers/sifive_gpio-buttons.c \
  metal/machine/platform.h
 metal/machine/platform.h:

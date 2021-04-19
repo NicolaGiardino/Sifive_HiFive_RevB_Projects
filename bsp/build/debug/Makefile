@@ -22,7 +22,7 @@
 ########################################################
 
 
-VPATH = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal
+VPATH = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -347,20 +347,20 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = riscv64-unknown-elf-ar
-AUTOCONF = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/missing autoconf
-AUTOHEADER = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/missing autoheader
-AUTOMAKE = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/missing automake-1.15
+AUTOCONF = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/missing autoconf
+AUTOHEADER = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/missing autoheader
+AUTOMAKE = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/missing automake-1.15
 AWK = gawk
 CC = riscv64-unknown-elf-gcc
 CCAS = riscv64-unknown-elf-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -march=rv32imac -mabi=ilp32 -mcmodel=medlow -ffunction-sections -fdata-sections -I/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/install/include --specs=nano.specs -DMTIME_RATE_HZ_DEF=32768 -fcommon -O0 -g
+CCASFLAGS = -march=rv32imac -mabi=ilp32 -mcmodel=medlow -ffunction-sections -fdata-sections -I/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/install/include --specs=nano.specs -DMTIME_RATE_HZ_DEF=32768 -fcommon -O0 -g
 CCDEPMODE = depmode=gcc3
-CFLAGS = -march=rv32imac -mabi=ilp32 -mcmodel=medlow -ffunction-sections -fdata-sections -I/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/install/include --specs=nano.specs -DMTIME_RATE_HZ_DEF=32768 -fcommon -O0 -g
+CFLAGS = -march=rv32imac -mabi=ilp32 -mcmodel=medlow -ffunction-sections -fdata-sections -I/home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/install/include --specs=nano.specs -DMTIME_RATE_HZ_DEF=32768 -fcommon -O0 -g
 CPPFLAGS = 
 CYGPATH_W = echo
 DEFS = -DPACKAGE_NAME=\"freedom-metal\" -DPACKAGE_TARNAME=\"freedom-metal\" -DPACKAGE_VERSION=\"v0.1.2\" -DPACKAGE_STRING=\"freedom-metal\ v0.1.2\" -DPACKAGE_BUGREPORT=\"https://github.com/sifive/freedom-metal/issues\" -DPACKAGE_URL=\"https://github.com/sifive/freedom-metal\" -DPACKAGE=\"freedom-metal\" -DVERSION=\"v0.1.2\"
@@ -378,10 +378,10 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MACHINE_HEADER = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal.h
-MACHINE_INLINE = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal-inline.h
+MACHINE_HEADER = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal.h
+MACHINE_INLINE = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal-inline.h
 MAINT = #
-MAKEINFO = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/missing makeinfo
+MAKEINFO = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/missing makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = freedom-metal
@@ -392,16 +392,16 @@ PACKAGE_TARNAME = freedom-metal
 PACKAGE_URL = https://github.com/sifive/freedom-metal
 PACKAGE_VERSION = v0.1.2
 PATH_SEPARATOR = :
-PLATFORM_HEADER = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal-platform.h
+PLATFORM_HEADER = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal-platform.h
 RANLIB = riscv64-unknown-elf-ranlib
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = riscv64-unknown-elf-strip
 VERSION = v0.1.2
-abs_builddir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/build/debug
-abs_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal
-abs_top_builddir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/build/debug
-abs_top_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal
+abs_builddir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/build/debug
+abs_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal
+abs_top_builddir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/build/debug
+abs_top_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal
 ac_ct_AR = 
 ac_ct_CC = 
 am__include = include
@@ -429,8 +429,8 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal/install-sh
-libdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/install/lib/debug
+install_sh = ${SHELL} /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal/install-sh
+libdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/install/lib/debug
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
 localstatedir = ${prefix}/var
@@ -438,18 +438,18 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/install
+prefix = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/install
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
-srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal
+srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal
 sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = 
 top_builddir = .
-top_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/freedom-metal
+top_srcdir = /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/freedom-metal
 
 ########################################################
 # Metal header files
@@ -1418,15 +1418,15 @@ uninstall-am: uninstall-libLIBRARIES uninstall-nobase_includeHEADERS
 .PRECIOUS: Makefile
 
 
-metal/machine.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal.h
+metal/machine.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal.h
 	@mkdir -p $(dir $@)
 	cp $< $@
 
-metal/machine/inline.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal-inline.h
+metal/machine/inline.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal-inline.h
 	@mkdir -p $(dir $@)
 	cp $< $@
 
-metal/machine/platform.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_HCSR04/bsp/metal-platform.h
+metal/machine/platform.h: /home/nicoladgg/wsFreedomStudio/sifive_hifive1_revb_hello/bsp/metal-platform.h
 	@mkdir -p $(dir $@)
 	cp $< $@
 
