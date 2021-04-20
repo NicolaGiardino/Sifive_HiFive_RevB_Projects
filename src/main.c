@@ -6,6 +6,7 @@
 #include <metal/machine.h>
 #include <metal/clock.h>
 #include "include/Servo.h"
+#include "include/platform.h"
 
 #ifndef RTC_FREQ
 #define RTC_FREQ    32768
@@ -16,6 +17,7 @@ struct metal_cpu *cpu;
 struct metal_interrupt *cpu_intr, *tmr_intr;
 int tmr_id;
 volatile uint32_t timer_isr_flag;
+
 
 void timer_isr (int id, void *data) {
 
@@ -83,61 +85,15 @@ int main (void)
         return 6;
     }
 
-    //This is for HCSR04
-    int echo = 7;
-    int trigger = 6;
-    int cpu_freq = 16000000;
 
-    int echo_pin    = variant_pin_map[echo].bit_pos;
-    int trigger_pin = variant_pin_map[trigger].bit_pos;
-
-    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << trigger_pin);
-    GPIO_REG(GPIO_OUTPUT_EN)    |= 1 << trigger_pin;
-    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << trigger_pin);
-    GPIO_REG(GPIO_IOF_EN)       |= 1 << trigger_pin;
-    GPIO_REG(GPIO_IOF_SEL)      |= 1 << trigger_pin; //Selecting IOF1 for PMW
-    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << trigger_pin;
-
-    GPIO_REG(GPIO_INPUT_EN)     |= 1 << echo_pin;
-    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << echo_pin);
-    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << echo_pin);
-    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << echo_pin);
-    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << echo_pin); //Deselecting IOF1 for PMW
-    GPIO_REG(GPIO_OUTPUT_XOR)   |= 1 << echo_pin;
-    GPIO_REG(GPIO_RISE_IE)		|= 1 << echo_pin;
-
-    unsigned char scale = 4; //1MHz
-    unsigned int pulse  = (0.00001 * cpu_freq) / 16;
-    unsigned int period = (0.01 * cpu_freq) / 16;
-    uint16_t passed;
-    uint16_t t2;
-
+    set_freq_320MHz();
 
 	while(1)
 	{
-		PWM1_REG(PWM_CFG)   = 0;
-		PWM1_REG(PWM_COUNT) = 0;
-		PWM1_REG(PWM_CMP0)  = period;
-		PWM1_REG(PWM_CMP3)  = pulse;
-		PWM1_REG(PWM_CFG)   = scale | PWM_CFG_ZEROCMP | PWM_CFG_ENALWAYS;
 
 
-		passed = PWM1_REG(PWM_S);
 
-		while(!(GPIO_REG(GPIO_RISE_IP) & (1 << echo_pin)))
-            ;
-
-		t2 = PWM1_REG(PWM_S);
-		passed = t2 - passed;
-
-		PWM1_REG(PWM_CFG)   = 0;
-		GPIO_REG(GPIO_RISE_IP) |= 1 << echo_pin;
-
-		printf("Distance: %x\n", passed);
-
-		wait_for_timer();
 	}
-
 
     return 0;
 }
