@@ -15,4 +15,6 @@ The following files in the directory src/include:
         
     sections.h
 
-and all the directory src/include/drivers have been forked from the repo cinco from WesternDigital
+and all the directory src/include/drivers have been forked from the repo cinco from WesternDigital.
+
+They are now being used as a starting point for my version of the HAL.

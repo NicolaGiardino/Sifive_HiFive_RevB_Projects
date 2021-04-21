@@ -14,7 +14,6 @@
 #include "devices/otp.h"
 #include "devices/plic.h"
 #include "devices/prci.h"
-#include "devices/pwm.h"
 #include "devices/spi.h"
 #include "devices/uart.h"
 

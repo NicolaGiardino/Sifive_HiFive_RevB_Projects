@@ -41,6 +41,8 @@
 #define PIN_18_OFFSET 12
 #define PIN_19_OFFSET 13
 
+#define MAXPIN 20
+
 #define VARIANT_DIGITAL_PIN_MAP  {{.io_port = 0, .bit_pos = 16, .pwm_num = 0xF, .pwm_cmp_num = 0}, \
 	{.io_port = 0, .bit_pos = 17, .pwm_num = 0xF, .pwm_cmp_num = 0}, \
 	{.io_port = 0, .bit_pos = 18, .pwm_num = 0xF, .pwm_cmp_num = 0}, \
@@ -105,6 +107,8 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
 #define HAS_LFROSC_BYPASS 1
 
 #define RTC_FREQ 32768
+
+unsigned int cpu_freq = 16000000;
 
 void write_hex(int fd, uint32_t hex);
 

@@ -3,6 +3,8 @@
 #ifndef _SIFIVE_PWM_H
 #define _SIFIVE_PWM_H
 
+#include "../platform.h"
+
 /* Register offsets */
 
 #define PWM_CFG   0x00
@@ -33,5 +35,51 @@
 #define PWM_CFG_CMP1IP      0x20000000
 #define PWM_CFG_CMP2IP      0x40000000
 #define PWM_CFG_CMP3IP      0x80000000
+
+#define PWM_OK              0
+#define PWM_ERR_NV          1
+#define PWM_ERR_TAKEN       2
+#define PWM_ERR_SCALE       3
+#define PWM_ERR_PERIOD      4
+#define PWM_ERR_PULSE       5
+#define PWM_ERR_DUTY        6
+
+#define PWM_MAX_PIN         3    
+#define PWM_MAX             4     
+
+struct pwm {
+
+    unsigned int  pwm_num  = PWM_MAX;
+    unsigned char scale    = 0b0000;
+    unsigned int  period   = 0;
+    unsigned int  pulse[3] = {0, 0, 0};
+
+};
+
+typedef enum
+{
+    PWM_EN_ALWAYS  = 0,
+    PWM_EN_ONESHOT = 1,
+} pwm_mode_t;
+
+typedef enum
+{
+    PWM_ZEROCMP_EN  = 1,
+    PWM_ZEROCMP_DIS = 0,
+} pwm_zerocmp_t;
+
+typedef enum
+{
+    PWM_PHCORR_EN = 1,
+    PWM_PHCORR_DIS = 0,
+} pwm_phcorr_t;
+
+int pwm_init(struct pwm p, unsigned int pin, unsigned char scale);
+
+int pwm_set_period(struct pwm p, unsigned int period, pwm_zerocmp_t zerocmp, pwm_mode_t mode);
+
+int pwm_set_pulsewidth(struct pwm p, unsigned int pin, unsigned int pulse);
+
+int pwm_set_duty(struct pwm p, unsigned int pin, unsigned int duty);
 
 #endif /* _SIFIVE_PWM_H */
