@@ -10,7 +10,6 @@
 #include "const.h"
 #include "devices/aon.h"
 #include "devices/clint.h"
-#include "devices/gpio.h"
 #include "devices/otp.h"
 #include "devices/plic.h"
 #include "devices/prci.h"

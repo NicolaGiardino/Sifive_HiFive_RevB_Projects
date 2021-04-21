@@ -44,15 +44,45 @@
 #define PWM_ERR_PULSE       5
 #define PWM_ERR_DUTY        6
 
+#define PWM_ERR_GET         0
+
 #define PWM_MAX_PIN         3    
-#define PWM_MAX             4     
+#define PWM_MAX             4
 
-struct pwm {
+struct pwm
+{
 
-    unsigned int  pwm_num  = PWM_MAX;
-    unsigned char scale    = 0b0000;
-    unsigned int  period   = 0;
-    unsigned int  pulse[3] = {0, 0, 0};
+    unsigned int pwm_num;
+    unsigned int scale;
+    unsigned int period;
+    unsigned int pulse[3];
+
+};
+
+struct pwm pwm0 = {
+
+    .pwm_num  = 0,
+    .scale    = 0b0000,
+    .period   = 0,
+    .pulse    = {0, 0, 0},
+
+};
+
+struct pwm pwm1 = {
+
+    .pwm_num = 1,
+    .scale = 0b0000,
+    .period = 0,
+    .pulse = {0, 0, 0},
+
+};
+
+struct pwm pwm2 = {
+
+    .pwm_num  = 2,
+    .scale    = 0b0000,
+    .period   = 0,
+    .pulse    = {0, 0, 0},
 
 };
 
@@ -81,5 +111,11 @@ int pwm_set_period(struct pwm p, unsigned int period, pwm_zerocmp_t zerocmp, pwm
 int pwm_set_pulsewidth(struct pwm p, unsigned int pin, unsigned int pulse);
 
 int pwm_set_duty(struct pwm p, unsigned int pin, unsigned int duty);
+
+unsigned int pwm_get_period(struct pwm p);
+
+unsigned int pwm_get_pulse(struct pwm p, unsigned int pin);
+
+unsigned int pwm_get_duty(struct pwm p, unsigned int pin);
 
 #endif /* _SIFIVE_PWM_H */
