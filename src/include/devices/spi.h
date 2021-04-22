@@ -63,6 +63,8 @@
 #define SPI_TXFIFO_FULL  (1 << 31)   
 #define SPI_RXFIFO_EMPTY (1 << 31)   
 
+#define SPI_FREQ_MAX    100000a
+
 #define SPI_OK          0
 #define SPI_ERR_NV      1
 #define SPI_ERR_CS      2
