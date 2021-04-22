@@ -3,6 +3,9 @@
 #ifndef _SIFIVE_SPI_H
 #define _SIFIVE_SPI_H
 
+#include "../platform.h"
+#include "./gpio.h"
+
 /* Register offsets */
 
 #define SPI_REG_SCKDIV          0x00
@@ -60,21 +63,92 @@
 #define SPI_TXFIFO_FULL  (1 << 31)   
 #define SPI_RXFIFO_EMPTY (1 << 31)   
 
+#define SPI_OK          0
+#define SPI_ERR_NV      1
+#define SPI_ERR_CS      2
+#define SPI_ERR_BAUD    3
+#define SPI_ERR_LEN     4
+
 /* Values */
 
-#define SPI_CSMODE_AUTO         0
-#define SPI_CSMODE_HOLD         2
-#define SPI_CSMODE_OFF          3
+typedef enum
+{
+    SPI_DIR_RX = 0,
+    SPI_DIR_TX = 1,
+} spi_dir_t;
 
-#define SPI_DIR_RX              0
-#define SPI_DIR_TX              1
+typedef enum
+{
+    SPI_PROTO_S = 0,
+    SPI_PROTO_D = 1,
+    SPI_PROTO_Q = 2,
+} spi_proto_t;
 
-#define SPI_PROTO_S             0
-#define SPI_PROTO_D             1
-#define SPI_PROTO_Q             2
+typedef enum
+{
+    SPI_ENDIAN_MSB = 0,
+    SPI_ENDIAN_LSB = 1,
+} spi_endian_t;
 
-#define SPI_ENDIAN_MSB          0
-#define SPI_ENDIAN_LSB          1
+typedef spi_len_t uint8_t;
 
+/*
+ * If enabled, inactive state of SCK is logical 1
+ */
+typedef enum
+{
+    SPI_SCKPOL_EN  = 1,
+    SPI_SCKPOL_DIS = 0,
+} spi_sckpol_t;
+
+/* 
+ * If enabled, data shifted on leading edge, 
+ * sampled on trailing edge of SKC 
+ */
+typedef enum
+{
+    SPI_SCKPHA_EN  = 1,
+    SPI_SCKPHA_DIS = 1,
+} spi_sckpha_t;
+
+typedef enum
+{
+    SPI_CSMODE_AUTO = 0,
+    SPI_CSMODE_HOLD = 2,
+    SPI_CSMODE_OFF  = 3,
+} spi_csmode_t;
+
+typedef enum
+{
+    SPI_CSDEF_EN  = 1,
+    SPI_CSDEF_DIS = 0,
+} spi_csdef_t;
+
+struct spi_config
+{
+    unsigned int baud;
+    spi_sckpha_t phase;
+    spi_sckpol_t polarity;
+    spi_proto_t  protocol;
+    spi_endian_t endianness;
+    spi_dir_t    direction;
+    spi_len_t    len;
+};
+
+struct spi
+{
+    unsigned int spi_num;
+    struct spi_config config;
+};
+
+int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config);
+
+int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t mode, spi_csdef_t csdef);
+
+int spi_send(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef);
+
+int spi_receive(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef);
+
+int spi_close(struct spi *s);
 
 #endif /* _SIFIVE_SPI_H */

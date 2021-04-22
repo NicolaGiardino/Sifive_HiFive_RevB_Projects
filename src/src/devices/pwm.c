@@ -3,7 +3,7 @@
 int pwm_init(struct pwm p, unsigned int pin, unsigned char scale)
 {
 
-    if (pin < 0 || pin > MAXPIN - 1)
+    if (pin > MAXPIN - 1)
     {
         return -PWM_ERR_NV;
     }

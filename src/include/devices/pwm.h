@@ -4,6 +4,7 @@
 #define _SIFIVE_PWM_H
 
 #include "../platform.h"
+#include "./gpio.h"
 
 /* Register offsets */
 
@@ -58,6 +59,8 @@ struct pwm
     unsigned int pulse[3];
 
 };
+
+/* These are the structure to use with the pwm functions */
 
 struct pwm pwm0 = {
 
