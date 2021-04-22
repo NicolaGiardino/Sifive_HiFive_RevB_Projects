@@ -25,6 +25,8 @@
 
 #define GPIO_OK             0
 #define GPIO_ERR_NV         1
+#define GPIO_ERR_NOTOUT     2
+#define GPIO_ERR_NOTIN      3
 
 typedef enum
 {
@@ -44,16 +46,14 @@ typedef enum
     GPIO_PUP_DIS = 0,
 } gpio_pullup_t;
 
-int set_gpio(unsigned int pin, gpio_mode_t mode);
+int gpio_set(unsigned int pin, gpio_mode_t mode);
 
 int gpio_setoutput(unsigned int pin, gpio_out_xor_t xor);
 
-int gpio_setinput(unsigned int pin);
+int gpio_setinput(unsigned int pin, gpio_pullup_t pup);
 
 int gpio_getoutput(unsigned int pin);
 
 int gpio_getinput(unsigned int pin);
-
-int gpio_pullup(unsigned int pin, gpio_pullup_t pup);
 
 #endif /* _SIFIVE_GPIO_H */
