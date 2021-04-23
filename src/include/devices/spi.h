@@ -63,7 +63,7 @@
 #define SPI_TXFIFO_FULL  (1 << 31)   
 #define SPI_RXFIFO_EMPTY (1 << 31)   
 
-#define SPI_FREQ_MAX    100000a
+#define SPI_FREQ_MAX    100000
 
 #define SPI_OK          0
 #define SPI_ERR_NV      1
@@ -92,7 +92,7 @@ typedef enum
     SPI_ENDIAN_LSB = 1,
 } spi_endian_t;
 
-typedef spi_len_t uint8_t;
+typedef uint8_t spi_len_t;
 
 /*
  * If enabled, inactive state of SCK is logical 1
@@ -145,11 +145,11 @@ struct spi
 
 int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config);
 
-int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t mode, spi_csdef_t csdef);
+int spi_transmit(struct spi *s, unsigned int cs, uint8_t *buf, spi_dir_t dir, spi_csmode_t mode, spi_csdef_t csdef);
 
-int spi_send(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef);
+int spi_send(struct spi *s, unsigned int cs, uint8_t *tx, spi_csmode_t csmode, spi_csdef_t csdef);
 
-int spi_receive(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef);
+int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t csmode, spi_csdef_t csdef);
 
 int spi_close(struct spi *s);
 

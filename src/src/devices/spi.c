@@ -73,7 +73,7 @@ int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, s
 
 }
 
-int spi_send(struct spi *s, unsigned int cs, const uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef)
+int spi_send(struct spi *s, unsigned int cs, const uint8_t *tx, spi_csmode_t mode, spi_csdef_t csdef)
 {
 
     if (s->spi_num != 1)
@@ -87,9 +87,28 @@ int spi_send(struct spi *s, unsigned int cs, const uint32_t *tx, spi_csmode_t mo
 
     SPI1_REG(SPI_REG_CSID)   = cs;
     SPI1_REG(SPI_REG_CSMODE) = mode;
+
+    if(csdef == SPI_CSDEF_EN)
+    {
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << cs);
+    }
+    else if(csdef == SPI_CSDEF_DIS)
+    {
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << cs);
+    }
+    else
+    {
+        return -SPI_ERR_CS;
+    }
+
+    SPI1_REG(SPI_REG_FMT) = SPI_FMT_PROTO(s->config.protocol) | SPI_FMT_ENDIAN(s->config.endianness) | SPI_FMT_DIR(s->config.direction) | SPI_FMT_LEN(s->config.len) | SPI_FMT_DIR(SPI_DIR_TX);
+
+    while (SPI1_REG(SPI_REG_TXFIFO) > 0xFF)
+        ;
+    SPI1_REG(SPI_REG_TXFIFO) = *tx;
 }
 
-int spi_receive(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode, spi_csdef_t csdef)
+int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t mode, spi_csdef_t csdef)
 {
 
     if (s->spi_num != 1)
@@ -100,8 +119,26 @@ int spi_receive(struct spi *s, unsigned int cs, uint32_t *tx, spi_csmode_t mode,
     {
         return -SPI_ERR_CS;
     }
+    SPI1_REG(SPI_REG_CSID) = cs;
+    SPI1_REG(SPI_REG_CSMODE) = mode;
 
+    if (csdef == SPI_CSDEF_EN)
+    {
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << cs);
+    }
+    else if (csdef == SPI_CSDEF_DIS)
+    {
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << cs);
+    }
+    else
+    {
+        return -SPI_ERR_CS;
+    }
 
+    SPI1_REG(SPI_REG_FMT) = SPI_FMT_PROTO(s->config.protocol) | SPI_FMT_ENDIAN(s->config.endianness) | SPI_FMT_DIR(s->config.direction) | SPI_FMT_LEN(s->config.len) | SPI_FMT_DIR(SPI_DIR_RX);
+    while (SPI1_REG(SPI_REG_RXFIFO) > 0xFF)
+        ;
+    *rx = SPI1_REG(SPI_REG_RXFIFO)
 }
 
 int spi_close(struct spi *s)
@@ -134,6 +171,8 @@ int spi_close(struct spi *s)
     SPI1_REG(SPI_REG_SCKDIV)    = 0;
     SPI1_REG(SPI_REG_SCKMODE)   = 0;
     SPI1_REG(SPI_REG_FMT)       = 0;
+
+    s->spi_num = 0;
 
     return SPI_OK;
 }
