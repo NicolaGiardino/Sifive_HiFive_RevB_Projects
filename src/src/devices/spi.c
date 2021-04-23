@@ -25,10 +25,10 @@ int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config)
     s->config.polarity      = config.polarity;
     s->config.protocol      = config.protocol;
 
-    GPIO_REG(GPIO_OUTPUT_XOR)   |= (1 << GPIO_SPI1_MISO);
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_MISO);
     GPIO_REG(GPIO_IOF_EN)       |= (1 << GPIO_SPI1_MISO);
-    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_MISO);
-    GPIO_REG(GPIO_OUTPUT_EN)    |= 1 << GPIO_SPI1_MISO;
+    GPIO_REG(GPIO_INPUT_EN)     |= (1 << GPIO_SPI1_MISO);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_MISO);
     GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_MISO);
     GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_MISO);
 
@@ -86,7 +86,9 @@ int spi_send(struct spi *s, unsigned int cspin, const uint8_t *tx, spi_csmode_t 
     }
 
     unsigned int gpio;
+    unsigned int csid;
     gpio = variant_pin_map[cspin].bit_pos;
+    csid = SS_PIN_TO_CS_ID(cspin);
 
     GPIO_REG(GPIO_OUTPUT_XOR)   |= (1 << gpio);
     GPIO_REG(GPIO_IOF_EN)       |= (1 << gpio);
@@ -95,16 +97,16 @@ int spi_send(struct spi *s, unsigned int cspin, const uint8_t *tx, spi_csmode_t 
     GPIO_REG(GPIO_PULLUP_EN)    |= (1 << gpio);
     GPIO_REG(GPIO_IOF_SEL)      |= (1 << gpio);
 
-    SPI1_REG(SPI_REG_CSID)   = SS_PIN_TO_CS_ID(cspin);
+    SPI1_REG(SPI_REG_CSID)   = csid;
     SPI1_REG(SPI_REG_CSMODE) = csmode;
 
     if(csdef == SPI_CSDEF_EN)
     {
-        SPI1_REG(SPI_REG_CSDEF) |= (1 << SS_PIN_TO_CS_ID(cspin));
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << csid);
     }
     else if(csdef == SPI_CSDEF_DIS)
     {
-        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << SS_PIN_TO_CS_ID(cspin));
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << csid);
     }
     else
     {
@@ -133,7 +135,9 @@ int spi_receive(struct spi *s, unsigned int cspin, uint8_t *rx, spi_csmode_t csm
     }
 
     unsigned int gpio;
+    unsigned int csid;
     gpio = variant_pin_map[cspin].bit_pos;
+    csid = SS_PIN_TO_CS_ID(cspin);
 
     GPIO_REG(GPIO_OUTPUT_XOR)   |= (1 << gpio);
     GPIO_REG(GPIO_IOF_EN)       |= (1 << gpio);
@@ -142,16 +146,16 @@ int spi_receive(struct spi *s, unsigned int cspin, uint8_t *rx, spi_csmode_t csm
     GPIO_REG(GPIO_PULLUP_EN)    |= (1 << gpio);
     GPIO_REG(GPIO_IOF_SEL)      |= (1 << gpio);
 
-    SPI1_REG(SPI_REG_CSID) = SS_PIN_TO_CS_ID(cspin);
+    SPI1_REG(SPI_REG_CSID)   = csid;
     SPI1_REG(SPI_REG_CSMODE) = csmode;
 
     if (csdef == SPI_CSDEF_EN)
     {
-        SPI1_REG(SPI_REG_CSDEF) |= (1 << SS_PIN_TO_CS_ID(cspin));
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << csid);
     }
     else if (csdef == SPI_CSDEF_DIS)
     {
-        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << SS_PIN_TO_CS_ID(cspin));
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << csid);
     }
     else
     {

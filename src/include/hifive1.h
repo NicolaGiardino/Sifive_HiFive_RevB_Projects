@@ -101,7 +101,11 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
       (x==PIN_SPI1_SS3 ? 3 :		 \
        -1))))) 
 
-#define 
+#define GPIO_UART0_TX	(17u)
+#define GPIO_UART0_RX	(16u)
+
+#define GPIO_UART1_TX 	(18u)
+#define GPIO_UART1_RX	(19u)
 
 // These buttons are present only on the Freedom E300 Arty Dev Kit.
 #ifdef HAS_BOARD_BUTTONS
