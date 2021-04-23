@@ -90,7 +90,7 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
 #define GPIO_SPI1_SS0	(2u)
 #define GPIO_SPI1_SS1	(8u)
 #define GPIO_SPI1_SS2	(9u)
-#define GPIO_SPI1_SS1	(10u)
+#define GPIO_SPI1_SS3	(10u)
 
 #define GPIO_SPI_ESP32_SS GPIO_SPI1_SS2
 
@@ -101,6 +101,7 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
       (x==PIN_SPI1_SS3 ? 3 :		 \
        -1))))) 
 
+#define 
 
 // These buttons are present only on the Freedom E300 Arty Dev Kit.
 #ifdef HAS_BOARD_BUTTONS

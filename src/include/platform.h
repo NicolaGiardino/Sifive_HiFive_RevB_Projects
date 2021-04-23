@@ -13,7 +13,6 @@
 #include "devices/otp.h"
 #include "devices/plic.h"
 #include "devices/prci.h"
-#include "devices/uart.h"
 
 /****************************************************************************
  * Platform definitions

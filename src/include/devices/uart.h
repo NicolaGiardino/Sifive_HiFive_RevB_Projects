@@ -3,6 +3,8 @@
 #ifndef _SIFIVE_UART_H
 #define _SIFIVE_UART_H
 
+#include "../platform.h"
+
 /* Register offsets */
 #define UART_REG_TXFIFO         0x00
 #define UART_REG_RXFIFO         0x04
@@ -23,5 +25,8 @@
 /* IP register */
 #define UART_IP_TXWM            0x1
 #define UART_IP_RXWM            0x2
+
+#define UART_OK                 0
+#define UART_ERR_NV             1
 
 #endif /* _SIFIVE_UART_H */

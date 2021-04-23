@@ -55,16 +55,16 @@ int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config)
     return SPI_OK;
 }
 
-int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t mode, spi_csdef_t csdef)
+int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t csmode, spi_csdef_t csdef)
 {
 
     if(dir == SPI_DIR_TX)
     {
-        return spi_send(s, cs, buf, mode, csdef);
+        return spi_send(s, cs, buf, csmode, csdef);
     }
     else if(dir == SPI_DIR_RX)
     {
-        return spi_transmit(s, cs, buf, mode, csdef);
+        return spi_receive(s, cs, buf, csmode, csdef);
     }
     else
     {
@@ -73,28 +73,38 @@ int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, s
 
 }
 
-int spi_send(struct spi *s, unsigned int cs, const uint8_t *tx, spi_csmode_t mode, spi_csdef_t csdef)
+int spi_send(struct spi *s, unsigned int cspin, const uint8_t *tx, spi_csmode_t csmode, spi_csdef_t csdef)
 {
 
     if (s->spi_num != 1)
     {
         return -SPI_ERR_NV;
     }
-    if (cs > 3)
+    if (SS_PIN_TO_CS_ID(cspin) > 3)
     {
         return -SPI_ERR_CS;
     }
 
-    SPI1_REG(SPI_REG_CSID)   = cs;
-    SPI1_REG(SPI_REG_CSMODE) = mode;
+    unsigned int gpio;
+    gpio = variant_pin_map[cspin].bit_pos;
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= (1 << gpio);
+    GPIO_REG(GPIO_IOF_EN)       |= (1 << gpio);
+    GPIO_REG(GPIO_INPUT_EN)     |= (1 << gpio);
+    GPIO_REG(GPIO_OUTPUT_EN)    |= (1 << gpio);
+    GPIO_REG(GPIO_PULLUP_EN)    |= (1 << gpio);
+    GPIO_REG(GPIO_IOF_SEL)      |= (1 << gpio);
+
+    SPI1_REG(SPI_REG_CSID)   = SS_PIN_TO_CS_ID(cspin);
+    SPI1_REG(SPI_REG_CSMODE) = csmode;
 
     if(csdef == SPI_CSDEF_EN)
     {
-        SPI1_REG(SPI_REG_CSDEF) |= (1 << cs);
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << SS_PIN_TO_CS_ID(cspin));
     }
     else if(csdef == SPI_CSDEF_DIS)
     {
-        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << cs);
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << SS_PIN_TO_CS_ID(cspin));
     }
     else
     {
@@ -106,29 +116,42 @@ int spi_send(struct spi *s, unsigned int cs, const uint8_t *tx, spi_csmode_t mod
     while (SPI1_REG(SPI_REG_TXFIFO) > 0xFF)
         ;
     SPI1_REG(SPI_REG_TXFIFO) = *tx;
+
+    return SPI_OK;
 }
 
-int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t mode, spi_csdef_t csdef)
+int spi_receive(struct spi *s, unsigned int cspin, uint8_t *rx, spi_csmode_t csmode, spi_csdef_t csdef)
 {
 
     if (s->spi_num != 1)
     {
         return -SPI_ERR_NV;
     }
-    if (cs > 3)
+    if (SS_PIN_TO_CS_ID(cspin) > 3)
     {
         return -SPI_ERR_CS;
     }
-    SPI1_REG(SPI_REG_CSID) = cs;
-    SPI1_REG(SPI_REG_CSMODE) = mode;
+
+    unsigned int gpio;
+    gpio = variant_pin_map[cspin].bit_pos;
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   |= (1 << gpio);
+    GPIO_REG(GPIO_IOF_EN)       |= (1 << gpio);
+    GPIO_REG(GPIO_INPUT_EN)     |= (1 << gpio);
+    GPIO_REG(GPIO_OUTPUT_EN)    |= (1 << gpio);
+    GPIO_REG(GPIO_PULLUP_EN)    |= (1 << gpio);
+    GPIO_REG(GPIO_IOF_SEL)      |= (1 << gpio);
+
+    SPI1_REG(SPI_REG_CSID) = SS_PIN_TO_CS_ID(cspin);
+    SPI1_REG(SPI_REG_CSMODE) = csmode;
 
     if (csdef == SPI_CSDEF_EN)
     {
-        SPI1_REG(SPI_REG_CSDEF) |= (1 << cs);
+        SPI1_REG(SPI_REG_CSDEF) |= (1 << SS_PIN_TO_CS_ID(cspin));
     }
     else if (csdef == SPI_CSDEF_DIS)
     {
-        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << cs);
+        SPI1_REG(SPI_REG_CSDEF) &= ~(1 << SS_PIN_TO_CS_ID(cspin));
     }
     else
     {
@@ -138,7 +161,9 @@ int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t mode, 
     SPI1_REG(SPI_REG_FMT) = SPI_FMT_PROTO(s->config.protocol) | SPI_FMT_ENDIAN(s->config.endianness) | SPI_FMT_DIR(s->config.direction) | SPI_FMT_LEN(s->config.len) | SPI_FMT_DIR(SPI_DIR_RX);
     while (SPI1_REG(SPI_REG_RXFIFO) > 0xFF)
         ;
-    *rx = SPI1_REG(SPI_REG_RXFIFO)
+    *rx = SPI1_REG(SPI_REG_RXFIFO);
+
+    return SPI_OK;
 }
 
 int spi_close(struct spi *s)
@@ -161,12 +186,40 @@ int spi_close(struct spi *s)
     GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_MOSI);
     GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_MOSI);
 
-    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_MOSI);
-    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_MOSI);
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_SCK);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_SCK);
     GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_SCK);
-    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_MOSI);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_SCK);
     GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_SCK);
     GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_SCK);
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_SS0);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_SS0);
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_SS0);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_SS0);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_SS0);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_SS0);
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_SS1);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_SS1);
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_SS1);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_SS1);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_SS1);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_SS1);
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_SS2);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_SS2);
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_SS2);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_SS2);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_SS2);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_SS2);
+
+    GPIO_REG(GPIO_OUTPUT_XOR)   &= ~(1 << GPIO_SPI1_SS3);
+    GPIO_REG(GPIO_IOF_EN)       &= ~(1 << GPIO_SPI1_SS3);
+    GPIO_REG(GPIO_INPUT_EN)     &= ~(1 << GPIO_SPI1_SS3);
+    GPIO_REG(GPIO_OUTPUT_EN)    &= ~(1 << GPIO_SPI1_SS3);
+    GPIO_REG(GPIO_PULLUP_EN)    &= ~(1 << GPIO_SPI1_SS3);
+    GPIO_REG(GPIO_IOF_SEL)      &= ~(1 << GPIO_SPI1_SS3);
 
     SPI1_REG(SPI_REG_SCKDIV)    = 0;
     SPI1_REG(SPI_REG_SCKMODE)   = 0;
