@@ -149,6 +149,8 @@ int spi_transmit(struct spi *s, unsigned int cs, uint8_t *buf, spi_dir_t dir, sp
 
 int spi_send(struct spi *s, unsigned int cs, uint8_t *tx, spi_csmode_t csmode, spi_csdef_t csdef);
 
+int spi_send_multiple(struct spi *s, unsigned int cs, uint8_t *tx, unsigned int size, spi_csmode_t csmode, spi_csdef_t csdef);
+
 int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t csmode, spi_csdef_t csdef);
 
 int spi_close(struct spi *s);

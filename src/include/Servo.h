@@ -3,7 +3,6 @@
 
 #include "hifive1.h"
 #include "platform.h"
-#include "gpio_to_pin.h"
 
 #define PERIOD 20000 //us
 #define MINPWM 544

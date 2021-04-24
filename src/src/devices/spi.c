@@ -122,6 +122,28 @@ int spi_send(struct spi *s, unsigned int cspin, const uint8_t *tx, spi_csmode_t 
     return SPI_OK;
 }
 
+int spi_send_multiple(struct spi *s, unsigned int cspin, uint8_t *tx, unsigned int size, spi_csmode_t csmode, spi_csdef_t csdef)
+{
+
+	if(size == 0)
+	{
+		return -SPI_ERR_NV;
+	}
+	uint16_t i;
+	int rc;
+	for(i = 0; i < size; i++)
+	{
+		rc = spi_send(s, cspin, &tx[i], csmode, csdef);
+		if(rc)
+		{
+			return rc;
+		}
+	}
+
+	return rc;
+
+}
+
 int spi_receive(struct spi *s, unsigned int cspin, uint8_t *rx, spi_csmode_t csmode, spi_csdef_t csdef)
 {
 

@@ -5,13 +5,15 @@
 #include <metal/cpu.h>
 #include <metal/machine.h>
 #include <metal/clock.h>
-#include "include/Servo.h"
+#include "include/devices/spi.h"
 #include "include/platform.h"
 
 #ifndef RTC_FREQ
 #define RTC_FREQ    32768
 #endif
 
+
+#define CS_ESP01	2
 
 struct metal_cpu *cpu;
 struct metal_interrupt *cpu_intr, *tmr_intr;
@@ -85,8 +87,25 @@ int main (void)
         return 6;
     }
 
+    struct spi s;
+    struct spi_config config = {
+    		80000,
+			0,
+			0,
+			0,
+			0,
+			0,
+			8,
+    };
 
-    set_freq_320MHz();
+    rc = spi_init(&s, 1, config);
+    if(rc)
+    {
+    	printf("SPI Init error\n");
+    	return 7;
+    }
+
+
 
 	while(1)
 	{
