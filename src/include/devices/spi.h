@@ -1,11 +1,10 @@
 // See LICENSE for license details.
 
-#ifndef _SIFIVE_SPI_H
-#define _SIFIVE_SPI_H
+#ifndef SPI_H
+#define SPI_H
 
 #include "../platform.h"
 #include "./gpio.h"
-
 /* Register offsets */
 
 #define SPI_REG_SCKDIV          0x00
@@ -128,31 +127,47 @@ typedef enum
 
 struct spi_config
 {
+	spi_len_t    len;
     unsigned int baud;
     spi_sckpha_t phase;
     spi_sckpol_t polarity;
     spi_proto_t  protocol;
     spi_endian_t endianness;
     spi_dir_t    direction;
-    spi_len_t    len;
-};
+
+}__attribute__ ((aligned (16)));
 
 struct spi
 {
     unsigned int spi_num;
     struct spi_config config;
-};
+}__attribute__ ((aligned (16)));
+
+void delay(uint32_t counter)
+{
+    volatile uint32_t i = 0;
+    while (i < counter) {
+        i++;
+    }
+}
 
 int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config);
 
-int spi_transmit(struct spi *s, unsigned int cs, uint8_t *buf, spi_dir_t dir, spi_csmode_t mode, spi_csdef_t csdef);
+int spi_set_cs(struct spi *s, unsigned int cspin, spi_csmode_t csmode, spi_csdef_t csdef);
 
-int spi_send(struct spi *s, unsigned int cs, uint8_t *tx, spi_csmode_t csmode, spi_csdef_t csdef);
+int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t csmode, spi_csdef_t csdef);
 
-int spi_send_multiple(struct spi *s, unsigned int cs, uint8_t *tx, unsigned int size, spi_csmode_t csmode, spi_csdef_t csdef);
+int spi_send(struct spi *s, unsigned int cs, const uint8_t tx);
 
-int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx, spi_csmode_t csmode, spi_csdef_t csdef);
+int spi_send_multiple(struct spi *s, unsigned int cs, uint8_t *tx, unsigned int size);
+
+int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx);
+
+int spi_receive_multiple(struct spi *s, unsigned int cs, uint8_t *rx, unsigned int size);
 
 int spi_close(struct spi *s);
+
+
+
 
 #endif /* _SIFIVE_SPI_H */

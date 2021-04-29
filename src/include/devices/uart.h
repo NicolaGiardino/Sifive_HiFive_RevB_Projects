@@ -49,4 +49,6 @@ int uart_receive(unsigned int uart, uint8_t *rx);
 
 int uart_close(unsigned int uart);
 
+
+
 #endif /* _SIFIVE_UART_H */

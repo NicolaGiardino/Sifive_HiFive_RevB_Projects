@@ -3,7 +3,7 @@
 
 PROGRAM ?= main
 
-$(PROGRAM): $(wildcard *.c) $(wildcard *.h) $(wildcard *.S) $(wildcard/include *.h) $(wildcard/src *.c)
+$(PROGRAM): $(wildcard *.c) $(wildcard *.h) $(wildcard *.S) $(wildcard/include *.h) $(wildcard/src *.c) $(wildcard/include/devices *.h) $(wildcard/src/devices *.c)
 
 clean:
 	rm -f $(PROGRAM) $(PROGRAM).hex

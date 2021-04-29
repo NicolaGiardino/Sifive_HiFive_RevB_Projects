@@ -2,101 +2,36 @@
 /* SPDX-License-Identifier: Apache-2.0 */
 
 #include <stdio.h>
-#include <metal/cpu.h>
-#include <metal/machine.h>
-#include <metal/clock.h>
-#include "include/devices/spi.h"
-#include "include/platform.h"
+#include <string.h>
+#include "./include/devices/spi.h"
+#include "./include/cpu_freq.h"
+#include "./include/devices/uart.h"
 
-#ifndef RTC_FREQ
-#define RTC_FREQ    32768
-#endif
+#define CS_ESP01	PIN_SPI1_SS2
+#define HS_GPIO		10
 
-
-#define CS_ESP01	2
-
-struct metal_cpu *cpu;
-struct metal_interrupt *cpu_intr, *tmr_intr;
-int tmr_id;
-volatile uint32_t timer_isr_flag;
-
-
-void timer_isr (int id, void *data) {
-
-    // Disable Timer interrupt
-    metal_interrupt_disable(tmr_intr, tmr_id);
-
-    // Flag showing we hit timer isr
-    timer_isr_flag = 1;
-}
-
-void wait_for_timer() {
-
-    // clear global timer isr flag
-    timer_isr_flag = 0;
-
-    // Set timer
-    metal_cpu_set_mtimecmp(cpu, (metal_cpu_get_mtime(cpu) + RTC_FREQ));
-    // Enable Timer interrupt
-    metal_interrupt_enable(tmr_intr, tmr_id);
-
-    // wait till timer triggers and isr is hit
-    while (timer_isr_flag == 0){};
-
-    timer_isr_flag = 0;
-}
 
 int main (void)
 {
     int rc, push;
-    struct metal_led *led0_red, *led0_green, *led0_blue;
-
-
-    /* This code
- 		wait_for_timer(); is used to initialize the cpu and its interrupts */
-    cpu = metal_cpu_get(metal_cpu_get_current_hartid());
-    if (cpu == NULL) {
-        printf("CPU null.\n");
-        return 2;
-    }
-    cpu_intr = metal_cpu_interrupt_controller(cpu);
-    if (cpu_intr == NULL) {
-        printf("CPU interrupt controller is null.\n");
-        return 3;
-    }
-    metal_interrupt_init(cpu_intr);
-
-
-    // Setup Timer and its interrupt so we can toggle LEDs on 1s cadence
-    tmr_intr = metal_cpu_timer_interrupt_controller(cpu);
-    if (tmr_intr == NULL) {
-        printf("TIMER interrupt controller is  null.\n");
-        return 4;
-    }
-    metal_interrupt_init(tmr_intr);
-    tmr_id = metal_cpu_timer_get_interrupt_id(cpu);
-    rc = metal_interrupt_register_handler(tmr_intr, tmr_id, timer_isr, cpu);
-    if (rc < 0) {
-        printf("TIMER interrupt handler registration failed\n");
-        return (rc * -1);
-    }
-
-    // Lastly CPU interrupt
-    if (metal_interrupt_enable(cpu_intr, 0) == -1) {
-        printf("CPU interrupt enable failed\n");
-        return 6;
-    }
 
     struct spi s;
     struct spi_config config = {
-    		80000,
+    		0b1000,
+			80000,
 			0,
 			0,
 			0,
 			0,
 			0,
-			8,
     };
+
+    GPIO_REG(GPIO_INPUT_EN) |= 1 << HS_GPIO;
+
+    set_freq_320MHz();
+
+    uart_init(0, 115200);
+
 
     rc = spi_init(&s, 1, config);
     if(rc)
@@ -105,10 +40,56 @@ int main (void)
     	return 7;
     }
 
+    rc = spi_set_cs(&s, CS_ESP01, SPI_CSMODE_AUTO, SPI_CSDEF_EN);
+
+    uint8_t snd_msg[4] = {0x02, 0x00, 0x00, 0x00};
+    uint8_t len_msg[4] = {0x00, 0x00, 0x00, 'A'};
+
+    uint8_t rcv[10];
+
+    uint32_t len = strlen("AT+RST\r\n");
 
 
-	while(1)
-	{
+    delay(20000000);
+
+    rc = spi_send_multiple(&s, CS_ESP01, snd_msg, 4u);
+
+    while((GPIO_REG(GPIO_INPUT_VAL) & (1 << HS_GPIO)) == 0)
+    	;
+
+    len_msg[0] = len & 127;
+    len_msg[1] = len >> 7;
+
+    rc = spi_send_multiple(&s, CS_ESP01, len_msg, 4u);
+
+    while((GPIO_REG(GPIO_INPUT_VAL) & (1 << HS_GPIO)) == 0)
+        	;
+
+    rc = spi_send_multiple(&s, CS_ESP01, "AT+RST\r\n", len);
+
+    while((GPIO_REG(GPIO_INPUT_VAL) & (1 << HS_GPIO)) == 0)
+        	;
+
+    snd_msg[0] = 0x01;
+
+    rc = spi_send_multiple(&s, CS_ESP01, snd_msg, 4u);
+
+    while((GPIO_REG(GPIO_INPUT_VAL) & (1 << HS_GPIO)) == 0)
+            	;
+
+    rc = spi_receive_multiple(&s, CS_ESP01, len_msg, 4u);
+
+    len = (len_msg[1] << 7) + len_msg[0];
+
+    rc = spi_receive_multiple(&s, CS_ESP01, rcv, len);
+
+    printf("\n\n\n");
+    for (size_t i = 0; i < len; i++)
+    {
+        printf("%c", rcv[i]);
+    }
+    while (1)
+    {
 
 
 

@@ -5,11 +5,11 @@
 
 /* Register offsets */
 
-#define PRCI_HFROSCCFG   (0x10008000)
-#define PRCI_HFXOSCCFG   (0x10008004)
-#define PRCI_PLLCFG      (0x10008008)
-#define PRCI_PLLDIV      (0x1000800C)
-#define PRCI_PROCMONCFG  (0x100080F0)
+#define PRCI_HFROSCCFG   (0x00)
+#define PRCI_HFXOSCCFG   (0x04)
+#define PRCI_PLLCFG      (0x08)
+#define PRCI_PLLDIV      (0x0C)
+#define PRCI_PROCMONCFG  (0xF0)
 
 /* Fields */
 #define ROSC_DIV(x)    (((x) & 0x2F) << 0 ) 
