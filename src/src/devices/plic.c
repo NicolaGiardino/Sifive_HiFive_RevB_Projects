@@ -2,13 +2,15 @@
 
 int plic_interrupt_enable()
 {
-    uint32_t mstatus;
+    uint32_t mie;
 
-    __asm__ volatile("csrr %[r] mstatus", [r] "=r"(mstatus));
+    __asm__ volatile("csrr %[r], mie", [r] = "=r"(mie));
 
-    if(mstatus & MSTATUS_MIE == 0)
-        __asm__ volatile("csrw mstatus, %[r]", [r] = "r" (MSTATUS_MIE));
-
+    if(mie & MIE_MEIE == 0)
+    {
+        mie |= MIE_MEIE;
+        __asm__ volatile ("csrw mie, %[r]", [r] = "r" (mie));
+    }
     return 0;
 }
 

@@ -9,9 +9,8 @@
 
 #include "const.h"
 #include "devices/aon.h"
-#include "devices/clint.h"
 #include "devices/otp.h"
-#include "devices/plic.h"
+#include "encoding.h"
 #include "devices/prci.h"
 
 /****************************************************************************
@@ -125,5 +124,6 @@
 unsigned long get_cpu_freq(void);
 unsigned long get_timer_freq(void);
 uint64_t get_timer_value(void);
+
 
 #endif /* _SIFIVE_PLATFORM_H */

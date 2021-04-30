@@ -128,4 +128,5 @@ unsigned int cpu_freq = 16000000;
 
 void write_hex(int fd, uint32_t hex);
 
+
 #endif /* _SIFIVE_HIFIVE1_H */

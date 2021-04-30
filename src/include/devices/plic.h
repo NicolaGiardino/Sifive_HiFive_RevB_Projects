@@ -3,8 +3,6 @@
 #ifndef PLIC_H
 #define PLIC_H
 
-#include "../const.h"
-#include "../encoding.h"
 
 // 32 bits per source
 #define PLIC_PRIORITY_OFFSET            _AC(0x0000,UL)
@@ -15,6 +13,8 @@
 
 //0x80 per target
 #define PLIC_ENABLE_OFFSET              _AC(0x2000,UL)
+#define PLIC_ENABLE_OFFSET_2            _AC(0x2004,UL)
+#define PLIC_ENABLE_OFFSET_MAX          31
 #define PLIC_ENABLE_SHIFT_PER_TARGET    7
 
 

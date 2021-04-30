@@ -23,6 +23,10 @@
 #define MSTATUS32_SD        0x80000000
 #define MSTATUS64_SD        0x8000000000000000
 
+#define MIE_MSIE            0x00000008
+#define MIE_MTIE            0x00000080
+#define MIE_MEIE            0x00000800
+
 #define SSTATUS_UIE         0x00000001
 #define SSTATUS_SIE         0x00000002
 #define SSTATUS_UPIE        0x00000010
