@@ -1,4 +1,5 @@
 #include "../../include/devices/gpio.h"
+#include "../../include/devices/plic.h"
 
 int gpio_set(unsigned int pin, gpio_mode_t mode)
 {
@@ -108,4 +109,22 @@ int gpio_getinput(unsigned int pin)
     {
         return 0;
     }
+}
+
+int gpio_interrupt_enable(unsigned int pin, void *isr(), unsigned int prio)
+{
+    if (pin > MAXPIN - 1)
+    {
+        return -GPIO_ERR_NV;
+    }
+
+    unsigned int gpio = variant_pin_map[pin].bit_pos;
+
+    plic_interrupt_enable();
+
+    irq_functions[IRQ_GPIO + gpio].irq_handler = isr;
+    irq_functions[IRQ_GPIO + gpio].active      = 1;
+    irq_functions[IRQ_GPIO + gpio].priority    = prio;
+
+    return 0;
 }

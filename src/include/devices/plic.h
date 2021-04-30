@@ -4,6 +4,7 @@
 #define PLIC_H
 
 #include "../const.h"
+#include "../encoding.h"
 
 // 32 bits per source
 #define PLIC_PRIORITY_OFFSET            _AC(0x0000,UL)
@@ -27,5 +28,22 @@
 
 #define PLIC_MAX_TARGET                 15871
 #define PLIC_TARGET_MASK                0x3FFF
+
+#define MAX_PLIC_IRQ                    52
+
+#define IRQ_GPIO                        8
+
+struct irq
+{
+    void (*irq_handler)();
+    unsigned int active;
+    unsigned int priority;
+};
+
+struct irq irq_functions[MAX_PLIC_IRQ];
+
+int plic_interrupt_enable();
+
+int plic_interrupt_handler();
 
 #endif /* PLIC_H */

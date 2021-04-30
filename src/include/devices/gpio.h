@@ -56,4 +56,6 @@ int gpio_getoutput(unsigned int pin);
 
 int gpio_getinput(unsigned int pin);
 
+int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio);
+
 #endif /* _SIFIVE_GPIO_H */
