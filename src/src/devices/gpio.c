@@ -1,7 +1,7 @@
 #include "../../include/devices/gpio.h"
 #include "../../include/devices/plic.h"
 
-int gpio_set(unsigned int pin, gpio_mode_t mode)
+int gpio_init(unsigned int pin, gpio_mode_t mode)
 {
 
     if(mode == INPUT)
@@ -19,7 +19,7 @@ int gpio_set(unsigned int pin, gpio_mode_t mode)
 
 }
 
-int gpio_setoutput(unsigned int pin, gpio_out_xor_t xor)
+int gpio_init_output(unsigned int pin, gpio_out_xor_t xor)
 {
     if(pin > MAXPIN - 1)
     {
@@ -41,7 +41,7 @@ int gpio_setoutput(unsigned int pin, gpio_out_xor_t xor)
     return GPIO_OK;
 }
 
-int gpio_setinput(unsigned int pin, gpio_pullup_t pup)
+int gpio_init_input(unsigned int pin, gpio_pullup_t pup)
 {
     if (pin > MAXPIN - 1)
     {
@@ -68,7 +68,7 @@ int gpio_setinput(unsigned int pin, gpio_pullup_t pup)
     return GPIO_OK;
 }
 
-int gpio_getoutput(unsigned int pin)
+int gpio_setoutput(unsigned int pin, unsigned int val)
 {
     if(pin > MAXPIN - 1)
     {
@@ -79,13 +79,13 @@ int gpio_getoutput(unsigned int pin)
         return -GPIO_ERR_NOTOUT;
     }
 
-    if (GPIO_REG(GPIO_OUTPUT_VAL) & (1 << variant_pin_map[pin].bit_pos))
+    if (val)
     {
-        return 1;
+        GPIO_REG(GPIO_OUTPUT_VAL) |= (1 << variant_pin_map[pin].bit_pos);
     }
     else
     {
-        return 0;
+        GPIO_REG(GPIO_OUTPUT_VAL) &= ~(1 << variant_pin_map[pin].bit_pos);
     }
     
 }
@@ -124,8 +124,6 @@ int gpio_interrupt_enable(unsigned int pin, void *isr(), unsigned int prio)
     
     unsigned int gpio = variant_pin_map[pin].bit_pos;
 
-    plic_interrupt_enable();
-
     irq_functions[IRQ_GPIO + gpio].irq_handler = isr;
     irq_functions[IRQ_GPIO + gpio].active      = 1;
     irq_functions[IRQ_GPIO + gpio].priority    = prio;
@@ -143,3 +141,4 @@ int gpio_interrupt_enable(unsigned int pin, void *isr(), unsigned int prio)
 
     return 0;
 }
+

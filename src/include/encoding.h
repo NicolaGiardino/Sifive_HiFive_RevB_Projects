@@ -27,6 +27,15 @@
 #define MIE_MTIE            0x00000080
 #define MIE_MEIE            0x00000800
 
+#define MTVEC_ENABLE_DIRECT   0x00000000
+#define MTVEC_ENABLE_VECTORED 0x00000001
+
+#define MCAUSE_MSI          0x00000003
+#define MCAUSE_MTI          0x00000007
+#define MCAUSE_MEI          0x0000000B
+#define MCAUSE_INT          0x80000000
+
+
 #define SSTATUS_UIE         0x00000001
 #define SSTATUS_SIE         0x00000002
 #define SSTATUS_UPIE        0x00000010

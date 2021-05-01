@@ -46,13 +46,13 @@ typedef enum
     GPIO_PUP_DIS = 0,
 } gpio_pullup_t;
 
-int gpio_set(unsigned int pin, gpio_mode_t mode);
+int gpio_init(unsigned int pin, gpio_mode_t mode);
 
-int gpio_setoutput(unsigned int pin, gpio_out_xor_t xor);
+int gpio_init_output(unsigned int pin, gpio_out_xor_t xor);
 
-int gpio_setinput(unsigned int pin, gpio_pullup_t pup);
+int gpio_init_input(unsigned int pin, gpio_pullup_t pup);
 
-int gpio_getoutput(unsigned int pin);
+int gpio_setoutput(unsigned int pin, unsigned int val);
 
 int gpio_getinput(unsigned int pin);
 

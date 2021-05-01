@@ -9,6 +9,8 @@
 #define PLIC_PRIORITY_SHIFT_PER_SOURCE  2
 // 1 bit per source (1 address)
 #define PLIC_PENDING_OFFSET             _AC(0x1000,UL)
+#define PLIC_PENDING_OFFSET_2           _AC(0x1004,UL)
+#define PLIC_PENDING2_MASK              0x1FFFFF
 #define PLIC_PENDING_SHIFT_PER_SOURCE   0
 
 //0x80 per target
@@ -44,6 +46,6 @@ struct irq irq_functions[MAX_PLIC_IRQ];
 
 int plic_interrupt_enable();
 
-int plic_interrupt_handler();
+void plic_interrupt_handler();
 
 #endif /* PLIC_H */
