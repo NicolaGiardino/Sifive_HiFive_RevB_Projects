@@ -1,8 +1,7 @@
 #ifndef SERVO_H
 #define SERVO_H
 
-#include "hifive1.h"
-#include "platform.h"
+#include "../include/devices/gpio.h"
 
 #define PERIOD 20000 //us
 #define MINPWM 544

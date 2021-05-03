@@ -46,6 +46,14 @@ typedef enum
     GPIO_PUP_DIS = 0,
 } gpio_pullup_t;
 
+typedef enum
+{
+	GPIO_RISE_EN = 0,
+	GPIO_FALL_EN = 1,
+	GPIO_HIGH_EN = 2,
+	GPIO_LOW_EN  = 3,
+} gpio_int_t;
+
 int gpio_init(unsigned int pin, gpio_mode_t mode);
 
 int gpio_init_output(unsigned int pin, gpio_out_xor_t xor);
@@ -56,7 +64,7 @@ int gpio_setoutput(unsigned int pin, unsigned int val);
 
 int gpio_getinput(unsigned int pin);
 
-int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio);
+int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_int_t in);
 
 int gpio_init(unsigned int pin, gpio_mode_t mode)
 {
@@ -103,17 +111,22 @@ int gpio_init_input(unsigned int pin, gpio_pullup_t pup)
     {
         return -GPIO_ERR_NV;
     }
-    GPIO_REG(GPIO_INPUT_EN) |= (1 << variant_pin_map[pin].bit_pos);
-    GPIO_REG(GPIO_OUTPUT_EN) &= ~(1 << variant_pin_map[pin].bit_pos);
-    GPIO_REG(GPIO_OUTPUT_XOR) &= ~(1 << variant_pin_map[pin].bit_pos);
+
+    unsigned int gpio;
+    gpio = variant_pin_map[pin].bit_pos;
+
+    GPIO_REG(GPIO_INPUT_EN) |= (1 << gpio);
+    GPIO_REG(GPIO_INPUT_VAL) &= ~(1 << gpio);
+    GPIO_REG(GPIO_OUTPUT_EN) &= ~(1 << gpio);
+    GPIO_REG(GPIO_OUTPUT_XOR) &= ~(1 << gpio);
 
     if (pup == GPIO_PUP_EN)
     {
-        GPIO_REG(GPIO_PULLUP_EN) |= (1 << variant_pin_map[pin].bit_pos);
+        GPIO_REG(GPIO_PULLUP_EN) |= (1 << gpio);
     }
     else if (pup == GPIO_PUP_DIS)
     {
-        GPIO_REG(GPIO_PULLUP_EN) &= ~(1 << variant_pin_map[pin].bit_pos);
+        GPIO_REG(GPIO_PULLUP_EN) &= ~(1 << gpio);
     }
     else
     {
@@ -166,7 +179,7 @@ int gpio_getinput(unsigned int pin)
     }
 }
 
-int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio)
+int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_int_t in)
 {
     if (pin > MAXPIN - 1)
     {
@@ -185,14 +198,33 @@ int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio)
 
     if ((IRQ_GPIO + gpio) > PLIC_ENABLE_OFFSET_MAX)
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 -IRQ_GPIO + gpio));
     }
     else
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (31 - IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + gpio));
     }
 
     PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio)) = prio;
+
+    switch(in)
+    {
+    case GPIO_RISE_EN:
+    	GPIO_REG(GPIO_RISE_IE) |= (1 << gpio);
+    	break;
+
+    case GPIO_FALL_EN:
+        	GPIO_REG(GPIO_FALL_IE) |= (1 << gpio);
+        	break;
+
+    case GPIO_HIGH_EN:
+        	GPIO_REG(GPIO_HIGH_IE) |= (1 << gpio);
+        	break;
+
+    case GPIO_LOW_EN:
+        	GPIO_REG(GPIO_LOW_IE) |= (1 << gpio);
+        	break;
+    }
 
     return 0;
 }

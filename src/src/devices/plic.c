@@ -6,12 +6,14 @@ int plic_interrupt_enable()
 {
     uint32_t mie;
 
-    __asm__ volatile("csrr %[r], mie", [r] = "=r"(mie));
+    __asm__ volatile("csrr %0, mie" : "=r"(mie));
 
-    if(mie & MIE_MEIE == 0)
+    if ((mie & 0x800) == 0)
     {
         mie |= MIE_MEIE;
-        __asm__ volatile("csrw mie, %[r]", [r] = "r"(mie));
+        __asm__ volatile("csrw mie, %0" : : "r"(mie));
+        PLIC_REG(PLIC_ENABLE_OFFSET) = 0;
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) = 0;
         return 0;
     }
 
@@ -24,18 +26,17 @@ void plic_interrupt_handler()
     uint32_t pending;
     unsigned int int_number;
 
-    if(pending = PLIC_REG(PLIC_PENDING_OFFSET))
+    if (pending = PLIC_REG(PLIC_PENDING_OFFSET))
     {
         int_number = sqrt(pending) - 1;
     }
-    else if((pending = PLIC_REG(PLIC_PENDING_OFFSET_2)) & PLIC_PENDING2_MASK)
+    else if ((pending = PLIC_REG(PLIC_PENDING_OFFSET_2)) & PLIC_PENDING2_MASK)
     {
         int_number = sqrt(pending) + PLIC_ENABLE_OFFSET_MAX;
     }
-    
-    if(irq_functions[int_number].active)
+
+    if (irq_functions[int_number].active)
     {
         irq_functions[int_number].irq_handler();
     }
-
 }

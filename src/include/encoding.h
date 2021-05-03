@@ -6,7 +6,7 @@
 #define MSTATUS_UIE         0x00000001
 #define MSTATUS_SIE         0x00000002
 #define MSTATUS_HIE         0x00000004
-#define MSTATUS_MIE         0x00000008
+#define MSTATUS_MIE         0x8
 #define MSTATUS_UPIE        0x00000010
 #define MSTATUS_SPIE        0x00000020
 #define MSTATUS_HPIE        0x00000040

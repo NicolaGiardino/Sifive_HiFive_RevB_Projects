@@ -13,6 +13,7 @@ void set_freq_16MHz();
 
 void set_freq_sloth();
 
+
 void set_freq_hyperspace()
 {
     /*Divide standard frequency by 2 PLL_R = 0b01 = 2,
@@ -89,5 +90,6 @@ void set_freq_sloth()
 
     cpu_freq = 375000;
 }
+
 
 #endif
