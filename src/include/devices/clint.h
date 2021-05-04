@@ -33,7 +33,7 @@ void clint_interrupt_timer_enable()
 
     mstatus = 0;
 
-    __asm__ volatile("csrw mstatus, %0" : "r"(mstatus))
+    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 
     __asm__ volatile("csrr %0, mie" : "=r"(mie));
 
@@ -41,7 +41,7 @@ void clint_interrupt_timer_enable()
     __asm__ volatile("csrw mie, %0" : : "r"(mie));
 
     mstatus |= MSTATUS_MIE;
-    __asm__ volatile("csrrw mstatus, %0" : "r"(mstatus));
+    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 
 }
 
@@ -51,7 +51,7 @@ void clint_interrupt_software_enable()
 
     mstatus = 0;
 
-    __asm__ volatile("csrw mstatus, %0" : "r"(mstatus))
+    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 
     __asm__ volatile("csrr %0, mie" : "=r"(mie));
 
@@ -59,7 +59,7 @@ void clint_interrupt_software_enable()
     __asm__ volatile("csrw mie, %0" : : "r"(mie));
 
     mstatus |= MSTATUS_MIE;
-    __asm__ volatile("csrrw mstatus, %0" : "r"(mstatus));
+    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 }
 
 #endif /* _SIFIVE_CLINT_H */ 

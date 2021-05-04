@@ -57,7 +57,7 @@ int plic_interrupt_enable()
 
     mstatus = 0;
 
-    __asm__ volatile("csrw mstatus, %0" : "r"(mstatus))
+    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 
     __asm__ volatile("csrr %0, mie" : "=r"(mie));
 
@@ -68,7 +68,7 @@ int plic_interrupt_enable()
         PLIC_REG(PLIC_ENABLE_OFFSET) = 0;
         PLIC_REG(PLIC_ENABLE_OFFSET_2) = 0;
         mstatus |= MSTATUS_MIE;
-        __asm__ volatile("csrrw mstatus, %0" : "r"(mstatus));
+        __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
 
         return 0;
     }

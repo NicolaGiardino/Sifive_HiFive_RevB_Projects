@@ -8,7 +8,6 @@
 #define MCAUSE_CAUSE       0x7FFFFFFF
 
 #include "const.h"
-#include "devices/aon.h"
 #include "devices/otp.h"
 #include "encoding.h"
 #include "devices/prci.h"

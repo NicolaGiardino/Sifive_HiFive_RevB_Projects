@@ -14,22 +14,29 @@ void handler();
 
 int taken = 0;
 
+
 int main (void)
 {
     int rc;
 
     set_freq_320MHz();
 
-    clint_interrupt_enable();
     interrupt_enable();
+    clint_interrupt_timer_enable();
 
-    AON_REG(AON_RTCCFG) |= AON_RTCCFG_ENALWAYS;
+    rtc_enable();
 
-    CLINT_REG(CLINT_MTIMECMP) = CLINT_REG(CLINT_MTIME) + RTC_FREQ;
+    GPIO_REG(GPIO_OUTPUT_EN) |= (1 << variant_pin_map[3].bit_pos);
+
+    rtc_next_wake_time(RTC_FREQ);
 
     while (1)
     {
-
+    	if(taken)
+    	{
+    		GPIO_REG(GPIO_OUTPUT_VAL) ^= (1 << variant_pin_map[3].bit_pos);
+    		taken = 0;
+    	}
 	}
 
     return 0;
@@ -37,7 +44,7 @@ int main (void)
 
 void clint_timer_interrupt_handler()
 {
-    printf("Interrupt taken\n");
+    rtc_next_wake_time(2 * RTC_FREQ);
     taken = 1;
 }
 

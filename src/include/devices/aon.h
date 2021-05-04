@@ -3,6 +3,8 @@
 #ifndef _SIFIVE_AON_H
 #define _SIFIVE_AON_H
 
+#include "../platform.h"
+
 /* Register offsets */
 
 #define AON_WDOGCFG     0x000
@@ -70,7 +72,7 @@
 #define AON_WDOGCFG_CMPIP       0x10000000
 
 #define AON_RTCCFG_SCALE     0x0000000F
-#define AON_RTCCFG_ENALWAYS  0x00001000
+#define AON_RTCCFG_ENALWAYS  0x1000
 #define AON_RTCCFG_CMPIP     0x10000000
 
 #define AON_WAKEUPCAUSE_RESET   0x00
@@ -84,5 +86,42 @@
 
 #define AON_PMUCAUSE_WAKEUPCAUSE 0x00FF
 #define AON_PMUCAUSE_RESETCAUSE  0xFF00
+
+#define RTC_FREQ    32768
+
+volatile uint64_t* mtimecmp = (uint64_t*)0x2004000;
+volatile uint64_t* mtime	= (uint64_t*)0x200bff8;
+
+void rtc_enable();
+
+void rtc_next_wake_time();
+
+void rtc_enable()
+{
+    AON_REG(AON_RTCCFG) |= AON_RTCCFG_ENALWAYS;
+}
+
+void rtc_next_wake_time(uint64_t next)
+{
+	uint64_t time;
+	uint32_t mie, mip;
+
+	__asm__ volatile("csrr %0, mie" : "=r"(mie));
+	__asm__ volatile("csrr %0, mie" : "=r"(mip));
+
+	mie &= ~(MIE_MTIE);
+	mip &= ~(MIE_MTIE);
+
+	__asm__ volatile("csrw mie, %0" : : "r" (mie));
+
+	time = *mtime;
+	time += next;
+	*mtimecmp = time;
+
+	mie |= MIE_MTIE;
+
+	__asm__ volatile("csrw mie, %0" : : "r" (mip));
+	__asm__ volatile("csrw mie, %0" : : "r" (mie));
+}
 
 #endif /* _SIFIVE_AON_H */

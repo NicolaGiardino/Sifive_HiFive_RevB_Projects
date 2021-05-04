@@ -9,7 +9,6 @@
 #define INT_ERR_ACTIVE 1
 
 int interrupt_enable();
-void interrupt_set_direct_mode(void *isr);
 void interrupt_service_routine() __attribute__((interrupt, aligned(64)));
 
 int interrupt_enable()
@@ -24,7 +23,7 @@ int interrupt_enable()
     	__asm__ volatile("csrw mie, %0" : : "r"(mie));
     	//mtvec |= MTVEC_ENABLE_DIRECT;
     	//__asm__ volatile("csrw mtvec, %I" : : "r"((unsigned long) interrupt_service_routine));
-        write_csr(mtvec, (unsigned long)&interrupt_service_routine);
+        write_csr(mtvec, ((unsigned long)&interrupt_service_routine | MTVEC_ENABLE_DIRECT));
         mstatus = MSTATUS_MIE;
         __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
     }
@@ -36,24 +35,16 @@ int interrupt_enable()
     return INT_OK;
 }
 
-void interrupt_set_direct_mode(void *isr)
-{
-    uint32_t mtvec;
-    mtvec = isr;
-    //mtvec |= MTVEC_ENABLE_DIRECT;
-    __asm__ volatile("csrw mtvec, %0" : : "r"(mtvec));
-}
-
 void interrupt_service_routine()
 {
 
     uint32_t mscratch;
 
-    __asm__ volatile("csrrw a0, mscratch, a0\n\t"
+   /* __asm__ volatile("csrrw a0, mscratch, a0\n\t"
                      "sw a1, 0(a0)\n\t"
                      "sw a2, 4(a0)\n\t"
                      "sw a3, 8(a0)\n\t"
-                     "sw a4, 12(a0)\n\t");
+                     "sw a4, 12(a0)\n\t");*/
 
     __asm__ volatile("csrr %0, mcause" : "=r"(mscratch));
     if (mscratch & MCAUSE_INT)
@@ -70,12 +61,12 @@ void interrupt_service_routine()
         }
     }
 
-    __asm__ volatile("lw a4, 12(a0)\n\t"
+    /*__asm__ volatile("lw a4, 12(a0)\n\t"
                      "lw a3, 8(a0)\n\t"
                      "lw a2, 4(a0)\n\t"
                      "lw a1, 0(a0)\n\t"
                      "csrrw a0, mscratch, a0\n\t"
-                     "mret");
+                     "mret");*/
 }
 
 #endif
