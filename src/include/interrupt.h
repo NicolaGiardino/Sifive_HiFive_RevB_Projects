@@ -25,7 +25,6 @@ int interrupt_enable()
     	//mtvec |= MTVEC_ENABLE_DIRECT;
     	//__asm__ volatile("csrw mtvec, %I" : : "r"((unsigned long) interrupt_service_routine));
         write_csr(mtvec, (unsigned long)&interrupt_service_routine);
-    	plic_interrupt_enable();
         mstatus = MSTATUS_MIE;
         __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
     }
@@ -60,9 +59,11 @@ void interrupt_service_routine()
     if (mscratch & MCAUSE_INT)
     {
         if (mscratch & MCAUSE_MTI)
-            ; /* Clic interrupt handling not yet coded */
+        {
+            clint_timer_interrupt_handler();
+        }
         else if (mscratch & MCAUSE_MSI)
-            ; /* Clic interrupt handling not yet coded */
+            ; /* Clint interrupt handling not yet coded */
         else if (mscratch & MCAUSE_MEI)
         {
             plic_interrupt_handler();

@@ -5,10 +5,14 @@
 #include <string.h>
 #include "./include/devices/gpio.h"
 #include "include/cpu_freq.h"
+#include "include/devices/aon.h"
 
 #define PIN		    3
+#define RTC_FREQ    32768
 
 void handler();
+
+int taken = 0;
 
 int main (void)
 {
@@ -16,31 +20,25 @@ int main (void)
 
     set_freq_320MHz();
 
-    rc = interrupt_enable();
+    clint_interrupt_enable();
+    interrupt_enable();
 
-    gpio_interrupt_enable(PIN, handler, 5, GPIO_FALL_EN);
+    AON_REG(AON_RTCCFG) |= AON_RTCCFG_ENALWAYS;
 
-    rc = gpio_init_input(PIN, GPIO_PUP_EN);
-
-    for(int i = 0; i < 100000; i++)
-    	;
-
-    __asm__ volatile ("wfi");
+    CLINT_REG(CLINT_MTIMECMP) = CLINT_REG(CLINT_MTIME) + RTC_FREQ;
 
     while (1)
     {
-        
+
 	}
 
     return 0;
 }
 
-void handler()
+void clint_timer_interrupt_handler()
 {
-    printf("Interrupt taken");
-    uint32_t in = GPIO_REG(GPIO_FALL_IP);
-
-    GPIO_REG(GPIO_FALL_IP) = in;
+    printf("Interrupt taken\n");
+    taken = 1;
 }
 
 //asm(".global _printf_float");
