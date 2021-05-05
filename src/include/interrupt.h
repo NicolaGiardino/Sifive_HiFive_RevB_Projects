@@ -38,7 +38,7 @@ int interrupt_enable()
 void interrupt_service_routine()
 {
 
-    uint32_t mscratch;
+    uint32_t mcause;
 
    /* __asm__ volatile("csrrw a0, mscratch, a0\n\t"
                      "sw a1, 0(a0)\n\t"
@@ -46,16 +46,16 @@ void interrupt_service_routine()
                      "sw a3, 8(a0)\n\t"
                      "sw a4, 12(a0)\n\t");*/
 
-    __asm__ volatile("csrr %0, mcause" : "=r"(mscratch));
-    if (mscratch & MCAUSE_INT)
+    __asm__ volatile("csrr %0, mcause" : "=r"(mcause));
+    if (mcause & MCAUSE_INT)
     {
-        if (mscratch & MCAUSE_MTI)
+        if (mcause == ((1 << 31) | MCAUSE_MTI))
         {
             clint_timer_interrupt_handler();
         }
-        else if (mscratch & MCAUSE_MSI)
+        else if (mcause == ((1 << 31) | MCAUSE_MSI))
             ; /* Clint interrupt handling not yet coded */
-        else if (mscratch & MCAUSE_MEI)
+        else if (mcause == ((1 << 31) | MCAUSE_MEI))
         {
             plic_interrupt_handler();
         }

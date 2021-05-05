@@ -57,7 +57,7 @@ int plic_interrupt_enable()
 
     mstatus = 0;
 
-    __asm__ volatile("csrw mstatus, %0" : : "r"(mstatus));
+    __asm__ volatile("csrw mstatus, %0" : :  "r"(mstatus));
 
     __asm__ volatile("csrr %0, mie" : "=r"(mie));
 
@@ -82,10 +82,10 @@ void plic_interrupt_handler()
     uint32_t pending, claim;
     unsigned int int_number;
 
-    pending = PLIC_REG(PLIC_PENDING_OFFSET);
     claim = PLIC_REG(PLIC_CLAIM_OFFSET);
+    pending = PLIC_REG(PLIC_PENDING_OFFSET);
 
-    int_number = sqrt(claim) - 1;
+    int_number = claim - 1;
 
     if (irq_functions[int_number].active)
     {
