@@ -22,7 +22,7 @@ int main (void)
 
     set_freq_320MHz();
     interrupt_enable();
-    clint_interrupt_timer_enable();
+    //clint_interrupt_timer_enable();
     plic_interrupt_enable();
     //rtc_enable();
 
@@ -45,7 +45,7 @@ int main (void)
     PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio)) = 7;
 	GPIO_REG(GPIO_FALL_IE) |= (1 << gpio);
 
-    rtc_next_wake_time(RTC_FREQ);
+    //rtc_next_wake_time(RTC_FREQ);
 
     while (1)
     {
@@ -53,14 +53,8 @@ int main (void)
     	{
     		GPIO_REG(GPIO_OUTPUT_VAL) ^= (1 << variant_pin_map[3].bit_pos);
     		taken = 0;
-    		//plic_interrupt_enable();
-    		//interrupt_enable();
-    		PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + gpio));
-    		PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio)) = 7;
-    	    GPIO_REG(GPIO_INPUT_EN)  |= (1 << variant_pin_map[PIN].bit_pos);
-    		GPIO_REG(GPIO_FALL_IE) |= (1 << gpio);
     	}
-    	wait_timer();
+    	//wait_timer();
     	/*if(taken2)
     	{
     		GPIO_REG(GPIO_OUTPUT_VAL) ^= (1 << variant_pin_map[3].bit_pos);
@@ -93,12 +87,10 @@ void clint_timer_interrupt_handler()
 
 void handler()
 {
-	GPIO_REG(GPIO_FALL_IE) &= ~(1 << 23);
-    GPIO_REG(GPIO_INPUT_EN)  &= ~(1 << 23);
-    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (IRQ_GPIO + 23));
+    //PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (IRQ_GPIO + 23));
 	taken = GPIO_REG(GPIO_FALL_IP);
 	GPIO_REG(GPIO_FALL_IP) = taken;
-    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + 23));
+    //PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + 23));
 }
 
 //asm(".global _printf_float");
