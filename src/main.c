@@ -26,8 +26,6 @@ int main (void)
     plic_interrupt_enable();
     //rtc_enable();
 
-    //GPIO_REG(GPIO_OUTPUT_EN) |= (1 << variant_pin_map[3].bit_pos);
-    GPIO_REG(GPIO_OUTPUT_EN) |= (1 << variant_pin_map[5].bit_pos);
     GPIO_REG(GPIO_OUTPUT_EN) |= (1 << variant_pin_map[3].bit_pos);
     GPIO_REG(GPIO_INPUT_EN)  |= (1 << variant_pin_map[PIN].bit_pos);
 
@@ -55,16 +53,6 @@ int main (void)
     		taken = 0;
     	}
     	//wait_timer();
-    	/*if(taken2)
-    	{
-    		GPIO_REG(GPIO_OUTPUT_VAL) ^= (1 << variant_pin_map[3].bit_pos);
-    		taken2 = 0;
-    		interrupt_enable();
-    		plic_interrupt_enable();
-    		PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + gpio2));
-    		PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio2)) = 7;
-    		GPIO_REG(GPIO_FALL_IE) |= (1 << gpio2);
-    	}*/
     }
 
     return 0;
@@ -87,10 +75,8 @@ void clint_timer_interrupt_handler()
 
 void handler()
 {
-    //PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (IRQ_GPIO + 23));
 	taken = GPIO_REG(GPIO_FALL_IP);
 	GPIO_REG(GPIO_FALL_IP) = taken;
-    //PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + 23));
 }
 
 //asm(".global _printf_float");
