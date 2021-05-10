@@ -96,46 +96,66 @@ Archive member included to satisfy reference by file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-irq_functions       0x270             /tmp/ccod7Puz.o
+irq_functions       0x270             /tmp/ccBG2CIM.o
+cs_active           0x4               /tmp/ccBG2CIM.o
 __metal_dt_pmp      0x20              /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
 
 Discarded input sections
 
- .text          0x0000000000000000        0x0 /tmp/ccod7Puz.o
- .data          0x0000000000000000        0x0 /tmp/ccod7Puz.o
- .bss           0x0000000000000000        0x0 /tmp/ccod7Puz.o
- .rodata.variant_pin_map
-                0x0000000000000000       0x50 /tmp/ccod7Puz.o
+ .text          0x0000000000000000        0x0 /tmp/ccBG2CIM.o
+ .data          0x0000000000000000        0x0 /tmp/ccBG2CIM.o
+ .bss           0x0000000000000000        0x0 /tmp/ccBG2CIM.o
+ .text.plic_interrupt_enable
+                0x0000000000000000       0x6a /tmp/ccBG2CIM.o
+ .text.plic_interrupt_handler
+                0x0000000000000000       0x68 /tmp/ccBG2CIM.o
  .text.clint_interrupt_enable
-                0x0000000000000000       0x22 /tmp/ccod7Puz.o
+                0x0000000000000000       0x22 /tmp/ccBG2CIM.o
  .text.clint_interrupt_timer_enable
-                0x0000000000000000       0x4a /tmp/ccod7Puz.o
+                0x0000000000000000       0x4a /tmp/ccBG2CIM.o
  .text.clint_interrupt_software_enable
-                0x0000000000000000       0x4a /tmp/ccod7Puz.o
+                0x0000000000000000       0x4a /tmp/ccBG2CIM.o
+ .text.interrupt_enable
+                0x0000000000000000       0x4a /tmp/ccBG2CIM.o
+ .text.interrupt_service_routine
+                0x0000000000000000      0x100 /tmp/ccBG2CIM.o
  .text.gpio_init
-                0x0000000000000000       0x50 /tmp/ccod7Puz.o
+                0x0000000000000000       0x50 /tmp/ccBG2CIM.o
  .text.gpio_init_output
-                0x0000000000000000      0x136 /tmp/ccod7Puz.o
+                0x0000000000000000      0x136 /tmp/ccBG2CIM.o
  .text.gpio_init_input
-                0x0000000000000000      0x11a /tmp/ccod7Puz.o
+                0x0000000000000000      0x11a /tmp/ccBG2CIM.o
  .text.gpio_setoutput
-                0x0000000000000000       0xc6 /tmp/ccod7Puz.o
+                0x0000000000000000       0xc6 /tmp/ccBG2CIM.o
  .text.gpio_getinput
-                0x0000000000000000       0x80 /tmp/ccod7Puz.o
+                0x0000000000000000       0x80 /tmp/ccBG2CIM.o
  .text.gpio_interrupt_enable
-                0x0000000000000000      0x1da /tmp/ccod7Puz.o
+                0x0000000000000000      0x1da /tmp/ccBG2CIM.o
  .text.set_freq_hyperspace
-                0x0000000000000000       0x48 /tmp/ccod7Puz.o
+                0x0000000000000000       0x48 /tmp/ccBG2CIM.o
  .text.set_freq_32MHz
-                0x0000000000000000       0x54 /tmp/ccod7Puz.o
+                0x0000000000000000       0x54 /tmp/ccBG2CIM.o
  .text.set_freq_16MHz
-                0x0000000000000000       0x28 /tmp/ccod7Puz.o
+                0x0000000000000000       0x28 /tmp/ccBG2CIM.o
  .text.set_freq_sloth
-                0x0000000000000000       0x58 /tmp/ccod7Puz.o
- .text.rtc_enable
-                0x0000000000000000       0x26 /tmp/ccod7Puz.o
+                0x0000000000000000       0x58 /tmp/ccBG2CIM.o
+ .text.spi_send
+                0x0000000000000000       0x64 /tmp/ccBG2CIM.o
+ .text.spi_send_multiple
+                0x0000000000000000       0x88 /tmp/ccBG2CIM.o
+ .text.spi_receive
+                0x0000000000000000       0x62 /tmp/ccBG2CIM.o
+ .text.spi_receive_multiple
+                0x0000000000000000       0x90 /tmp/ccBG2CIM.o
+ .text.spi_close
+                0x0000000000000000      0x3c2 /tmp/ccBG2CIM.o
+ .sbss.taken    0x0000000000000000        0x4 /tmp/ccBG2CIM.o
  .text.wait_timer
-                0x0000000000000000       0x3e /tmp/ccod7Puz.o
+                0x0000000000000000       0x3e /tmp/ccBG2CIM.o
+ .text.clint_timer_interrupt_handler
+                0x0000000000000000       0x18 /tmp/ccBG2CIM.o
+ .text.handler  0x0000000000000000       0x34 /tmp/ccBG2CIM.o
+ COMMON         0x0000000000000000      0x274 /tmp/ccBG2CIM.o
  .text          0x0000000000000000        0x0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
  .data          0x0000000000000000        0x0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
  .bss           0x0000000000000000        0x0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
@@ -1721,7 +1741,7 @@ rom              0x0000000020010000 0x000000000006a120 xrl !aw
 
 Linker script and memory map
 
-LOAD /tmp/ccod7Puz.o
+LOAD /tmp/ccBG2CIM.o
 START GROUP
 LOAD /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a
 LOAD /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/rv32imac/ilp32/libgcc.a
@@ -1819,550 +1839,540 @@ END GROUP
  *(.dtors)
  *(.metal.dtors .metal.dtors.*)
 
-.rodata         0x0000000020010340      0xa54
+.rodata         0x0000000020010340      0xad4
  *(.rdata)
  *(.rodata .rodata.*)
+ .rodata.variant_pin_map
+                0x0000000020010340       0x50 /tmp/ccBG2CIM.o
+                0x0000000020010340                variant_pin_map
+ .rodata        0x0000000020010390       0x30 /tmp/ccBG2CIM.o
  .rodata.libgloss.start
-                0x0000000020010340       0x11 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
- *fill*         0x0000000020010351        0x3 
+                0x00000000200103c0       0x11 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+ *fill*         0x00000000200103d1        0x3 
  .rodata.__metal_driver_vtable_riscv_clint0
-                0x0000000020010354       0x64 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020010354                __metal_driver_vtable_riscv_clint0
+                0x00000000200103d4       0x64 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x00000000200103d4                __metal_driver_vtable_riscv_clint0
  .rodata.__metal_local_interrupt_enable
-                0x00000000200103b8       0x80 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020010438       0x80 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .rodata.__metal_driver_vtable_riscv_cpu_intc
-                0x0000000020010438       0x64 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020010438                __metal_driver_vtable_riscv_cpu_intc
+                0x00000000200104b8       0x64 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200104b8                __metal_driver_vtable_riscv_cpu_intc
  .rodata.__metal_driver_vtable_cpu
-                0x000000002001049c       0x44 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001049c                __metal_driver_vtable_cpu
+                0x000000002001051c       0x44 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001051c                __metal_driver_vtable_cpu
  .rodata.pll_configs
-                0x00000000200104e0      0x880 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020010560      0x880 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .rodata.__metal_driver_vtable_sifive_fe310_g000_pll
-                0x0000000020010d60        0xc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
-                0x0000000020010d60                __metal_driver_vtable_sifive_fe310_g000_pll
+                0x0000000020010de0        0xc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020010de0                __metal_driver_vtable_sifive_fe310_g000_pll
  *(.gnu.linkonce.r.*)
-                0x0000000020010d70                . = ALIGN (0x8)
- *fill*         0x0000000020010d6c        0x4 
+                0x0000000020010df0                . = ALIGN (0x8)
+ *fill*         0x0000000020010dec        0x4 
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
  *(.srodata.cst2)
  *(.srodata .srodata.*)
  .srodata._global_impure_ptr
-                0x0000000020010d70        0x4 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-impure.o)
-                0x0000000020010d70                _global_impure_ptr
+                0x0000000020010df0        0x4 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-impure.o)
+                0x0000000020010df0                _global_impure_ptr
  .srodata.__metal_driver_vtable_sifive_fe310_g000_hfrosc
-                0x0000000020010d74        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
-                0x0000000020010d74                __metal_driver_vtable_sifive_fe310_g000_hfrosc
+                0x0000000020010df4        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000020010df4                __metal_driver_vtable_sifive_fe310_g000_hfrosc
  .srodata.__metal_driver_vtable_sifive_fe310_g000_hfxosc
-                0x0000000020010d7c        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
-                0x0000000020010d7c                __metal_driver_vtable_sifive_fe310_g000_hfxosc
+                0x0000000020010dfc        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020010dfc                __metal_driver_vtable_sifive_fe310_g000_hfxosc
  .srodata.__metal_driver_vtable_sifive_fe310_g000_prci
-                0x0000000020010d84        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
-                0x0000000020010d84                __metal_driver_vtable_sifive_fe310_g000_prci
+                0x0000000020010e04        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+                0x0000000020010e04                __metal_driver_vtable_sifive_fe310_g000_prci
  .srodata.__metal_driver_vtable_fixed_clock
-                0x0000000020010d8c        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
-                0x0000000020010d8c                __metal_driver_vtable_fixed_clock
+                0x0000000020010e0c        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+                0x0000000020010e0c                __metal_driver_vtable_fixed_clock
 
-.itim           0x0000000008000000        0x0 load address 0x0000000020010d98
+.itim           0x0000000008000000        0x0 load address 0x0000000020010e18
  *(.itim .itim.*)
-                0x0000000020010d98                PROVIDE (metal_segment_itim_source_start = LOADADDR (.itim))
+                0x0000000020010e18                PROVIDE (metal_segment_itim_source_start = LOADADDR (.itim))
                 0x0000000008000000                PROVIDE (metal_segment_itim_target_start = ADDR (.itim))
                 0x0000000008000000                PROVIDE (metal_segment_itim_target_end = (ADDR (.itim) + SIZEOF (.itim)))
 
-.lim            0x0000000080000000        0x0 load address 0x0000000020010d98
+.lim            0x0000000080000000        0x0 load address 0x0000000020010e18
  *(.lim .lim.*)
-                0x0000000020010d98                PROVIDE (metal_segment_lim_source_start = LOADADDR (.lim))
+                0x0000000020010e18                PROVIDE (metal_segment_lim_source_start = LOADADDR (.lim))
                 0x0000000080000000                PROVIDE (metal_segment_lim_target_start = ADDR (.lim))
                 0x0000000080000000                PROVIDE (metal_segment_lim_target_end = (ADDR (.lim) + SIZEOF (.lim)))
 
-.text           0x0000000020010e00     0x3442
+.text           0x0000000020010e80     0x3742
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  *(.text .text.*)
- .text.plic_interrupt_enable
-                0x0000000020010e00       0x6a /tmp/ccod7Puz.o
-                0x0000000020010e00                plic_interrupt_enable
- .text.plic_interrupt_handler
-                0x0000000020010e6a       0x68 /tmp/ccod7Puz.o
-                0x0000000020010e6a                plic_interrupt_handler
- .text.interrupt_enable
-                0x0000000020010ed2       0x4a /tmp/ccod7Puz.o
-                0x0000000020010ed2                interrupt_enable
- *fill*         0x0000000020010f1c       0x24 
- .text.interrupt_service_routine
-                0x0000000020010f40       0xb6 /tmp/ccod7Puz.o
-                0x0000000020010f40                interrupt_service_routine
  .text.set_freq_320MHz
-                0x0000000020010ff6       0x48 /tmp/ccod7Puz.o
-                0x0000000020010ff6                set_freq_320MHz
- .text.rtc_next_wake_time
-                0x000000002001103e       0xb6 /tmp/ccod7Puz.o
-                0x000000002001103e                rtc_next_wake_time
- .text.main     0x00000000200110f4      0x176 /tmp/ccod7Puz.o
-                0x00000000200110f4                main
- .text.clint_timer_interrupt_handler
-                0x000000002001126a       0x22 /tmp/ccod7Puz.o
-                0x000000002001126a                clint_timer_interrupt_handler
- .text.handler  0x000000002001128c       0x34 /tmp/ccod7Puz.o
-                0x000000002001128c                handler
- .text.atexit   0x00000000200112c0        0xa /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-atexit.o)
-                0x00000000200112c0                atexit
- .text.exit     0x00000000200112ca       0x2a /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-exit.o)
-                0x00000000200112ca                exit
+                0x0000000020010e80       0x48 /tmp/ccBG2CIM.o
+                0x0000000020010e80                set_freq_320MHz
+ .text.delay    0x0000000020010ec8       0x30 /tmp/ccBG2CIM.o
+                0x0000000020010ec8                delay
+ .text.spi_init
+                0x0000000020010ef8      0x1a4 /tmp/ccBG2CIM.o
+                0x0000000020010ef8                spi_init
+ .text.spi_set_cs
+                0x000000002001109c      0x180 /tmp/ccBG2CIM.o
+                0x000000002001109c                spi_set_cs
+ .text.spi_transmit
+                0x000000002001121c       0xb6 /tmp/ccBG2CIM.o
+                0x000000002001121c                spi_transmit
+ .text.main     0x00000000200112d2      0x298 /tmp/ccBG2CIM.o
+                0x00000000200112d2                main
+ .text.atexit   0x000000002001156a        0xa /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-atexit.o)
+                0x000000002001156a                atexit
+ .text.exit     0x0000000020011574       0x2a /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-exit.o)
+                0x0000000020011574                exit
  .text.__libc_fini_array
-                0x00000000200112f4       0x36 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-fini.o)
-                0x00000000200112f4                __libc_fini_array
+                0x000000002001159e       0x36 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-fini.o)
+                0x000000002001159e                __libc_fini_array
  .text.__libc_init_array
-                0x000000002001132a       0x5e /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-init.o)
-                0x000000002001132a                __libc_init_array
+                0x00000000200115d4       0x5e /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-init.o)
+                0x00000000200115d4                __libc_init_array
  .text.__register_exitproc
-                0x0000000020011388       0x7c /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__atexit.o)
-                0x0000000020011388                __register_exitproc
+                0x0000000020011632       0x7c /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__atexit.o)
+                0x0000000020011632                __register_exitproc
  .text.__call_exitprocs
-                0x0000000020011404       0xc8 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__call_atexit.o)
-                0x0000000020011404                __call_exitprocs
+                0x00000000200116ae       0xc8 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__call_atexit.o)
+                0x00000000200116ae                __call_exitprocs
  .text.metal_init
-                0x00000000200114cc       0x78 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
-                0x00000000200114cc                metal_init
+                0x0000000020011776       0x78 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x0000000020011776                metal_init
  .text.metal_fini
-                0x0000000020011544       0x78 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
-                0x0000000020011544                metal_fini
+                0x00000000200117ee       0x78 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x00000000200117ee                metal_fini
  .text.metal_init_run
-                0x00000000200115bc       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
-                0x00000000200115bc                metal_init_run
+                0x0000000020011866       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x0000000020011866                metal_init_run
  .text.metal_fini_run
-                0x00000000200115d0       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
-                0x00000000200115d0                metal_fini_run
+                0x000000002001187a       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x000000002001187a                metal_fini_run
  .text.__metal_driver_sifive_clint0_control_base
-                0x00000000200115e4       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x000000002001188e       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .text.__metal_driver_sifive_clint0_num_interrupts
-                0x000000002001160a       0x24 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x00000000200118b8       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .text.__metal_driver_sifive_clint0_interrupt_parents
-                0x000000002001162e       0x3c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x00000000200118e0       0x3c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .text.__metal_driver_sifive_clint0_interrupt_lines
-                0x000000002001166a       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x000000002001191c       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .text.__metal_clint0_mtime_get
-                0x000000002001169a       0x9a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x000000002001169a                __metal_clint0_mtime_get
+                0x000000002001194c       0x9a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x000000002001194c                __metal_clint0_mtime_get
  .text.__metal_driver_riscv_clint0_mtimecmp_set
-                0x0000000020011734       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011734                __metal_driver_riscv_clint0_mtimecmp_set
+                0x00000000200119e6       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x00000000200119e6                __metal_driver_riscv_clint0_mtimecmp_set
  .text._get_cpu_intc
-                0x00000000200117ca       0x36 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011a7c       0x36 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .text.__metal_driver_riscv_clint0_init
-                0x0000000020011800       0x88 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011800                __metal_driver_riscv_clint0_init
+                0x0000000020011ab2       0x88 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011ab2                __metal_driver_riscv_clint0_init
  .text.__metal_driver_riscv_clint0_register
-                0x0000000020011888       0xda /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011888                __metal_driver_riscv_clint0_register
+                0x0000000020011b3a       0xda /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011b3a                __metal_driver_riscv_clint0_register
  .text.__metal_driver_riscv_clint0_vector_register
-                0x0000000020011962       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011962                __metal_driver_riscv_clint0_vector_register
+                0x0000000020011c14       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011c14                __metal_driver_riscv_clint0_vector_register
  .text.__metal_driver_riscv_clint0_get_vector_mode
-                0x000000002001198a       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x000000002001198a                __metal_driver_riscv_clint0_get_vector_mode
+                0x0000000020011c3c       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011c3c                __metal_driver_riscv_clint0_get_vector_mode
  .text.__metal_driver_riscv_clint0_set_vector_mode
-                0x00000000200119a6       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x00000000200119a6                __metal_driver_riscv_clint0_set_vector_mode
+                0x0000000020011c58       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011c58                __metal_driver_riscv_clint0_set_vector_mode
  .text.__metal_driver_riscv_clint0_enable
-                0x00000000200119fe       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x00000000200119fe                __metal_driver_riscv_clint0_enable
+                0x0000000020011cb0       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011cb0                __metal_driver_riscv_clint0_enable
  .text.__metal_driver_riscv_clint0_disable
-                0x0000000020011ab0       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011ab0                __metal_driver_riscv_clint0_disable
+                0x0000000020011d62       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011d62                __metal_driver_riscv_clint0_disable
  .text.__metal_driver_riscv_clint0_command_request
-                0x0000000020011b62      0x13c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011b62                __metal_driver_riscv_clint0_command_request
+                0x0000000020011e14      0x13c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011e14                __metal_driver_riscv_clint0_command_request
  .text.__metal_driver_riscv_clint0_clear_interrupt
-                0x0000000020011c9e       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011c9e                __metal_driver_riscv_clint0_clear_interrupt
+                0x0000000020011f50       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011f50                __metal_driver_riscv_clint0_clear_interrupt
  .text.__metal_driver_riscv_clint0_set_interrupt
-                0x0000000020011cd2       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
-                0x0000000020011cd2                __metal_driver_riscv_clint0_set_interrupt
+                0x0000000020011f84       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000020011f84                __metal_driver_riscv_clint0_set_interrupt
  .text.__metal_driver_cpu_hartid
-                0x0000000020011d06       0x24 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020011fb8       0x24 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .text.__metal_driver_cpu_timebase
-                0x0000000020011d2a       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020011fdc       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .text.__metal_driver_cpu_interrupt_controller
-                0x0000000020011d54       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012006       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .text.__metal_driver_cpu_buserror
-                0x0000000020011d7e       0x24 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012030       0x24 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .text.__metal_driver_cpu_get
-                0x0000000020011da2       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011da2                __metal_driver_cpu_get
+                0x0000000020012054       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012054                __metal_driver_cpu_get
  .text.__metal_myhart_id
-                0x0000000020011dce       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011dce                __metal_myhart_id
+                0x0000000020012084       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012084                __metal_myhart_id
  .text.__metal_interrupt_global_enable
-                0x0000000020011de8       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011de8                __metal_interrupt_global_enable
+                0x000000002001209e       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001209e                __metal_interrupt_global_enable
  .text.__metal_interrupt_global_disable
-                0x0000000020011e00       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e00                __metal_interrupt_global_disable
+                0x00000000200120b6       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200120b6                __metal_interrupt_global_disable
  .text.__metal_interrupt_software_enable
-                0x0000000020011e18       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e18                __metal_interrupt_software_enable
+                0x00000000200120ce       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200120ce                __metal_interrupt_software_enable
  .text.__metal_interrupt_software_disable
-                0x0000000020011e30       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e30                __metal_interrupt_software_disable
+                0x00000000200120e6       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200120e6                __metal_interrupt_software_disable
  .text.__metal_interrupt_timer_enable
-                0x0000000020011e48       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e48                __metal_interrupt_timer_enable
+                0x00000000200120fe       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200120fe                __metal_interrupt_timer_enable
  .text.__metal_interrupt_timer_disable
-                0x0000000020011e62       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e62                __metal_interrupt_timer_disable
+                0x0000000020012118       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012118                __metal_interrupt_timer_disable
  .text.__metal_interrupt_external_enable
-                0x0000000020011e7c       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e7c                __metal_interrupt_external_enable
+                0x0000000020012132       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012132                __metal_interrupt_external_enable
  .text.__metal_interrupt_external_disable
-                0x0000000020011e98       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011e98                __metal_interrupt_external_disable
+                0x000000002001214e       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001214e                __metal_interrupt_external_disable
  .text.__metal_interrupt_local_enable
-                0x0000000020011eb4       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011eb4                __metal_interrupt_local_enable
+                0x000000002001216a       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001216a                __metal_interrupt_local_enable
  .text.__metal_interrupt_local_disable
-                0x0000000020011ee0       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011ee0                __metal_interrupt_local_disable
+                0x0000000020012196       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012196                __metal_interrupt_local_disable
  .text.__metal_default_exception_handler
-                0x0000000020011f0c       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011f0c                __metal_default_exception_handler
+                0x00000000200121c2       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200121c2                __metal_default_exception_handler
  .text.__metal_default_interrupt_handler
-                0x0000000020011f24       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011f24                __metal_default_interrupt_handler
+                0x00000000200121da       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200121da                __metal_default_interrupt_handler
  .text.metal_interrupt_vector_handler
-                0x0000000020011f3c       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011f3c                metal_interrupt_vector_handler
+                0x00000000200121f2       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200121f2                metal_interrupt_vector_handler
  .text.metal_software_interrupt_vector_handler
-                0x0000000020011f6a       0x8e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011f6a                metal_software_interrupt_vector_handler
+                0x0000000020012220       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012220                metal_software_interrupt_vector_handler
  .text.__metal_default_sw_handler
-                0x0000000020011ff8       0x64 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020011ff8                __metal_default_sw_handler
+                0x00000000200122b2       0x68 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200122b2                __metal_default_sw_handler
  .text.metal_timer_interrupt_vector_handler
-                0x000000002001205c       0x8e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001205c                metal_timer_interrupt_vector_handler
+                0x000000002001231a       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001231a                metal_timer_interrupt_vector_handler
  .text.__metal_default_beu_handler
-                0x00000000200120ea       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200120ea                __metal_default_beu_handler
+                0x00000000200123ac       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200123ac                __metal_default_beu_handler
  .text.__metal_default_timer_handler
-                0x0000000020012100       0x66 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012100                __metal_default_timer_handler
- *fill*         0x0000000020012166       0x1a 
+                0x00000000200123c2       0x66 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200123c2                __metal_default_timer_handler
+ *fill*         0x0000000020012428       0x58 
  .text.__metal_exception_handler
-                0x0000000020012180      0x1f2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012180                __metal_exception_handler
+                0x0000000020012480      0x1f6 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012480                __metal_exception_handler
  .text.metal_lc0_interrupt_vector_handler
-                0x0000000020012372       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012372                metal_lc0_interrupt_vector_handler
+                0x0000000020012676       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012676                metal_lc0_interrupt_vector_handler
  .text.metal_lc1_interrupt_vector_handler
-                0x0000000020012404       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012404                metal_lc1_interrupt_vector_handler
+                0x000000002001270c       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001270c                metal_lc1_interrupt_vector_handler
  .text.metal_lc2_interrupt_vector_handler
-                0x0000000020012496       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012496                metal_lc2_interrupt_vector_handler
+                0x00000000200127a2       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200127a2                metal_lc2_interrupt_vector_handler
  .text.metal_lc3_interrupt_vector_handler
-                0x0000000020012528       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012528                metal_lc3_interrupt_vector_handler
+                0x0000000020012838       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012838                metal_lc3_interrupt_vector_handler
  .text.metal_lc4_interrupt_vector_handler
-                0x00000000200125ba       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200125ba                metal_lc4_interrupt_vector_handler
+                0x00000000200128ce       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200128ce                metal_lc4_interrupt_vector_handler
  .text.metal_lc5_interrupt_vector_handler
-                0x000000002001264c       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001264c                metal_lc5_interrupt_vector_handler
+                0x0000000020012964       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012964                metal_lc5_interrupt_vector_handler
  .text.metal_lc6_interrupt_vector_handler
-                0x00000000200126de       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200126de                metal_lc6_interrupt_vector_handler
+                0x00000000200129fa       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200129fa                metal_lc6_interrupt_vector_handler
  .text.metal_lc7_interrupt_vector_handler
-                0x0000000020012770       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012770                metal_lc7_interrupt_vector_handler
+                0x0000000020012a90       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012a90                metal_lc7_interrupt_vector_handler
  .text.metal_lc8_interrupt_vector_handler
-                0x0000000020012802       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012802                metal_lc8_interrupt_vector_handler
+                0x0000000020012b26       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012b26                metal_lc8_interrupt_vector_handler
  .text.metal_lc9_interrupt_vector_handler
-                0x0000000020012894       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012894                metal_lc9_interrupt_vector_handler
+                0x0000000020012bbc       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012bbc                metal_lc9_interrupt_vector_handler
  .text.metal_lc10_interrupt_vector_handler
-                0x0000000020012926       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012926                metal_lc10_interrupt_vector_handler
+                0x0000000020012c52       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012c52                metal_lc10_interrupt_vector_handler
  .text.metal_lc11_interrupt_vector_handler
-                0x00000000200129b8       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200129b8                metal_lc11_interrupt_vector_handler
+                0x0000000020012ce8       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012ce8                metal_lc11_interrupt_vector_handler
  .text.metal_lc12_interrupt_vector_handler
-                0x0000000020012a4a       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012a4a                metal_lc12_interrupt_vector_handler
+                0x0000000020012d7e       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012d7e                metal_lc12_interrupt_vector_handler
  .text.metal_lc13_interrupt_vector_handler
-                0x0000000020012adc       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012adc                metal_lc13_interrupt_vector_handler
+                0x0000000020012e14       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012e14                metal_lc13_interrupt_vector_handler
  .text.metal_lc14_interrupt_vector_handler
-                0x0000000020012b6e       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012b6e                metal_lc14_interrupt_vector_handler
+                0x0000000020012eaa       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012eaa                metal_lc14_interrupt_vector_handler
  .text.metal_lc15_interrupt_vector_handler
-                0x0000000020012c00       0x92 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012c00                metal_lc15_interrupt_vector_handler
+                0x0000000020012f40       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012f40                metal_lc15_interrupt_vector_handler
  .text.__metal_controller_interrupt_vector_mode
-                0x0000000020012c92       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012c92                __metal_controller_interrupt_vector_mode
+                0x0000000020012fd6       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020012fd6                __metal_controller_interrupt_vector_mode
  .text.__metal_controller_interrupt_vector
-                0x0000000020012cea       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012cea                __metal_controller_interrupt_vector
+                0x000000002001302e       0xb2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001302e                __metal_controller_interrupt_vector
  .text.__metal_valid_interrupt_id
-                0x0000000020012d9c       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012d9c                __metal_valid_interrupt_id
+                0x00000000200130e0       0x58 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200130e0                __metal_valid_interrupt_id
  .text.__metal_local_interrupt_enable
-                0x0000000020012df4       0xbc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012df4                __metal_local_interrupt_enable
+                0x0000000020013138       0xbc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013138                __metal_local_interrupt_enable
  .text.__metal_exception_register
-                0x0000000020012eb0       0x4e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012eb0                __metal_exception_register
+                0x00000000200131f4       0x4e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200131f4                __metal_exception_register
  .text.__metal_driver_riscv_cpu_controller_interrupt_init
-                0x0000000020012efe       0xe2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012efe                __metal_driver_riscv_cpu_controller_interrupt_init
+                0x0000000020013242       0xe2 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013242                __metal_driver_riscv_cpu_controller_interrupt_init
  .text.__metal_driver_riscv_cpu_controller_interrupt_register
-                0x0000000020012fe0      0x1e0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020012fe0                __metal_driver_riscv_cpu_controller_interrupt_register
+                0x0000000020013324      0x1e0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013324                __metal_driver_riscv_cpu_controller_interrupt_register
  .text.__metal_driver_riscv_cpu_controller_interrupt_enable
-                0x00000000200131c0       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200131c0                __metal_driver_riscv_cpu_controller_interrupt_enable
+                0x0000000020013504       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013504                __metal_driver_riscv_cpu_controller_interrupt_enable
  .text.__metal_driver_riscv_cpu_controller_interrupt_disable
-                0x00000000200131ea       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200131ea                __metal_driver_riscv_cpu_controller_interrupt_disable
+                0x000000002001352e       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001352e                __metal_driver_riscv_cpu_controller_interrupt_disable
  .text.__metal_driver_riscv_cpu_controller_get_vector_mode
-                0x0000000020013214       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013214                __metal_driver_riscv_cpu_controller_get_vector_mode
+                0x0000000020013558       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013558                __metal_driver_riscv_cpu_controller_get_vector_mode
  .text.__metal_driver_riscv_cpu_controller_set_vector_mode
-                0x0000000020013230       0x54 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013230                __metal_driver_riscv_cpu_controller_set_vector_mode
+                0x0000000020013572       0x50 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013572                __metal_driver_riscv_cpu_controller_set_vector_mode
  .text.__metal_driver_riscv_cpu_controller_command_request
-                0x0000000020013284       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013284                __metal_driver_riscv_cpu_controller_command_request
+                0x00000000200135c2       0x1c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200135c2                __metal_driver_riscv_cpu_controller_command_request
  .text.__metal_driver_cpu_mcycle_get
-                0x00000000200132a0       0x70 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200132a0                __metal_driver_cpu_mcycle_get
+                0x00000000200135de       0x70 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200135de                __metal_driver_cpu_mcycle_get
  .text.__metal_driver_cpu_timebase_get
-                0x0000000020013310       0x46 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013310                __metal_driver_cpu_timebase_get
+                0x000000002001364e       0x46 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001364e                __metal_driver_cpu_timebase_get
  .text.__metal_driver_cpu_mtime_get
-                0x0000000020013356       0x66 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013356                __metal_driver_cpu_mtime_get
+                0x0000000020013694       0x66 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013694                __metal_driver_cpu_mtime_get
  .text.__metal_driver_cpu_mtimecmp_set
-                0x00000000200133bc       0x76 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200133bc                __metal_driver_cpu_mtimecmp_set
+                0x00000000200136fa       0x76 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200136fa                __metal_driver_cpu_mtimecmp_set
  .text.__metal_driver_cpu_timer_controller_interrupt
-                0x0000000020013432       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013432                __metal_driver_cpu_timer_controller_interrupt
+                0x0000000020013770       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013770                __metal_driver_cpu_timer_controller_interrupt
  .text.__metal_driver_cpu_get_timer_interrupt_id
-                0x0000000020013448       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013448                __metal_driver_cpu_get_timer_interrupt_id
+                0x000000002001378a       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001378a                __metal_driver_cpu_get_timer_interrupt_id
  .text.__metal_driver_cpu_sw_controller_interrupt
-                0x000000002001345c       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001345c                __metal_driver_cpu_sw_controller_interrupt
+                0x000000002001379e       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001379e                __metal_driver_cpu_sw_controller_interrupt
  .text.__metal_driver_cpu_get_sw_interrupt_id
-                0x0000000020013472       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013472                __metal_driver_cpu_get_sw_interrupt_id
+                0x00000000200137b8       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200137b8                __metal_driver_cpu_get_sw_interrupt_id
  .text.__metal_driver_cpu_set_sw_ipi
-                0x0000000020013486       0x62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013486                __metal_driver_cpu_set_sw_ipi
+                0x00000000200137cc       0x62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200137cc                __metal_driver_cpu_set_sw_ipi
  .text.__metal_driver_cpu_clear_sw_ipi
-                0x00000000200134e8       0x62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200134e8                __metal_driver_cpu_clear_sw_ipi
+                0x000000002001382e       0x62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x000000002001382e                __metal_driver_cpu_clear_sw_ipi
  .text.__metal_driver_cpu_get_msip
-                0x000000002001354a       0x60 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001354a                __metal_driver_cpu_get_msip
+                0x0000000020013890       0x60 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013890                __metal_driver_cpu_get_msip
  .text.__metal_driver_cpu_controller_interrupt
-                0x00000000200135aa       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200135aa                __metal_driver_cpu_controller_interrupt
+                0x00000000200138f0       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200138f0                __metal_driver_cpu_controller_interrupt
  .text.__metal_driver_cpu_exception_register
-                0x00000000200135ca       0x46 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x00000000200135ca                __metal_driver_cpu_exception_register
+                0x0000000020013910       0x46 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013910                __metal_driver_cpu_exception_register
  .text.__metal_driver_cpu_get_instruction_length
-                0x0000000020013610       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x0000000020013610                __metal_driver_cpu_get_instruction_length
+                0x0000000020013956       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013956                __metal_driver_cpu_get_instruction_length
  .text.__metal_driver_cpu_get_exception_pc
-                0x000000002001363e       0x1e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001363e                __metal_driver_cpu_get_exception_pc
+                0x0000000020013984       0x1e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x0000000020013984                __metal_driver_cpu_get_exception_pc
  .text.__metal_driver_cpu_set_exception_pc
-                0x000000002001365c       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001365c                __metal_driver_cpu_set_exception_pc
+                0x00000000200139a2       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200139a2                __metal_driver_cpu_set_exception_pc
  .text.__metal_driver_cpu_get_buserror
-                0x000000002001367c       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
-                0x000000002001367c                __metal_driver_cpu_get_buserror
+                0x00000000200139c2       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000200139c2                __metal_driver_cpu_get_buserror
  .text.__metal_driver_sifive_fe310_g000_hfrosc_ref
-                0x000000002001369c       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x00000000200139e2       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfrosc_config_base
-                0x00000000200136b6       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x00000000200139fc       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfrosc_config_offset
-                0x00000000200136cc       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000020013a12       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
  .text.__metal_driver_sifive_fe310_g000_prci_vtable
-                0x00000000200136e0       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000020013a26       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfrosc_get_rate_hz
-                0x00000000200136f6       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
-                0x00000000200136f6                __metal_driver_sifive_fe310_g000_hfrosc_get_rate_hz
+                0x0000000020013a3c       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000020013a3c                __metal_driver_sifive_fe310_g000_hfrosc_get_rate_hz
  .text.__metal_driver_sifive_fe310_g000_hfrosc_set_rate_hz
-                0x000000002001377a       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
-                0x000000002001377a                __metal_driver_sifive_fe310_g000_hfrosc_set_rate_hz
+                0x0000000020013ac0       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000020013ac0                __metal_driver_sifive_fe310_g000_hfrosc_set_rate_hz
  .text.__metal_driver_sifive_fe310_g000_hfxosc_ref
-                0x000000002001379c       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013ae2       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfxosc_config_base
-                0x00000000200137b6       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013afc       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfxosc_config_offset
-                0x00000000200137cc       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013b12       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
  .text.__metal_driver_sifive_fe310_g000_prci_vtable
-                0x00000000200137e0       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013b26       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
  .text.__metal_driver_sifive_fe310_g000_hfxosc_get_rate_hz
-                0x00000000200137f6       0x74 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
-                0x00000000200137f6                __metal_driver_sifive_fe310_g000_hfxosc_get_rate_hz
+                0x0000000020013b3c       0x74 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013b3c                __metal_driver_sifive_fe310_g000_hfxosc_get_rate_hz
  .text.__metal_driver_sifive_fe310_g000_hfxosc_set_rate_hz
-                0x000000002001386a       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
-                0x000000002001386a                __metal_driver_sifive_fe310_g000_hfxosc_set_rate_hz
+                0x0000000020013bb0       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000020013bb0                __metal_driver_sifive_fe310_g000_hfxosc_set_rate_hz
  .text.__metal_driver_sifive_fe310_g000_pll_pllsel0
-                0x000000002001388c       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013bd2       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_pllref
-                0x00000000200138a6       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013bec       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_divider_base
-                0x00000000200138c0       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c06       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_divider_offset
-                0x00000000200138d6       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c1c       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_config_base
-                0x00000000200138ea       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c30       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_config_offset
-                0x00000000200138fc       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c42       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_init_rate
-                0x000000002001390c       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c52       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_prci_base
-                0x0000000020013922       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c68       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_prci_vtable
-                0x0000000020013934       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c7a       0x16 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.get_pll_config_freq
-                0x000000002001394a       0x4e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013c90       0x4e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_init
-                0x0000000020013998       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
-                0x0000000020013998                __metal_driver_sifive_fe310_g000_pll_init
+                0x0000000020013cde       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013cde                __metal_driver_sifive_fe310_g000_pll_init
  .text.__metal_driver_sifive_fe310_g000_pll_get_rate_hz
-                0x0000000020013a38      0x16c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
-                0x0000000020013a38                __metal_driver_sifive_fe310_g000_pll_get_rate_hz
+                0x0000000020013d7e      0x16c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013d7e                __metal_driver_sifive_fe310_g000_pll_get_rate_hz
  .text.find_closest_config
-                0x0000000020013ba4       0xaa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013eea       0xaa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.configure_pll
-                0x0000000020013c4e      0x1a8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020013f94      0x1b0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .text.__metal_driver_sifive_fe310_g000_pll_set_rate_hz
-                0x0000000020013df6      0x160 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
-                0x0000000020013df6                __metal_driver_sifive_fe310_g000_pll_set_rate_hz
+                0x0000000020014144      0x160 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x0000000020014144                __metal_driver_sifive_fe310_g000_pll_set_rate_hz
  .text.__metal_driver_sifive_fe310_g000_prci_base
-                0x0000000020013f56       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+                0x00000000200142a4       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
  .text.__metal_driver_sifive_fe310_g000_prci_get_reg
-                0x0000000020013f68       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
-                0x0000000020013f68                __metal_driver_sifive_fe310_g000_prci_get_reg
+                0x00000000200142b6       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+                0x00000000200142b6                __metal_driver_sifive_fe310_g000_prci_get_reg
  .text.__metal_driver_sifive_fe310_g000_prci_set_reg
-                0x0000000020013f96       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
-                0x0000000020013f96                __metal_driver_sifive_fe310_g000_prci_set_reg
+                0x00000000200142e4       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+                0x00000000200142e4                __metal_driver_sifive_fe310_g000_prci_set_reg
  .text._metal_clock_call_all_callbacks
-                0x0000000020013fce       0x42 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
-                0x0000000020013fce                _metal_clock_call_all_callbacks
+                0x000000002001431c       0x42 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+                0x000000002001431c                _metal_clock_call_all_callbacks
  .text.metal_clock_get_rate_hz
-                0x0000000020014010       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
-                0x0000000020014010                metal_clock_get_rate_hz
+                0x000000002001435e       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+                0x000000002001435e                metal_clock_get_rate_hz
  .text.metal_clock_set_rate_hz
-                0x0000000020014036       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
-                0x0000000020014036                metal_clock_set_rate_hz
+                0x0000000020014384       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+                0x0000000020014384                metal_clock_set_rate_hz
  .text.metal_cpu_interrupt_controller
-                0x000000002001407e       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
-                0x000000002001407e                metal_cpu_interrupt_controller
+                0x00000000200143cc       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+                0x00000000200143cc                metal_cpu_interrupt_controller
  .text.metal_cpu_get
-                0x00000000200140a4       0x2a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
-                0x00000000200140a4                metal_cpu_get
+                0x00000000200143f2       0x2e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+                0x00000000200143f2                metal_cpu_get
  .text.metal_cpu_get_current_hartid
-                0x00000000200140ce       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
-                0x00000000200140ce                metal_cpu_get_current_hartid
+                0x0000000020014420       0x1a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+                0x0000000020014420                metal_cpu_get_current_hartid
  .text.metal_shutdown
-                0x00000000200140e8        0xe /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
-                0x00000000200140e8                metal_shutdown
- *fill*         0x00000000200140f6        0xa 
- .text          0x0000000020014100       0x80 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
-                0x0000000020014100                __metal_vector_table
+                0x000000002001443a        0xe /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+                0x000000002001443a                metal_shutdown
+ *fill*         0x0000000020014448       0x38 
+ .text          0x0000000020014480       0x80 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+                0x0000000020014480                __metal_vector_table
  .text.__metal_driver_fixed_clock_rate
-                0x0000000020014180       0x70 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+                0x0000000020014500       0x70 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
  .text.__metal_driver_fixed_clock_get_rate_hz
-                0x00000000200141f0       0x1e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
-                0x00000000200141f0                __metal_driver_fixed_clock_get_rate_hz
+                0x0000000020014570       0x1e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+                0x0000000020014570                __metal_driver_fixed_clock_get_rate_hz
  .text.__metal_driver_fixed_clock_set_rate_hz
-                0x000000002001420e       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
-                0x000000002001420e                __metal_driver_fixed_clock_set_rate_hz
- .text._exit    0x0000000020014230       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
-                0x0000000020014230                _exit
+                0x000000002001458e       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+                0x000000002001458e                __metal_driver_fixed_clock_set_rate_hz
+ .text._exit    0x00000000200145b0       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+                0x00000000200145b0                _exit
  *(.gnu.linkonce.t.*)
 
-.rela.dyn       0x0000000020014244        0x0
- .rela.text.plic_interrupt_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
- .rela.text.main
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+.rela.dyn       0x00000000200145c4        0x0
  .rela.text.metal.init.enter
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal.init.scrub
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.libgloss.start
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__libc_fini_array
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.data.impure_data
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__libc_init_array
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__register_exitproc
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_init
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_fini
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__metal_driver_cpu_get
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_software_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__metal_default_sw_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_timer_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.__metal_exception_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc0_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc1_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc2_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc3_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc4_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc5_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc6_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc7_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc8_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc9_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc10_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc11_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc12_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc13_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc14_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_lc15_interrupt_vector_handler
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
  .rela.text.metal_cpu_get
-                0x0000000020014244        0x0 /tmp/ccod7Puz.o
- .rela.text     0x0000000020014244        0x0 /tmp/ccod7Puz.o
+                0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
+ .rela.text     0x00000000200145c4        0x0 /tmp/ccBG2CIM.o
 
-.data           0x0000000080000000      0x4ac load address 0x0000000020014248
+.data           0x0000000080000000      0x4a4 load address 0x00000000200145c8
  *(.data .data.*)
  .data.impure_data
                 0x0000000080000000       0x60 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-impure.o)
@@ -2396,84 +2406,73 @@ END GROUP
                 0x0000000080000c88                PROVIDE (__global_pointer$ = (. + 0x800))
  *(.sdata .sdata.* .sdata2.*)
  .sdata.cpu_freq
-                0x0000000080000488        0x4 /tmp/ccod7Puz.o
+                0x0000000080000488        0x4 /tmp/ccBG2CIM.o
                 0x0000000080000488                cpu_freq
- .sdata.mtimecmp
-                0x000000008000048c        0x4 /tmp/ccod7Puz.o
-                0x000000008000048c                mtimecmp
- .sdata.mtime   0x0000000080000490        0x4 /tmp/ccod7Puz.o
-                0x0000000080000490                mtime
  .sdata.__metal_cpu_table
-                0x0000000080000494        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
-                0x0000000080000494                __metal_cpu_table
+                0x000000008000048c        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+                0x000000008000048c                __metal_cpu_table
  .sdata.__metal_dt_clint_2000000
-                0x0000000080000498        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
-                0x0000000080000498                __metal_dt_clint_2000000
+                0x0000000080000490        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+                0x0000000080000490                __metal_dt_clint_2000000
  .sdata.__metal_dt_cpu_0
-                0x00000000800004a0        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
-                0x00000000800004a0                __metal_dt_cpu_0
+                0x0000000080000498        0x8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+                0x0000000080000498                __metal_dt_cpu_0
  .sdata.__metal_dt_prci_10008000
-                0x00000000800004a8        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
-                0x00000000800004a8                __metal_dt_prci_10008000
+                0x00000000800004a0        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+                0x00000000800004a0                __metal_dt_prci_10008000
  *(.gnu.linkonce.s.*)
 
-.tdata          0x00000000800004b0        0x0 load address 0x00000000200146f8
-                0x00000000800004b0                PROVIDE (__tls_base = .)
+.tdata          0x00000000800004a8        0x0 load address 0x0000000020014a70
+                0x00000000800004a8                PROVIDE (__tls_base = .)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 [!provide]                        PROVIDE (__tdata_source = LOADADDR (.tdata))
                 [!provide]                        PROVIDE (__tdata_size = SIZEOF (.tdata))
-                0x0000000020014248                PROVIDE (metal_segment_data_source_start = LOADADDR (.data))
+                0x00000000200145c8                PROVIDE (metal_segment_data_source_start = LOADADDR (.data))
                 0x0000000080000000                PROVIDE (metal_segment_data_target_start = ADDR (.data))
-                0x00000000800004b0                PROVIDE (metal_segment_data_target_end = (ADDR (.tdata) + SIZEOF (.tdata)))
+                0x00000000800004a8                PROVIDE (metal_segment_data_target_end = (ADDR (.tdata) + SIZEOF (.tdata)))
 
-.tbss           0x00000000800004b0        0x0
+.tbss           0x00000000800004a8        0x0
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon .tcommon.*)
                 [!provide]                        PROVIDE (__tls_end = .)
                 0x0000000000000000                PROVIDE (__tbss_size = SIZEOF (.tbss))
                 [!provide]                        PROVIDE (__tls_size = (__tls_end - __tls_base))
 
-.tbss_space     0x00000000800004b0        0x0
-                0x00000000800004b0                . = (. + __tbss_size)
+.tbss_space     0x00000000800004a8        0x0
+                0x00000000800004a8                . = (. + __tbss_size)
 
-.bss            0x00000000800004b0      0x310
+.bss            0x00000000800004a8       0x98
  *(.sbss*)
- .sbss.taken    0x00000000800004b0        0x4 /tmp/ccod7Puz.o
-                0x00000000800004b0                taken
- .sbss.taken2   0x00000000800004b4        0x4 /tmp/ccod7Puz.o
-                0x00000000800004b4                taken2
  .sbss._global_atexit
-                0x00000000800004b8        0x4 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__call_atexit.o)
-                0x00000000800004b8                _global_atexit
+                0x00000000800004a8        0x4 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__call_atexit.o)
+                0x00000000800004a8                _global_atexit
  .sbss.init_done.1
-                0x00000000800004bc        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x00000000800004ac        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
  .sbss.fini_done.0
-                0x00000000800004c0        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x00000000800004b0        0x4 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
  *(.gnu.linkonce.sb.*)
  *(.bss .bss.*)
  .bss._global_atexit0
-                0x00000000800004c4       0x8c /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__atexit.o)
+                0x00000000800004b4       0x8c /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-__atexit.o)
  *(.gnu.linkonce.b.*)
  *(COMMON)
- COMMON         0x0000000080000550      0x270 /tmp/ccod7Puz.o
-                0x0000000080000550                irq_functions
                 [!provide]                        PROVIDE (metal_segment_bss_source_start = LOADADDR (.tbss))
-                0x00000000800004b0                PROVIDE (metal_segment_bss_target_start = ADDR (.tbss))
-                0x00000000800007c0                PROVIDE (metal_segment_bss_target_end = (ADDR (.bss) + SIZEOF (.bss)))
+                0x00000000800004a8                PROVIDE (metal_segment_bss_target_start = ADDR (.tbss))
+                0x0000000080000540                PROVIDE (metal_segment_bss_target_end = (ADDR (.bss) + SIZEOF (.bss)))
 
-.stack          0x00000000800007c0      0x400
+.stack          0x0000000080000540      0x400
                 [!provide]                        PROVIDE (metal_segment_stack_begin = .)
-                0x0000000080000bc0                . = (. + __stack_size)
- *fill*         0x00000000800007c0      0x400 
-                0x0000000080000bc0                PROVIDE (_sp = .)
+                0x0000000080000940                . = (. + __stack_size)
+ *fill*         0x0000000080000540      0x400 
+                0x0000000080000940                PROVIDE (_sp = .)
                 [!provide]                        PROVIDE (metal_segment_stack_end = .)
 
-.heap           0x0000000080000bc0      0x800
+.heap           0x0000000080000940      0x800
                 [!provide]                        PROVIDE (__end = .)
                 [!provide]                        PROVIDE (__heap_start = .)
                 [!provide]                        PROVIDE (metal_segment_heap_target_start = .)
                 0x0000000000000800                . = DEFINED (__heap_max)?MIN ((LENGTH (ram) - (. - ORIGIN (ram))), 0x10000000):__heap_size
- *fill*         0x0000000080000bc0      0x800 
+ *fill*         0x0000000080000940      0x800 
                 [!provide]                        PROVIDE (metal_segment_heap_target_end = .)
                 [!provide]                        PROVIDE (_heap_end = .)
                 [!provide]                        PROVIDE (__heap_end = .)
@@ -2482,175 +2481,175 @@ END GROUP
  *(.eh_frame .eh_frame.*)
 OUTPUT(main elf32-littleriscv)
 
-.debug_info     0x0000000000000000    0x15d65
- .debug_info    0x0000000000000000      0x6bf /tmp/ccod7Puz.o
- .debug_info    0x00000000000006bf       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
- .debug_info    0x00000000000006e1       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
- .debug_info    0x0000000000000707       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
- .debug_info    0x0000000000000729       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
- .debug_info    0x000000000000074f      0x14e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
- .debug_info    0x000000000000089d     0x1921 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
- .debug_info    0x00000000000021be     0x2229 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
- .debug_info    0x00000000000043e7     0x2109 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
- .debug_info    0x00000000000064f0     0x2fbf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
- .debug_info    0x00000000000094af     0x1c12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
- .debug_info    0x000000000000b0c1     0x1c12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
- .debug_info    0x000000000000ccd3     0x2183 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
- .debug_info    0x000000000000ee56     0x1a7c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
- .debug_info    0x00000000000108d2      0x2c7 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
- .debug_info    0x0000000000010b99     0x1cc1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
- .debug_info    0x000000000001285a     0x19cc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
- .debug_info    0x0000000000014226       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
- .debug_info    0x000000000001424c     0x1aca /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
- .debug_info    0x0000000000015d16       0x4f /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+.debug_info     0x0000000000000000    0x162d1
+ .debug_info    0x0000000000000000      0xc2b /tmp/ccBG2CIM.o
+ .debug_info    0x0000000000000c2b       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+ .debug_info    0x0000000000000c4d       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
+ .debug_info    0x0000000000000c73       0x22 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+ .debug_info    0x0000000000000c95       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+ .debug_info    0x0000000000000cbb      0x14e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_info    0x0000000000000e09     0x1921 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_info    0x000000000000272a     0x2229 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+ .debug_info    0x0000000000004953     0x2109 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_info    0x0000000000006a5c     0x2fbf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_info    0x0000000000009a1b     0x1c12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_info    0x000000000000b62d     0x1c12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_info    0x000000000000d23f     0x2183 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_info    0x000000000000f3c2     0x1a7c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_info    0x0000000000010e3e      0x2c7 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_info    0x0000000000011105     0x1cc1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_info    0x0000000000012dc6     0x19cc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_info    0x0000000000014792       0x26 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+ .debug_info    0x00000000000147b8     0x1aca /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_info    0x0000000000016282       0x4f /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_abbrev   0x0000000000000000     0x1bda
- .debug_abbrev  0x0000000000000000      0x248 /tmp/ccod7Puz.o
- .debug_abbrev  0x0000000000000248       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
- .debug_abbrev  0x000000000000025a       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
- .debug_abbrev  0x000000000000026e       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
- .debug_abbrev  0x0000000000000280       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
- .debug_abbrev  0x0000000000000294       0xa1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
- .debug_abbrev  0x0000000000000335      0x15d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
- .debug_abbrev  0x0000000000000492      0x181 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
- .debug_abbrev  0x0000000000000613      0x2dd /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
- .debug_abbrev  0x00000000000008f0      0x359 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
- .debug_abbrev  0x0000000000000c49      0x202 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
- .debug_abbrev  0x0000000000000e4b      0x202 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
- .debug_abbrev  0x000000000000104d      0x2f9 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
- .debug_abbrev  0x0000000000001346      0x1aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
- .debug_abbrev  0x00000000000014f0      0x129 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
- .debug_abbrev  0x0000000000001619      0x21b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
- .debug_abbrev  0x0000000000001834      0x1aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
- .debug_abbrev  0x00000000000019de       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
- .debug_abbrev  0x00000000000019f2      0x19b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
- .debug_abbrev  0x0000000000001b8d       0x4d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+.debug_abbrev   0x0000000000000000     0x1c9b
+ .debug_abbrev  0x0000000000000000      0x309 /tmp/ccBG2CIM.o
+ .debug_abbrev  0x0000000000000309       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+ .debug_abbrev  0x000000000000031b       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
+ .debug_abbrev  0x000000000000032f       0x12 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+ .debug_abbrev  0x0000000000000341       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+ .debug_abbrev  0x0000000000000355       0xa1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_abbrev  0x00000000000003f6      0x15d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_abbrev  0x0000000000000553      0x181 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+ .debug_abbrev  0x00000000000006d4      0x2dd /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_abbrev  0x00000000000009b1      0x359 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_abbrev  0x0000000000000d0a      0x202 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_abbrev  0x0000000000000f0c      0x202 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_abbrev  0x000000000000110e      0x2f9 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_abbrev  0x0000000000001407      0x1aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_abbrev  0x00000000000015b1      0x129 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_abbrev  0x00000000000016da      0x21b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_abbrev  0x00000000000018f5      0x1aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_abbrev  0x0000000000001a9f       0x14 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+ .debug_abbrev  0x0000000000001ab3      0x19b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_abbrev  0x0000000000001c4e       0x4d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_aranges  0x0000000000000000      0x7e8
+.debug_aranges  0x0000000000000000      0x820
  .debug_aranges
-                0x0000000000000000       0xd8 /tmp/ccod7Puz.o
+                0x0000000000000000      0x110 /tmp/ccBG2CIM.o
  .debug_aranges
-                0x00000000000000d8       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+                0x0000000000000110       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
  .debug_aranges
-                0x0000000000000100       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
+                0x0000000000000138       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
  .debug_aranges
-                0x0000000000000120       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+                0x0000000000000158       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
  .debug_aranges
-                0x0000000000000148       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+                0x0000000000000180       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
  .debug_aranges
-                0x0000000000000168       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+                0x00000000000001a0       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
  .debug_aranges
-                0x00000000000001a0       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+                0x00000000000001d8       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
  .debug_aranges
-                0x00000000000001c0       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+                0x00000000000001f8       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
  .debug_aranges
-                0x00000000000001d8       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+                0x0000000000000210       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
  .debug_aranges
-                0x0000000000000278      0x278 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+                0x00000000000002b0      0x278 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
  .debug_aranges
-                0x00000000000004f0       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+                0x0000000000000528       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
  .debug_aranges
-                0x0000000000000538       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+                0x0000000000000570       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
  .debug_aranges
-                0x0000000000000580       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+                0x00000000000005b8       0xa0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
  .debug_aranges
-                0x0000000000000620       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+                0x0000000000000658       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
  .debug_aranges
-                0x0000000000000650       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+                0x0000000000000688       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
  .debug_aranges
-                0x0000000000000698       0xb8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+                0x00000000000006d0       0xb8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
  .debug_aranges
-                0x0000000000000750       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+                0x0000000000000788       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
  .debug_aranges
-                0x0000000000000778       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+                0x00000000000007b0       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
  .debug_aranges
-                0x0000000000000798       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+                0x00000000000007d0       0x30 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
  .debug_aranges
-                0x00000000000007c8       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+                0x0000000000000800       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_ranges   0x0000000000000000      0x6c8
- .debug_ranges  0x0000000000000000       0xc8 /tmp/ccod7Puz.o
- .debug_ranges  0x00000000000000c8       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
- .debug_ranges  0x00000000000000e8       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
- .debug_ranges  0x0000000000000108       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
- .debug_ranges  0x0000000000000130       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
- .debug_ranges  0x0000000000000140       0xd8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
- .debug_ranges  0x0000000000000218      0x268 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
- .debug_ranges  0x0000000000000480       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
- .debug_ranges  0x00000000000004b8       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
- .debug_ranges  0x00000000000004f0       0x90 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
- .debug_ranges  0x0000000000000580       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
- .debug_ranges  0x00000000000005a0       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
- .debug_ranges  0x00000000000005d8       0xa8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
- .debug_ranges  0x0000000000000680       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
- .debug_ranges  0x0000000000000698       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
- .debug_ranges  0x00000000000006b8       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+.debug_ranges   0x0000000000000000      0x700
+ .debug_ranges  0x0000000000000000      0x100 /tmp/ccBG2CIM.o
+ .debug_ranges  0x0000000000000100       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+ .debug_ranges  0x0000000000000120       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+ .debug_ranges  0x0000000000000140       0x28 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_ranges  0x0000000000000168       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_ranges  0x0000000000000178       0xd8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_ranges  0x0000000000000250      0x268 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_ranges  0x00000000000004b8       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_ranges  0x00000000000004f0       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_ranges  0x0000000000000528       0x90 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_ranges  0x00000000000005b8       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_ranges  0x00000000000005d8       0x38 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_ranges  0x0000000000000610       0xa8 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_ranges  0x00000000000006b8       0x18 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_ranges  0x00000000000006d0       0x20 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_ranges  0x00000000000006f0       0x10 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_line     0x0000000000000000     0x7a06
- .debug_line    0x0000000000000000      0xe4c /tmp/ccod7Puz.o
- .debug_line    0x0000000000000e4c      0x155 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
- .debug_line    0x0000000000000fa1      0x18c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
- .debug_line    0x000000000000112d       0xf3 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
- .debug_line    0x0000000000001220      0x2d1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
- .debug_line    0x00000000000014f1      0x201 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
- .debug_line    0x00000000000016f2      0x49b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
- .debug_line    0x0000000000001b8d      0x508 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
- .debug_line    0x0000000000002095      0xc62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
- .debug_line    0x0000000000002cf7     0x18eb /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
- .debug_line    0x00000000000045e2      0x619 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
- .debug_line    0x0000000000004bfb      0x601 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
- .debug_line    0x00000000000051fc      0xc47 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
- .debug_line    0x0000000000005e43      0x545 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
- .debug_line    0x0000000000006388      0x20e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
- .debug_line    0x0000000000006596      0x858 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
- .debug_line    0x0000000000006dee      0x4d0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
- .debug_line    0x00000000000072be      0x140 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
- .debug_line    0x00000000000073fe      0x577 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
- .debug_line    0x0000000000007975       0x91 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+.debug_line     0x0000000000000000     0x851d
+ .debug_line    0x0000000000000000     0x1963 /tmp/ccBG2CIM.o
+ .debug_line    0x0000000000001963      0x155 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+ .debug_line    0x0000000000001ab8      0x18c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
+ .debug_line    0x0000000000001c44       0xf3 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+ .debug_line    0x0000000000001d37      0x2d1 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+ .debug_line    0x0000000000002008      0x201 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_line    0x0000000000002209      0x49b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_line    0x00000000000026a4      0x508 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+ .debug_line    0x0000000000002bac      0xc62 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_line    0x000000000000380e     0x18eb /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_line    0x00000000000050f9      0x619 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_line    0x0000000000005712      0x601 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_line    0x0000000000005d13      0xc47 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_line    0x000000000000695a      0x545 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_line    0x0000000000006e9f      0x20e /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_line    0x00000000000070ad      0x858 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_line    0x0000000000007905      0x4d0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_line    0x0000000000007dd5      0x140 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+ .debug_line    0x0000000000007f15      0x577 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_line    0x000000000000848c       0x91 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_str      0x0000000000000000     0x3d9b
- .debug_str     0x0000000000000000      0x43c /tmp/ccod7Puz.o
-                                        0x4db (size before relaxing)
- .debug_str     0x000000000000043c       0xaa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
- .debug_str     0x00000000000004e6       0x54 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
+.debug_str      0x0000000000000000     0x3f7b
+ .debug_str     0x0000000000000000      0x635 /tmp/ccBG2CIM.o
+                                        0x6d9 (size before relaxing)
+ .debug_str     0x0000000000000635       0xaa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
+ .debug_str     0x00000000000006df       0x54 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(scrub.o)
                                          0xaa (size before relaxing)
- .debug_str     0x000000000000053a       0x53 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
+ .debug_str     0x0000000000000733       0x53 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(trap.o)
                                          0xa9 (size before relaxing)
- .debug_str     0x000000000000058d       0x55 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
+ .debug_str     0x0000000000000786       0x55 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(crt0.o)
                                          0xab (size before relaxing)
- .debug_str     0x00000000000005e2      0x12d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_str     0x00000000000007db      0x12d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
                                         0x1f6 (size before relaxing)
- .debug_str     0x000000000000070f      0xfd0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_str     0x0000000000000908      0xfb7 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
                                        0x131d (size before relaxing)
- .debug_str     0x00000000000016df      0x685 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
+ .debug_str     0x00000000000018bf      0x685 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(inline.o)
                                        0x19b4 (size before relaxing)
- .debug_str     0x0000000000001d64      0x3aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_str     0x0000000000001f44      0x3aa /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
                                        0x17b9 (size before relaxing)
- .debug_str     0x000000000000210e      0xf0c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_str     0x00000000000022ee      0xf0c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
                                        0x23d6 (size before relaxing)
- .debug_str     0x000000000000301a      0x19a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_str     0x00000000000031fa      0x19a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
                                        0x15a9 (size before relaxing)
- .debug_str     0x00000000000031b4      0x16d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_str     0x0000000000003394      0x16d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
                                        0x15a9 (size before relaxing)
- .debug_str     0x0000000000003321      0x3d3 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_str     0x0000000000003501      0x3d3 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
                                        0x19d2 (size before relaxing)
- .debug_str     0x00000000000036f4       0xcf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_str     0x00000000000038d4       0xcf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
                                        0x1420 (size before relaxing)
- .debug_str     0x00000000000037c3      0x12f /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_str     0x00000000000039a3      0x12f /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
                                         0x2ff (size before relaxing)
- .debug_str     0x00000000000038f2      0x27a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_str     0x0000000000003ad2      0x27a /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
                                        0x1537 (size before relaxing)
- .debug_str     0x0000000000003b6c       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_str     0x0000000000003d4c       0x96 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
                                        0x1352 (size before relaxing)
- .debug_str     0x0000000000003c02       0x55 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
+ .debug_str     0x0000000000003de2       0x55 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(vector.o)
                                          0xab (size before relaxing)
- .debug_str     0x0000000000003c57       0xdf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_str     0x0000000000003e37       0xdf /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
                                        0x147f (size before relaxing)
- .debug_str     0x0000000000003d36       0x65 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+ .debug_str     0x0000000000003f16       0x65 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
                                         0x134 (size before relaxing)
 
 .comment        0x0000000000000000       0x30
- .comment       0x0000000000000000       0x30 /tmp/ccod7Puz.o
+ .comment       0x0000000000000000       0x30 /tmp/ccBG2CIM.o
                                          0x31 (size before relaxing)
  .comment       0x0000000000000030       0x31 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-atexit.o)
  .comment       0x0000000000000030       0x31 /home/nicoladgg/Scrivania/SiFive_HiFive1_RevB/FreedomStudio-4.18.0.2021-04-1-x86_64-linux-ubuntu14/SiFive/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8/bin/../lib/gcc/riscv64-unknown-elf/10.2.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32/libc_nano.a(lib_a-exit.o)
@@ -2677,7 +2676,7 @@ OUTPUT(main elf32-littleriscv)
 .riscv.attributes
                 0x0000000000000000       0x2f
  .riscv.attributes
-                0x0000000000000000       0x2f /tmp/ccod7Puz.o
+                0x0000000000000000       0x2f /tmp/ccBG2CIM.o
  .riscv.attributes
                 0x000000000000002f       0x2d /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(entry.o)
  .riscv.attributes
@@ -2731,18 +2730,18 @@ OUTPUT(main elf32-littleriscv)
  .riscv.attributes
                 0x0000000000000474       0x2b /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
 
-.debug_frame    0x0000000000000000     0x21a4
- .debug_frame   0x0000000000000000      0x3b8 /tmp/ccod7Puz.o
- .debug_frame   0x00000000000003b8       0xb0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
- .debug_frame   0x0000000000000468       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
- .debug_frame   0x000000000000049c      0x2cc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
- .debug_frame   0x0000000000000768     0x1030 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
- .debug_frame   0x0000000000001798       0xf0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
- .debug_frame   0x0000000000001888       0xf0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
- .debug_frame   0x0000000000001978      0x290 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
- .debug_frame   0x0000000000001c08       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
- .debug_frame   0x0000000000001c8c       0xfc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
- .debug_frame   0x0000000000001d88      0x324 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
- .debug_frame   0x00000000000020ac       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
- .debug_frame   0x00000000000020f4       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
- .debug_frame   0x0000000000002178       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)
+.debug_frame    0x0000000000000000     0x22ac
+ .debug_frame   0x0000000000000000      0x4c0 /tmp/ccBG2CIM.o
+ .debug_frame   0x00000000000004c0       0xb0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(init.o)
+ .debug_frame   0x0000000000000570       0x34 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(synchronize_harts.o)
+ .debug_frame   0x00000000000005a4      0x2cc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_clint0.o)
+ .debug_frame   0x0000000000000870     0x1030 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(riscv_cpu.o)
+ .debug_frame   0x00000000000018a0       0xf0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfrosc.o)
+ .debug_frame   0x0000000000001990       0xf0 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_hfxosc.o)
+ .debug_frame   0x0000000000001a80      0x290 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_pll.o)
+ .debug_frame   0x0000000000001d10       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(sifive_fe310-g000_prci.o)
+ .debug_frame   0x0000000000001d94       0xfc /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(clock.o)
+ .debug_frame   0x0000000000001e90      0x324 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(cpu.o)
+ .debug_frame   0x00000000000021b4       0x48 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(shutdown.o)
+ .debug_frame   0x00000000000021fc       0x84 /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal.a(fixed-clock.o)
+ .debug_frame   0x0000000000002280       0x2c /home/nicoladgg/wsFreedomStudio/SiFive_HiFive_RevB_Projects/bsp/install/lib/debug//libmetal-gloss.a(sys_exit.o)

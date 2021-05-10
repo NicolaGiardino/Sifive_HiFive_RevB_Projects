@@ -132,7 +132,7 @@ int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_i
 
     if ((IRQ_GPIO + gpio) > PLIC_ENABLE_OFFSET_MAX)
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 -IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 - IRQ_GPIO + gpio));
     }
     else
     {
@@ -141,23 +141,23 @@ int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_i
 
     PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio)) = prio;
 
-    switch(in)
+    switch (in)
     {
     case GPIO_RISE_EN:
-    	GPIO_REG(GPIO_RISE_IE) |= (1 << gpio);
-    	break;
+        GPIO_REG(GPIO_RISE_IE) |= (1 << gpio);
+        break;
 
     case GPIO_FALL_EN:
-        	GPIO_REG(GPIO_FALL_IE) |= (1 << gpio);
-        	break;
+        GPIO_REG(GPIO_FALL_IE) |= (1 << gpio);
+        break;
 
     case GPIO_HIGH_EN:
-        	GPIO_REG(GPIO_HIGH_IE) |= (1 << gpio);
-        	break;
+        GPIO_REG(GPIO_HIGH_IE) |= (1 << gpio);
+        break;
 
     case GPIO_LOW_EN:
-        	GPIO_REG(GPIO_LOW_IE) |= (1 << gpio);
-        	break;
+        GPIO_REG(GPIO_LOW_IE) |= (1 << gpio);
+        break;
     }
 
     return 0;

@@ -59,25 +59,6 @@ int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config)
     return SPI_OK;
 }
 
-int spi_transmit(struct spi *s, unsigned int cs, uint32_t *buf, spi_dir_t dir, spi_csmode_t csmode, spi_csdef_t csdef)
-{
-
-    if(dir == SPI_DIR_TX)
-    {
-        return spi_send(s, cs, buf);
-    }
-    else if(dir == SPI_DIR_RX)
-    {
-        return spi_receive(s, cs, buf);
-    }
-    else
-    {
-        return -SPI_ERR_NV;
-    }
-
-}
-
-
 unsigned int cs_active;
 
 int spi_set_cs(struct spi *s, unsigned int cspin, spi_csmode_t csmode, spi_csdef_t csdef)
@@ -124,6 +105,32 @@ int spi_set_cs(struct spi *s, unsigned int cspin, spi_csmode_t csmode, spi_csdef
     return SPI_OK;
 }
 
+int spi_transmit(struct spi *s, unsigned int cs, uint32_t *tx, uint32_t *rx, unsigned int size)
+{
+
+    if(cs < 3 && s->spi_num == 1)
+    {
+        uint32_t i;
+
+        for (i = 0; i < size; i++)
+        {
+            while (SPI1_REG(SPI_REG_TXFIFO) > 0xFF)
+            {
+            }
+            SPI1_REG(SPI_REG_TXFIFO) = tx[i];
+
+            while (SPI1_REG(SPI_REG_RXFIFO) <= 0xFF)
+                ;
+            rx[i] = SPI1_REG(SPI_REG_RXFIFO);
+        }
+        
+    }
+    else
+    {
+        return -SPI_ERR_CS;
+    }
+}
+
 int spi_send(struct spi *s, unsigned int cspin, const uint8_t tx)
 {
 
@@ -161,7 +168,7 @@ int spi_send_multiple(struct spi *s, unsigned int cspin, uint8_t *tx, unsigned i
         while (SPI1_REG(SPI_REG_TXFIFO) > 0xFF)
         {
         }
-        SPI1_REG(SPI_REG_TXFIFO) = tx;
+        SPI1_REG(SPI_REG_TXFIFO) = tx[i];
 
         while (SPI1_REG(SPI_REG_RXFIFO) <= 0xFF)
             ;
@@ -210,7 +217,7 @@ int spi_receive_multiple(struct spi *s, unsigned int cspin, uint8_t *rx, unsigne
         }
         SPI1_REG(SPI_REG_TXFIFO) = 0x00;
 
-        *rx = SPI1_REG(SPI_REG_RXFIFO);
+        rx[0] = SPI1_REG(SPI_REG_RXFIFO);
     }
     delay(10000);
 
