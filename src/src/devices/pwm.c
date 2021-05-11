@@ -295,3 +295,26 @@ unsigned int pwm_get_duty(struct pwm p, unsigned int pin)
 
     return (pulse * 100) / p.period;
 }
+
+int pwm_interrupt_enable(struct pwm p, unsigned int pin, void *isr, unsigned int prio)
+{
+    /* Pulse, as period, must be in seconds */
+    if (p.scale == 0b0000)
+    {
+        return -PWM_ERR_NV;
+    }
+    if (p.pwm_num != variant_pin_map[pin].pwm_num || variant_pin_map[pin].pwm_cmp_num == 0)
+    {
+        return -PWM_ERR_NV;
+    }
+
+    unsigned int source = PWM0_INT + 4 * p.pwm_num + variant_pin_map[pin].pwm_cmp_num;
+
+    irq_functions[source].handler = isr;
+    irq_functions[source].priority = prio;
+    irq_functions[source].active = 1;
+
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * source) = prio;
+
+    PLIC_REG(PLIC_ENABLE_OFFSET2) |= (1 << (31 - source));
+}

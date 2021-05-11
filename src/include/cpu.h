@@ -1,17 +1,50 @@
-#ifndef INTERRUPT_H
-#define INTERRUPT_H
+#ifndef CPU_H
+#define CPU_H
 
-#include "platform.h"
 #include "devices/plic.h"
 #include "devices/clint.h"
 
 #define INT_OK 0
 #define INT_ERR_ACTIVE 1
 
-int interrupt_enable();
-void interrupt_service_routine() __attribute__((interrupt, aligned(64)));
+unsigned int cpu_get_mhartid();
 
-int interrupt_enable()
+unsigned int cpu_get_marchid();
+
+unsigned int cpu_get_machimplid();
+
+int cpu_interrupt_enable();
+
+void cpu_interrupt_service_routine() __attribute__((interrupt, aligned(64)));
+
+unsigned int cpu_get_mhartid()
+{
+    uint32_t mhartid;
+
+    __asm__ volatile("csrr %0, mhartid" : "=r"(mhartid));
+
+    return mhartid;
+}
+
+unsigned int cpu_get_marchid()
+{
+    uint32_t mharchid;
+
+    __asm__ volatile("csrr %0, mharchid" : "=r"(mharchid));
+
+    return mharchid;
+}
+
+unsigned int prci_pll_get_machimplid()
+{
+    uint32_t mimpid;
+
+    __asm__ volatile("csrr %0, mimpid" : "=r"(mimpid));
+
+    return mimpid;
+}
+
+int cpu_interrupt_enable()
 {
     uint32_t mstatus, mie;
 
@@ -35,7 +68,7 @@ int interrupt_enable()
     return INT_OK;
 }
 
-void interrupt_service_routine()
+void cpu_interrupt_service_routine()
 {
 
     uint32_t mcause;
@@ -69,4 +102,4 @@ void interrupt_service_routine()
                      "mret");*/
 }
 
-#endif
+#endif /* CPU_H */

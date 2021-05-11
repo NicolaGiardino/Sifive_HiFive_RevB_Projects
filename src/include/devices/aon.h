@@ -89,19 +89,48 @@
 
 #define RTC_FREQ    32768
 
+#define WDT_OK					0
+#define WDT_ERR_NV				1
+
 volatile uint64_t* mtimecmp = (uint64_t*)0x2004000;
 volatile uint64_t* mtime	= (uint64_t*)0x200bff8;
 
-void rtc_enable();
+typedef uint8_t wdt_scale_t;
 
-void rtc_next_wake_time();
+typedef enum
+{
+	WDT_STOP = 0,
+	WDT_RUNALWAYS = 1,
+	WDT_RUNCOREAWAKE = 2
+} wdt_en_t;
 
-void rtc_enable()
+typedef enum
+{
+	WDT_RST_DIS = 0,
+	WDT_RST_EN = 1,
+	WDT_RST_ZEROCMP = 2
+} wdt_rst_t;
+
+void aon_rtc_enable();
+
+void aon_rtc_next_wake_time();
+
+unsigned int aon_wdt_cfg(wdt_scale_t scale, wdt_en_t en, wdt_rst_t rst);
+
+uint8_t aon_wdt_get_scale();
+
+unsigned int aon_wdt_get_wdogs();
+
+void aon_wdt_set_timer(uint16_t time);
+
+uint16_t aon_wdt_get_timer();
+
+void aon_rtc_enable()
 {
     AON_REG(AON_RTCCFG) |= AON_RTCCFG_ENALWAYS;
 }
 
-void rtc_next_wake_time(uint64_t next)
+void aon_rtc_next_wake_time(uint64_t next)
 {
 	uint64_t time;
 	uint32_t mie, mip;

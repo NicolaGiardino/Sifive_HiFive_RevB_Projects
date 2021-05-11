@@ -179,6 +179,10 @@ int gpio_getinput(unsigned int pin)
     }
 }
 
+/*
+ * Remember to write a 1 to GPIO_*_IP after having handled the interrupt
+ */
+
 int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_int_t in)
 {
     if (pin > MAXPIN - 1)

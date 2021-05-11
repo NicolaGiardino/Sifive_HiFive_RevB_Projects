@@ -1,20 +1,6 @@
-#ifndef CPU_FREQ_H
-#define CPU_FREQ_H
+#include "../../include/devices/prci.h"
 
-#include "platform.h"
-
-void set_freq_hyperspace();
-
-void set_freq_320MHz();
-
-void set_freq_32MHz();
-
-void set_freq_16MHz();
-
-void set_freq_sloth();
-
-
-void set_freq_hyperspace()
+void prci_pll_set_freq_hyperspace()
 {
     /*Divide standard frequency by 2 PLL_R = 0b01 = 2,
      * multiply by 80 PLL_F = 96/2-1 = M/2-1 = 39,
@@ -30,7 +16,7 @@ void set_freq_hyperspace()
     cpu_freq = 384000000;
 }
 
-void set_freq_320MHz()
+void prci_pll_set_freq_320MHz()
 {
     /* Divide standard frequency by 2 PLL_R = 0b01 = 2,
 	 * multiply by 80 PLL_F = 80/2-1 = M/2-1 = 39,
@@ -46,7 +32,7 @@ void set_freq_320MHz()
     cpu_freq = 320000000;
 }
 
-void set_freq_32MHz()
+void prci_pll_set_freq_32MHz()
 {
     /*Divide standard frequency by 2 PLL_R = 0b01 = 2,
 	 * multiply by 80 PLL_F = 48/2-1 = M/2-1,
@@ -65,14 +51,14 @@ void set_freq_32MHz()
     cpu_freq = 32000000;
 }
 
-void set_freq_16MHz()
+void prci_pll_set_freq_16MHz()
 {
     PRCI_REG(PRCI_PLLCFG) = 0;
 
     cpu_freq = 16000000;
 }
 
-void set_freq_sloth()
+void prci_pll_set_freq_sloth()
 {
     /*Divide standard frequency by 2 PLL_R = 0b01 = 2,
 	 * multiply by 80 PLL_F = 48/2-1 = M/2-1,
@@ -90,6 +76,3 @@ void set_freq_sloth()
 
     cpu_freq = 375000;
 }
-
-
-#endif

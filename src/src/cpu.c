@@ -1,6 +1,33 @@
-#include "../include/interrupt.h"
+#include "../include/cpu.h"
 
-int interrupt_enable()
+unsigned int cpu_get_mhartid()
+{
+    uint32_t mhartid;
+
+    __asm__ volatile("csrr %0, mhartid" : "=r"(mhartid));
+
+    return mhartid;
+}
+
+unsigned int cpu_get_marchid()
+{
+    uint32_t mharchid;
+
+    __asm__ volatile("csrr %0, mharchid" : "=r"(mharchid));
+
+    return mharchid;
+}
+
+unsigned int cpu_get_machimplid()
+{
+    uint32_t mimpid;
+
+    __asm__ volatile("csrr %0, mimpid" : "=r"(mimpid));
+
+    return mimpid;
+}
+
+int cpu_interrupt_enable()
 {
     uint32_t mstatus;
 
@@ -21,7 +48,7 @@ int interrupt_enable()
     return INT_OK;
 }
 
-void interrupt_set_direct_mode(void *isr)
+void cpu_interrupt_set_direct_mode(void *isr)
 {
     uint32_t mtvec;
     mtvec = isr;
@@ -29,7 +56,7 @@ void interrupt_set_direct_mode(void *isr)
     __asm__ volatile("csrw mtvec, %0" : : "r"(mtvec));
 }
 
-void interrupt_service_routine()
+void cpu_interrupt_service_routine()
 {
 
     uint32_t mscratch;

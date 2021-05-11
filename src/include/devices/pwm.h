@@ -50,6 +50,10 @@
 #define PWM_MAX_PIN         3    
 #define PWM_MAX             4
 
+#define PWM0_INT            40
+#define PWM1_INT            44
+#define PWM2_INT            48
+
 struct pwm
 {
 
@@ -120,5 +124,7 @@ unsigned int pwm_get_period(struct pwm p);
 unsigned int pwm_get_pulse(struct pwm p, unsigned int pin);
 
 unsigned int pwm_get_duty(struct pwm p, unsigned int pin);
+
+int pwm_interrupt_enable(struct pwm p, unsigned int pin, void *isr, unsigned int prio);
 
 #endif /* _SIFIVE_PWM_H */
