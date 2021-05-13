@@ -111,11 +111,23 @@ typedef enum
 	WDT_RST_ZEROCMP = 2
 } wdt_rst_t;
 
+/*
+ * Real-Time Clock function prototypes
+*/
+
 void aon_rtc_enable();
 
 void aon_rtc_next_wake_time();
 
-unsigned int aon_wdt_cfg(wdt_scale_t scale, wdt_en_t en, wdt_rst_t rst);
+/*
+ * Watchdog Timer function prototypes
+*/
+
+int aon_wdt_init(unsigned int ms, wdt_en_t en, wdt_rst_t rst, uint16_t timer);
+
+void aon_wdt_feed();
+
+int aon_wdt_cfg(wdt_scale_t scale, wdt_en_t en, wdt_rst_t rst);
 
 uint8_t aon_wdt_get_scale();
 

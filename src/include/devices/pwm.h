@@ -111,20 +111,22 @@ typedef enum
     PWM_PHCORR_DIS = 0,
 } pwm_phcorr_t;
 
-int pwm_init(struct pwm p, unsigned int pin, unsigned char scale);
+int pwm_init(struct pwm *p, unsigned int pin, unsigned char scale);
 
-int pwm_set_period(struct pwm p, unsigned int period, pwm_zerocmp_t zerocmp, pwm_mode_t mode);
+int pwm_set_period(struct pwm *p, unsigned int period, pwm_zerocmp_t zerocmp, pwm_mode_t mode);
 
-int pwm_set_pulsewidth(struct pwm p, unsigned int pin, unsigned int pulse);
+int pwm_set_pulsewidth(struct pwm *p, unsigned int pin, unsigned int pulse);
 
-int pwm_set_duty(struct pwm p, unsigned int pin, unsigned int duty);
+int pwm_set_duty(struct pwm *p, unsigned int pin, unsigned int duty);
 
-unsigned int pwm_get_period(struct pwm p);
+unsigned int pwm_get_period(struct pwm *p);
 
-unsigned int pwm_get_pulse(struct pwm p, unsigned int pin);
+unsigned int pwm_get_pulse(struct pwm *p, unsigned int pin);
 
-unsigned int pwm_get_duty(struct pwm p, unsigned int pin);
+unsigned int pwm_get_duty(struct pwm *p, unsigned int pin);
 
-int pwm_interrupt_enable(struct pwm p, unsigned int pin, void *isr, unsigned int prio);
+int pwm_interrupt_enable(struct pwm *p, unsigned int pin, void *isr, unsigned int prio);
+
+int pwm_interrupt_disable(struct pwm *p, unsigned int pin);
 
 #endif /* _SIFIVE_PWM_H */

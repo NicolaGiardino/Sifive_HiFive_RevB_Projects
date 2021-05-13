@@ -28,9 +28,10 @@ void aon_rtc_next_wake_time(uint64_t next)
 	__asm__ volatile("csrw mie, %0" : : "r" (mie));
 }
 
-unsigned int aon_wdt_init(unsigned int ms, wdt_en_t en, wdt_rst_t rst, uint16_t timer)
+int aon_wdt_init(unsigned int ms, wdt_en_t en, wdt_rst_t rst, uint16_t timer)
 {
-    uint8_t scale = 0;
+    wdt_scale_t scale = 0;
+
     uint32_t cmp = ms * RTC_FREQ / 1000;
 
     while (cmp > 65535)
@@ -39,15 +40,30 @@ unsigned int aon_wdt_init(unsigned int ms, wdt_en_t en, wdt_rst_t rst, uint16_t 
         cmp /= 2;
     }
 
+    if (scale > AON_WDOGCFG_SCALE || en > 2 || rst > 2)
+    {
+        return -WDT_ERR_NV;
+    }
+
     AON_REG(AON_WDOGKEY) = AON_WDOGKEY_VALUE;
     AON_REG(AON_WDOGFEED) = AON_WDOGFEED_VALUE;
-    aon_wdt_set_timer(timer);
-    
-    return aon_wdt_cfg(scale, en, rst);
 
+    AON_REG(AON_WDOGKEY) = AON_WDOGKEY_VALUE;
+    AON_REG(AON_WDOGCMP) = timer;
+
+    AON_REG(AON_WDOGKEY) = AON_WDOGKEY_VALUE;
+    AON_REG(AON_WDOGCFG) = scale | (rst << 8) | (en << 12);
+
+    return WDT_OK;
 }
 
-unsigned int aon_wdt_cfg(wdt_scale_t scale, wdt_en_t en, wdt_rst_t rst)
+void aon_wdt_feed()
+{
+    AON_REG(AON_WDOGKEY) = AON_WDOGKEY_VALUE;
+    AON_REG(AON_WDOGFEED) = AON_WDOGFEED_VALUE;
+}
+
+int aon_wdt_cfg(wdt_scale_t scale, wdt_en_t en, wdt_rst_t rst)
 {
 
     if (scale > AON_WDOGCFG_SCALE || en > 2 || rst > 2)

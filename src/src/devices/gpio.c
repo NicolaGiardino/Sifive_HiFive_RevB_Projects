@@ -163,3 +163,47 @@ int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_i
 
     return 0;
 }
+
+int gpio_interrupt_disable(unsigned int pin, gpio_int_t in)
+{
+    if (pin > MAXPIN - 1)
+    {
+        return -GPIO_ERR_NV;
+    }
+
+    unsigned int gpio = variant_pin_map[pin].bit_pos;
+
+    irq_functions[IRQ_GPIO + gpio].irq_handler = NULL;
+    irq_functions[IRQ_GPIO + gpio].active = 0;
+    irq_functions[IRQ_GPIO + gpio].priority = 0;
+
+    if ((IRQ_GPIO + gpio) > PLIC_ENABLE_OFFSET_MAX)
+    {
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) &= ~(1 << (31 - IRQ_GPIO + gpio));
+    }
+    else
+    {
+        PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (IRQ_GPIO + gpio));
+    }
+
+    switch (in)
+    {
+    case GPIO_RISE_EN:
+        GPIO_REG(GPIO_RISE_IE) &= ~(1 << gpio);
+        break;
+
+    case GPIO_FALL_EN:
+        GPIO_REG(GPIO_FALL_IE) &= ~(1 << gpio);
+        break;
+
+    case GPIO_HIGH_EN:
+        GPIO_REG(GPIO_HIGH_IE) &= ~(1 << gpio);
+        break;
+
+    case GPIO_LOW_EN:
+        GPIO_REG(GPIO_LOW_IE) &= ~(1 << gpio);
+        break;
+    }
+
+    return 0;
+}

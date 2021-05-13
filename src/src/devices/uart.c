@@ -1,6 +1,7 @@
 #include "../../include/devices/uart.h"
 
 static int uart_active[2] = {0, 0};
+static int uart_int_active[2][2] = {{0, 0}, {0, 0}};
 
 int uart_init(unsigned int uart, unsigned int baud)
 {
@@ -188,6 +189,79 @@ int uart_close(unsigned int uart)
     
 
     uart_active[uart] = UART_ACTIVE;
+
+    return UART_OK;
+}
+
+int uart_interrupt_enable(unsigned int uart, uart_int_t type, void *isr, unsigned int prio)
+{
+    if (uart > 1)
+    {
+        return -UART_ERR_NV;
+    }
+    if (uart_active[uart] == UART_UNACTIVE || uart_int_active[type - 1][uart] == UART_UNACTIVE)
+    {
+        return -UART_ERR_ACT;
+    }
+
+    uart_int_active[uart][type - 1] = UART_ACTIVE;
+
+    irq_functions[UART_IRQ + uart].irq_handler = isr;
+    irq_functions[UART_IRQ + uart].priority     = prio;
+    irq_functions[UART_IRQ + uart].active       = 1;
+
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (UART_IRQ + uart)) = prio;
+    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (UART_IRQ + uart));
+
+    switch (uart)
+    {
+    case 0:
+        UART0_REG(UART_REG_IP) |= type;
+        break;
+    
+    case 1:
+        UART1_REG(UART_REG_IP) |= type;
+        break;
+
+    default:
+        return -UART_ERR_NV;
+    }
+
+    return UART_OK;
+}
+
+int uart_interrupt_disable(unsigned int uart, uart_int_t type)
+{
+    if (uart > 1)
+    {
+        return -UART_ERR_NV;
+    }
+    if (uart_active[uart] == UART_UNACTIVE || uart_int_active[type - 1][uart] == UART_ACTIVE)
+    {
+        return -UART_ERR_ACT;
+    }
+
+    irq_functions[UART_IRQ + uart].active       = 0;
+    irq_functions[UART_IRQ + uart].irq_handler  = NULL;
+    irq_functions[UART_IRQ + uart].priority     = 0;
+
+    uart_int_active[uart][type - 1] = UART_UNACTIVE;
+
+    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (UART_IRQ + uart));
+
+    switch (uart)
+    {
+    case 0:
+        UART0_REG(UART_REG_IP) &= ~type;
+        break;
+
+    case 1:
+        UART1_REG(UART_REG_IP) &= ~type;
+        break;
+
+    default:
+        return -UART_ERR_NV;
+    }
 
     return UART_OK;
 }

@@ -287,3 +287,44 @@ int spi_close(struct spi *s)
 
     return SPI_OK;
 }
+
+int spi_interrupt_enable(struct spi *s, spi_int_t type, void *isr, unsigned int prio)
+{
+    if (s->spi_num != 1)
+    {
+        return -SPI_ERR_NV;
+    }
+
+    s->spi_int_active[type - 1] = 1;
+
+    irq_functions[SPI1_IRQ].irq_handler = isr;
+    irq_functions[SPI1_IRQ].priority    = prio;
+    irq_functions[SPI1_IRQ].active      = 1;
+
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (SPI1_IRQ)) = prio;
+    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (SPI1_IRQ));
+
+    SPI1_REG(SPI_REG_IP) |= type;
+
+    return SPI_OK;
+}
+
+int spi_interrupt_disable(struct spi *s, spi_int_t type, void *isr, unsigned int prio)
+{
+    if (s->spi_num != 1)
+    {
+        return -SPI_ERR_NV;
+    }
+
+    s->spi_int_active[type - 1] = 0;
+
+    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (SPI1_IRQ));
+
+    SPI1_REG(SPI_REG_IP) &= ~type;
+
+    irq_functions[SPI1_IRQ].irq_handler = NULL;
+    irq_functions[SPI1_IRQ].priority    = 0;
+    irq_functions[SPI1_IRQ].active      = 0;
+
+    return SPI_OK;
+}

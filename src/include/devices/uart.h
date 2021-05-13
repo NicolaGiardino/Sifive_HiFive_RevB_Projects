@@ -41,6 +41,14 @@
 #define UART_ERR_ACT            2
 #define UART_ERR_BAUD           3
 
+#define UART_IRQ                3
+
+typedef enum
+{
+    UART_INT_TX = 1,
+    UART_INT_RX = 2
+} uart_int_t;
+
 int uart_init(unsigned int uart, unsigned int baud);
 
 int uart_send(unsigned int uart, const uint8_t *tx);
@@ -49,6 +57,8 @@ int uart_receive(unsigned int uart, uint8_t *rx);
 
 int uart_close(unsigned int uart);
 
+int uart_interrupt_enable(unsigned int uart, void *isr, unsigned int prio);
 
+int uart_interrupt_disable(unsigned int uart, uart_int_t type, void *isr);
 
 #endif /* _SIFIVE_UART_H */

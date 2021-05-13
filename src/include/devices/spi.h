@@ -70,6 +70,8 @@
 #define SPI_ERR_BAUD    3
 #define SPI_ERR_LEN     4
 
+#define SPI1_IRQ        6
+
 /* Values */
 
 typedef enum
@@ -125,6 +127,12 @@ typedef enum
     SPI_CSDEF_DIS = 0,
 } spi_csdef_t;
 
+typedef enum
+{
+    SPI_INT_TX = 1,
+    SPI_INT_RX = 2
+} spi_int_t;
+
 struct spi_config
 {
 	spi_len_t    len;
@@ -134,13 +142,13 @@ struct spi_config
     spi_proto_t  protocol;
     spi_endian_t endianness;
     spi_dir_t    direction;
-
 }__attribute__ ((aligned (16)));
 
 struct spi
 {
     unsigned int spi_num;
     struct spi_config config;
+    unsigned int spi_int_active[2];
 }__attribute__ ((aligned (16)));
 
 void delay(uint32_t counter)
@@ -166,6 +174,16 @@ int spi_receive(struct spi *s, unsigned int cs, uint8_t *rx);
 int spi_receive_multiple(struct spi *s, unsigned int cs, uint8_t *rx, unsigned int size);
 
 int spi_close(struct spi *s);
+
+int spi_interrupt_enable(struct spi *s, spi_int_t type, void *isr, unsigned int prio);
+
+int spi_interrupt_disable(struct spi *s, spi_int_t type, void *isr, unsigned int prio);
+
+
+
+
+
+
 
 int spi_init(struct spi *s, unsigned int spi_num, struct spi_config config)
 {

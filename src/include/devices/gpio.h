@@ -3,7 +3,7 @@
 #ifndef _SIFIVE_GPIO_H
 #define _SIFIVE_GPIO_H
 
-#include "../interrupt.h"
+#include "../cpu.h"
 
 #define GPIO_INPUT_VAL      (0x00)
 #define GPIO_INPUT_EN       (0x04)
