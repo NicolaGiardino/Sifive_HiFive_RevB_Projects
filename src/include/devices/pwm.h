@@ -50,10 +50,6 @@
 #define PWM_MAX_PIN         3    
 #define PWM_MAX             4
 
-#define PWM0_INT            40
-#define PWM1_INT            44
-#define PWM2_INT            48
-
 struct pwm
 {
 

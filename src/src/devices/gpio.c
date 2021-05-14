@@ -126,19 +126,19 @@ int gpio_interrupt_enable(unsigned int pin, void *isr, unsigned int prio, gpio_i
 
     unsigned int gpio = variant_pin_map[pin].bit_pos;
 
-    irq_functions[IRQ_GPIO + gpio].irq_handler = isr;
-    irq_functions[IRQ_GPIO + gpio].active = 1;
-    irq_functions[IRQ_GPIO + gpio].priority = prio;
+    irq_functions[INT_GPIO_BASE + gpio].irq_handler = isr;
+    irq_functions[INT_GPIO_BASE + gpio].active = 1;
+    irq_functions[INT_GPIO_BASE + gpio].priority = prio;
 
-    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (IRQ_GPIO + gpio)) = prio;
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (INT_GPIO_BASE + gpio)) = prio;
     
-    if ((IRQ_GPIO + gpio) > PLIC_ENABLE_OFFSET_MAX)
+    if ((INT_GPIO_BASE + gpio) > PLIC_ENABLE_OFFSET_MAX)
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 - IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 - INT_GPIO_BASE + gpio));
     }
     else
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (INT_GPIO_BASE + gpio));
     }
 
 
@@ -173,17 +173,17 @@ int gpio_interrupt_disable(unsigned int pin, gpio_int_t in)
 
     unsigned int gpio = variant_pin_map[pin].bit_pos;
 
-    irq_functions[IRQ_GPIO + gpio].irq_handler = NULL;
-    irq_functions[IRQ_GPIO + gpio].active = 0;
-    irq_functions[IRQ_GPIO + gpio].priority = 0;
+    irq_functions[INT_GPIO_BASE + gpio].irq_handler = NULL;
+    irq_functions[INT_GPIO_BASE + gpio].active = 0;
+    irq_functions[INT_GPIO_BASE + gpio].priority = 0;
 
-    if ((IRQ_GPIO + gpio) > PLIC_ENABLE_OFFSET_MAX)
+    if ((INT_GPIO_BASE + gpio) > PLIC_ENABLE_OFFSET_MAX)
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET_2) &= ~(1 << (31 - IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET_2) &= ~(1 << (31 - INT_GPIO_BASE + gpio));
     }
     else
     {
-        PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (IRQ_GPIO + gpio));
+        PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (INT_GPIO_BASE + gpio));
     }
 
     switch (in)

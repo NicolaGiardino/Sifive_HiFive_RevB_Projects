@@ -83,6 +83,9 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
 #define PIN_SPI1_SS2    (15u)
 #define PIN_SPI1_SS3    (16u)
 
+#define PIN_I2C_SCL		(18u)
+#define PIN_I2C_SDA		(19u)
+
 /* These are *GPIO* numbers */
 #define GPIO_SPI1_SCK	(5u)
 #define GPIO_SPI1_MISO	(4u)
@@ -91,6 +94,9 @@ const struct variant_pin_map_s variant_pin_map[] = VARIANT_DIGITAL_PIN_MAP;
 #define GPIO_SPI1_SS1	(8u)
 #define GPIO_SPI1_SS2	(9u)
 #define GPIO_SPI1_SS3	(10u)
+
+#define GPIO_I2C_SCL	(12u)
+#define GPIO_I2C_SDA	(13u)
 
 #define GPIO_SPI_ESP32_SS GPIO_SPI1_SS2
 

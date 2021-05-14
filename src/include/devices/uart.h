@@ -41,8 +41,6 @@
 #define UART_ERR_ACT            2
 #define UART_ERR_BAUD           3
 
-#define UART_IRQ                3
-
 typedef enum
 {
     UART_INT_TX = 1,

@@ -33,8 +33,6 @@
 
 #define MAX_PLIC_IRQ                    52
 
-#define IRQ_GPIO                        8
-
 struct irq
 {
     void (*irq_handler)();

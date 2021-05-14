@@ -206,12 +206,12 @@ int uart_interrupt_enable(unsigned int uart, uart_int_t type, void *isr, unsigne
 
     uart_int_active[uart][type - 1] = UART_ACTIVE;
 
-    irq_functions[UART_IRQ + uart].irq_handler = isr;
-    irq_functions[UART_IRQ + uart].priority     = prio;
-    irq_functions[UART_IRQ + uart].active       = 1;
+    irq_functions[INT_UART0_BASE + uart].irq_handler = isr;
+    irq_functions[INT_UART0_BASE + uart].priority     = prio;
+    irq_functions[INT_UART0_BASE + uart].active       = 1;
 
-    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (UART_IRQ + uart)) = prio;
-    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (UART_IRQ + uart));
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (INT_UART0_BASE + uart)) = prio;
+    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (INT_UART0_BASE + uart));
 
     switch (uart)
     {
@@ -241,13 +241,13 @@ int uart_interrupt_disable(unsigned int uart, uart_int_t type)
         return -UART_ERR_ACT;
     }
 
-    irq_functions[UART_IRQ + uart].active       = 0;
-    irq_functions[UART_IRQ + uart].irq_handler  = NULL;
-    irq_functions[UART_IRQ + uart].priority     = 0;
+    irq_functions[INT_UART0_BASE + uart].active       = 0;
+    irq_functions[INT_UART0_BASE + uart].irq_handler  = NULL;
+    irq_functions[INT_UART0_BASE + uart].priority     = 0;
 
     uart_int_active[uart][type - 1] = UART_UNACTIVE;
 
-    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (UART_IRQ + uart));
+    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (INT_UART0_BASE + uart));
 
     switch (uart)
     {

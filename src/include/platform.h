@@ -10,7 +10,6 @@
 #include "const.h"
 #include "devices/otp.h"
 #include "encoding.h"
-#include "devices/prci.h"
 
 /****************************************************************************
  * Platform definitions
@@ -29,6 +28,7 @@
 #define UART0_BASE_ADDR _AC(0x10013000,UL)
 #define SPI0_BASE_ADDR _AC(0x10014000,UL)
 #define PWM0_BASE_ADDR _AC(0x10015000,UL)
+#define I2C_BASE_ADDR _AC(0x10016000, UL)
 #define UART1_BASE_ADDR _AC(0x10023000,UL)
 #define SPI1_BASE_ADDR _AC(0x10024000,UL)
 #define PWM1_BASE_ADDR _AC(0x10025000,UL)
@@ -90,6 +90,7 @@
 #define INT_PWM0_BASE 40
 #define INT_PWM1_BASE 44
 #define INT_PWM2_BASE 48
+#define INT_I2C_BASE 52
 
 // Helper functions
 #define _REG32(p, i) (*(volatile uint32_t *) ((p) + (i)))
@@ -101,6 +102,7 @@
 #define PLIC_REG(offset) _REG32(PLIC_BASE_ADDR, offset)
 #define PRCI_REG(offset) _REG32(PRCI_BASE_ADDR, offset)
 #define PWM0_REG(offset) _REG32(PWM0_BASE_ADDR, offset)
+#define I2C_REG(offset) _REG32(I2C_BASE_ADDR, offset)
 #define PWM1_REG(offset) _REG32(PWM1_BASE_ADDR, offset)
 #define PWM2_REG(offset) _REG32(PWM2_BASE_ADDR, offset)
 #define SPI0_REG(offset) _REG32(SPI0_BASE_ADDR, offset)

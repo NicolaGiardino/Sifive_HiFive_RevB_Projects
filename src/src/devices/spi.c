@@ -297,12 +297,12 @@ int spi_interrupt_enable(struct spi *s, spi_int_t type, void *isr, unsigned int 
 
     s->spi_int_active[type - 1] = 1;
 
-    irq_functions[SPI1_IRQ].irq_handler = isr;
-    irq_functions[SPI1_IRQ].priority    = prio;
-    irq_functions[SPI1_IRQ].active      = 1;
+    irq_functions[INT_SPI1_BASE].irq_handler = isr;
+    irq_functions[INT_SPI1_BASE].priority    = prio;
+    irq_functions[INT_SPI1_BASE].active      = 1;
 
-    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (SPI1_IRQ)) = prio;
-    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (SPI1_IRQ));
+    PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * (INT_SPI1_BASE)) = prio;
+    PLIC_REG(PLIC_ENABLE_OFFSET) |= (1 << (INT_SPI1_BASE));
 
     SPI1_REG(SPI_REG_IP) |= type;
 
@@ -318,13 +318,13 @@ int spi_interrupt_disable(struct spi *s, spi_int_t type, void *isr, unsigned int
 
     s->spi_int_active[type - 1] = 0;
 
-    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (SPI1_IRQ));
+    PLIC_REG(PLIC_ENABLE_OFFSET) &= ~(1 << (INT_SPI1_BASE));
 
     SPI1_REG(SPI_REG_IP) &= ~type;
 
-    irq_functions[SPI1_IRQ].irq_handler = NULL;
-    irq_functions[SPI1_IRQ].priority    = 0;
-    irq_functions[SPI1_IRQ].active      = 0;
+    irq_functions[INT_SPI1_BASE].irq_handler = NULL;
+    irq_functions[INT_SPI1_BASE].priority    = 0;
+    irq_functions[INT_SPI1_BASE].active      = 0;
 
     return SPI_OK;
 }

@@ -70,8 +70,6 @@
 #define SPI_ERR_BAUD    3
 #define SPI_ERR_LEN     4
 
-#define SPI1_IRQ        6
-
 /* Values */
 
 typedef enum
@@ -177,7 +175,7 @@ int spi_close(struct spi *s);
 
 int spi_interrupt_enable(struct spi *s, spi_int_t type, void *isr, unsigned int prio);
 
-int spi_interrupt_disable(struct spi *s, spi_int_t type, void *isr, unsigned int prio);
+int spi_interrupt_disable(struct spi *s, spi_int_t type);
 
 
 

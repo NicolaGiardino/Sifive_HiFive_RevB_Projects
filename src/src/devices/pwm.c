@@ -308,15 +308,15 @@ int pwm_interrupt_enable(struct pwm *p, unsigned int pin, void *isr, unsigned in
         return -PWM_ERR_NV;
     }
 
-    unsigned int source = PWM0_INT + 4 * p->pwm_num + variant_pin_map[pin].pwm_cmp_num;
+    unsigned int source = INT_PWM0_BASE + 4 * p->pwm_num + variant_pin_map[pin].pwm_cmp_num;
 
-    irq_functions[source].handler = isr;
+    irq_functions[source].irq_handler = isr;
     irq_functions[source].priority = prio;
     irq_functions[source].active = 1;
 
     PLIC_REG(PLIC_PRIORITY_OFFSET + 4 * source) = prio;
 
-    PLIC_REG(PLIC_ENABLE_OFFSET2) |= (1 << (31 - source));
+    PLIC_REG(PLIC_ENABLE_OFFSET_2) |= (1 << (31 - source));
 }
 
 int pwm_interrupt_disable(struct pwm *p, unsigned int pin)
@@ -330,11 +330,11 @@ int pwm_interrupt_disable(struct pwm *p, unsigned int pin)
         return -PWM_ERR_NV;
     }
 
-    unsigned int source = PWM0_INT + 4 * p->pwm_num + variant_pin_map[pin].pwm_cmp_num;
+    unsigned int source = INT_PWM0_BASE + 4 * p->pwm_num + variant_pin_map[pin].pwm_cmp_num;
 
-    PLIC_REG(PLIC_ENABLE_OFFSET2) &= ~(1 << (31 - source));
+    PLIC_REG(PLIC_ENABLE_OFFSET_2) &= ~(1 << (31 - source));
     
-    irq_functions[source].handler = NULL;
+    irq_functions[source].irq_handler = NULL;
     irq_functions[source].priority = 0;
     irq_functions[source].active = 0;
 
