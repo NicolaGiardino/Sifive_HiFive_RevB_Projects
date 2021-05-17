@@ -309,7 +309,7 @@ int spi_interrupt_enable(struct spi *s, spi_int_t type, void *isr, unsigned int 
     return SPI_OK;
 }
 
-int spi_interrupt_disable(struct spi *s, spi_int_t type, void *isr, unsigned int prio)
+int spi_interrupt_disable(struct spi *s, spi_int_t type)
 {
     if (s->spi_num != 1)
     {

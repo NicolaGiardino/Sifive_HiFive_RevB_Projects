@@ -13,6 +13,7 @@
 
 #define I2C_OK      0
 #define I2C_ERR_NV  1
+#define I2C_ERR_ACK 2
 
 #define I2C_CTR_EN  (1 << 7)
 #define I2C_CTR_IE  (1 << 6)
@@ -48,7 +49,11 @@ struct i2c
 
 int i2c_init(struct i2c *isc, i2c_baud_t baud);
 
-int i2c_transmit(struct i2c *isc, uint8_t *rx, uint8_t *tx, unsigned int size, uint8_t *addr);
+int i2c_send(struct i2c *isc, uint8_t *tx, unsigned int size, uint8_t addr);
+
+int i2c_receive(struct i2c *isc, uint8_t *rx, unsigned int size, uint8_t addr);
+
+int i2c_transmit(struct i2c *isc, uint8_t *rx, unsigned int rx_size, uint8_t *tx, unsigned int tx_size, uint8_t addr);
 
 int i2c_close(struct i2c *isc);
 
